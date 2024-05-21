@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="notification_channels_ids">
+        <item>channel_general</item>
+
+    </string-array>
+
+    <string-array name="notification_channels_names">
+        <item>General channel</item>
+    </string-array>
+
+    <string-array name="notification_channels_descriptions">
+        <item>General channel contains general information</item>
+    </string-array>
+
+    <string name="notification_salary_title">Monthly salary</string>
+
+</resources>

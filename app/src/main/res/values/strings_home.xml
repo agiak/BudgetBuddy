@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="home_add_account_btn">Add account</string>
+    <string name="home_rules_btn">Add rules</string>
+    <string name="home_transfer_funds">Transfer funds</string>
+    <string name="home_total_balance">Total balance</string>
+    <string name="home_accounts_label">Accounts</string>
+    <string name="home_activity_label">Activity</string>
+
+</resources>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_quick_login">
+
+    <fragment
+        android:id="@+id/navigation_quick_login"
+        android:name="com.example.mywallet.features.activation.quicklogin.presentation.QuickLoginFragment"
+        android:label="@string/nav_label_quick_login"
+        tools:layout="@layout/fragment_quick_login" >
+        <action
+            android:id="@+id/action_navigation_quick_login_to_navigation_quide"
+            app:destination="@id/navigation_quide" />
+        <action
+            android:id="@+id/action_navigation_quick_login_to_navigation_register"
+            app:destination="@id/navigation_register" />
+        <action
+            android:id="@+id/action_navigation_quick_login_to_navigation_add_account"
+            app:destination="@id/navigation_add_account" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_quide"
+        android:name="com.example.mywallet.features.activation.guide.presentation.GuideFragment"
+        android:label="@string/nav_label_guide"
+        tools:layout="@layout/fragment_guide" >
+        <action
+            android:id="@+id/action_navigation_quide_to_navigation_register"
+            app:destination="@id/navigation_register" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_register"
+        android:name="com.example.mywallet.features.activation.register.presentation.RegisterFragment"
+        android:label="@string/nav_label_register"
+        tools:layout="@layout/fragment_register" >
+        <action
+            android:id="@+id/action_navigation_register_to_navigation_add_account"
+            app:destination="@id/navigation_add_account" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_add_account"
+        android:name="com.example.mywallet.features.accountModule.accountAdd.presentation.AccountAddFragment"
+        android:label="@string/nav_label_add_account"
+        tools:layout="@layout/fragment_add_account" />
+</navigation>

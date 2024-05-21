@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.example.mywallet.features.home.presentation.HomeFragment"
+        android:label="@string/nav_label_home"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_account"
+            app:destination="@id/graph_account">
+            <argument
+                android:name="accountId"
+                app:argType="long" />
+        </action>
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_transaction"
+            app:destination="@id/navigation_transaction" />
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_accounts"
+            app:destination="@id/navigation_accounts" />
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_transaction_add"
+            app:destination="@id/navigation_transaction_add" />
+        <action
+            android:id="@+id/action_navigation_home_to_graph_rules"
+            app:destination="@id/graph_rules" />
+        <action
+            android:id="@+id/action_navigation_home_to_graph_account"
+            app:destination="@id/graph_account" />
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_add_account"
+            app:destination="@id/navigation_add_account" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_transactions"
+        android:name="com.example.mywallet.features.transactionsModule.transactions.presentation.TransactionsFragment"
+        android:label="@string/nav_label_transactions"
+        tools:layout="@layout/fragment_transactions">
+        <action
+            android:id="@+id/action_navigation_transactions_to_navigation_transaction"
+            app:destination="@id/navigation_transaction" />
+        <action
+            android:id="@+id/action_navigation_transactions_to_navigation_transaction_add"
+            app:destination="@id/navigation_transaction_add" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_statics"
+        android:name="com.example.mywallet.features.statics.presentation.StaticsFragment"
+        android:label="@string/nav_label_statics"
+        tools:layout="@layout/fragment_statics" />
+
+    <fragment
+        android:id="@+id/navigation_add_account"
+        android:name="com.example.mywallet.features.accountModule.accountAdd.presentation.AccountAddFragment"
+        android:label="@string/nav_label_add_account"
+        tools:layout="@layout/fragment_add_account" />
+
+    <fragment
+        android:id="@+id/navigation_transaction"
+        android:name="com.example.mywallet.features.transactionsModule.transaction.presentation.TransactionFragment"
+        android:label="@string/nav_label_transaction"
+        tools:layout="@layout/fragment_transaction">
+        <argument
+            android:name="transactionId"
+            app:argType="long" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_transaction_add"
+        android:name="com.example.mywallet.features.transactionsModule.transactionAdd.presentation.TransactionAddFragment"
+        android:label="@string/nav_label_add_transaction"
+        tools:layout="@layout/fragment_transaction_add" />
+
+    <fragment
+        android:id="@+id/navigation_accounts"
+        android:name="com.example.mywallet.features.accountModule.accounts.presentation.AccountsFragment"
+        android:label="@string/nav_label_accounts"
+        tools:layout="@layout/fragment_accounts">
+        <action
+            android:id="@+id/action_navigation_accounts_to_navigation_account"
+            app:destination="@id/graph_account">
+
+            <argument
+                android:name="accountId"
+                app:argType="long" />
+
+        </action>
+        <action
+            android:id="@+id/action_navigation_accounts_to_navigation_add_account"
+            app:destination="@id/navigation_add_account" />
+    </fragment>
+
+    <include app:graph="@navigation/graph_profile" />
+
+    <include app:graph="@navigation/graph_rules" />
+
+    <include app:graph="@navigation/graph_account" />
+
+</navigation>

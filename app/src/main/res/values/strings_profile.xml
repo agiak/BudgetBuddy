@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="profile_setting_edit_profile">Edit details</string>
+    <string name="profile_setting_settings">Settings</string>
+    <string name="profile_setting_rules">Rules</string>
+    <string name="profile_setting_main_accounts">Main accounts</string>
+
+</resources>

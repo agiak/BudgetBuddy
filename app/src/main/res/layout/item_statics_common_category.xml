@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="284dp"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_round"
+    android:layout_marginHorizontal="@dimen/main_margin_horizontal"
+    android:layout_marginVertical="@dimen/space_large"
+    android:elevation="8dp"
+    android:paddingHorizontal="@dimen/space_large"
+    android:paddingVertical="@dimen/space_large">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Most valuable account" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/field_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintTop_toBottomOf="@+id/title"
+        tools:itemCount="5"
+        tools:layout_editor_absoluteX="12dp"
+        tools:listitem="@layout/item_statics_common_stat_row" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

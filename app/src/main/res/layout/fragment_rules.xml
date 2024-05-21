@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/title_lbl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/ic_logo"
+        android:drawablePadding="@dimen/space_large"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="@dimen/main_margin_horizontal"
+        android:paddingVertical="@dimen/main_margin_vertical"
+        android:text="This is where you can add rules to be executed every specied period"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/primary_light"
+        app:layout_constraintTop_toBottomOf="@+id/title_lbl" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/rules_lbl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/main_margin_horizontal"
+        android:layout_marginTop="@dimen/space_xxlarge"
+        android:text="Rules"
+        android:textSize="@dimen/text_large"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@+id/view" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/rules_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/main_margin_horizontal"
+        android:layout_marginTop="@dimen/space_small"
+        android:text="Select your rule"
+        android:textSize="@dimen/text_medium"
+        app:layout_constraintTop_toBottomOf="@+id/rules_lbl" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rules_list"
+        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/space_large"
+        android:layout_height="wrap_content"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/item_rule"
+        app:layout_constraintTop_toBottomOf="@+id/rules_description" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="HomeActionButton">
+        <item name="android:background">@drawable/ripple_round</item>
+        <item name="android:drawableEnd">@drawable/ic_forward</item>
+        <item name="android:drawableTint">@color/black</item>
+        <item name="android:elevation">6dp</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:lines">2</item>
+        <item name="android:paddingHorizontal">@dimen/main_margin_horizontal</item>
+        <item name="android:paddingVertical">@dimen/main_margin_vertical</item>
+        <item name="android:textSize">@dimen/text_large</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+</resources>
