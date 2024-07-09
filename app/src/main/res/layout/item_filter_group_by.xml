@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.AppCompatTextView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="@dimen/space_large"
+    android:layout_marginVertical="@dimen/space_large"
+    android:background="@drawable/filter_account_group_selector"
+    android:paddingHorizontal="@dimen/space_large"
+    android:paddingVertical="@dimen/space_large"
+    tools:text="Group by Bank" />

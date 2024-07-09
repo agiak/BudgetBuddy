@@ -18,6 +18,7 @@
     <string name="nav_label_rules">Rules</string>
     <string name="nav_label_rule_salary">Salary Rule</string>
     <string name="nav_label_edit_account">Edit account</string>
+    <string name="nav_label_filter_accounts">Filter accounts</string>
 
     <!-- Menu labels -->
     <string name="menu_home">Home</string>

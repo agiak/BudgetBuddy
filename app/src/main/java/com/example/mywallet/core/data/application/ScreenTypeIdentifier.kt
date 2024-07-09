@@ -8,6 +8,7 @@ fun Int.identifyScreenType(): ScreenType =
         modalScreens.contains(this) -> ScreenType.MODAL
         fullScreens.contains(this) -> ScreenType.FULL_SCREEN
         bottomSheetScreens.contains(this) -> ScreenType.BOTTOM_SHEET
+        options.contains(this) -> ScreenType.OPTIONS
         else -> ScreenType.INSIDE
     }
 
@@ -15,3 +16,4 @@ private val menuScreens = listOf(R.id.navigation_home, R.id.navigation_statics, 
 private val modalScreens = listOf(R.id.navigation_profile)
 private val fullScreens = listOf(R.id.navigation_account)
 private val bottomSheetScreens = listOf(R.id.navigation_edit_account)
+private val options = listOf(R.id.navigation_accounts)

@@ -22,7 +22,7 @@
             app:destination="@id/navigation_transaction" />
         <action
             android:id="@+id/action_navigation_home_to_navigation_accounts"
-            app:destination="@id/navigation_accounts" />
+            app:destination="@id/graph_accounts" />
         <action
             android:id="@+id/action_navigation_home_to_navigation_transaction_add"
             app:destination="@id/navigation_transaction_add" />
@@ -58,7 +58,7 @@
 
     <fragment
         android:id="@+id/navigation_add_account"
-        android:name="com.example.mywallet.features.accountModule.accountAdd.presentation.AccountAddFragment"
+        android:name="com.example.mywallet.features.account.accountAdd.presentation.AccountAddFragment"
         android:label="@string/nav_label_add_account"
         tools:layout="@layout/fragment_add_account" />
 
@@ -78,29 +78,12 @@
         android:label="@string/nav_label_add_transaction"
         tools:layout="@layout/fragment_transaction_add" />
 
-    <fragment
-        android:id="@+id/navigation_accounts"
-        android:name="com.example.mywallet.features.accountModule.accounts.presentation.AccountsFragment"
-        android:label="@string/nav_label_accounts"
-        tools:layout="@layout/fragment_accounts">
-        <action
-            android:id="@+id/action_navigation_accounts_to_navigation_account"
-            app:destination="@id/graph_account">
-
-            <argument
-                android:name="accountId"
-                app:argType="long" />
-
-        </action>
-        <action
-            android:id="@+id/action_navigation_accounts_to_navigation_add_account"
-            app:destination="@id/navigation_add_account" />
-    </fragment>
-
     <include app:graph="@navigation/graph_profile" />
 
     <include app:graph="@navigation/graph_rules" />
 
     <include app:graph="@navigation/graph_account" />
+
+    <include app:graph="@navigation/graph_accounts" />
 
 </navigation>

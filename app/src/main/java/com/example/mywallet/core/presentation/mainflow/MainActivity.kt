@@ -111,6 +111,15 @@ class MainActivity : AppCompatActivity() {
                 binding.toolbar.root.hide()
             }
             ScreenType.BOTTOM_SHEET -> {}
+            ScreenType.OPTIONS -> {
+                binding.toolbar.apply {
+                    root.show()
+                    screenTitle.text = currentDestination.label
+                }
+                binding.mainToolbar.root.hide()
+                binding.navView.hide()
+                binding.toolbar.optionsButton.show()
+            }
         }
     }
 

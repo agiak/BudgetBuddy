@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/graph_accounts"
+    app:startDestination="@id/navigation_accounts">
+
+    <fragment
+        android:id="@+id/navigation_accounts"
+        android:name="com.example.mywallet.features.account.accounts.presentation.AccountsFragment"
+        android:label="@string/nav_label_accounts"
+        tools:layout="@layout/fragment_accounts">
+        <action
+            android:id="@+id/action_navigation_accounts_to_navigation_account"
+            app:destination="@id/graph_account">
+
+            <argument
+                android:name="accountId"
+                app:argType="long" />
+
+        </action>
+        <action
+            android:id="@+id/action_navigation_accounts_to_navigation_add_account"
+            app:destination="@id/navigation_add_account" />
+        <action
+            android:id="@+id/action_navigation_accounts_to_navigation_accounts_filter"
+            app:destination="@id/navigation_accounts_filter" />
+    </fragment>
+
+    <dialog
+        android:id="@+id/navigation_accounts_filter"
+        android:name="com.example.mywallet.features.account.accountsFilter.presentation.FilterAccountsFragment"
+        android:label="@string/nav_label_filter_accounts"
+        tools:layout="@layout/dialog_filter_accounts"/>
+
+    <fragment
+        android:id="@+id/navigation_add_account"
+        android:name="com.example.mywallet.features.account.accountAdd.presentation.AccountAddFragment"
+        android:label="@string/nav_label_add_account"
+        tools:layout="@layout/fragment_add_account" />
+
+    <include app:graph="@navigation/graph_account" />
+
+</navigation>

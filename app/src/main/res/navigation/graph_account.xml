@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/navigation_account"
-        android:name="com.example.mywallet.features.accountModule.account.presentation.AccountFragment"
+        android:name="com.example.mywallet.features.account.accountDetails.presentation.AccountFragment"
         android:label="@string/nav_label_account"
         tools:layout="@layout/fragment_account">
         <argument
@@ -20,7 +20,7 @@
 
     <dialog
         android:id="@+id/navigation_edit_account"
-        android:name="com.example.mywallet.features.accountModule.editAccount.presentation.EditAccountFragment"
+        android:name="com.example.mywallet.features.account.editAccount.presentation.EditAccountFragment"
         android:label="@string/nav_label_edit_account"
         tools:layout="@layout/dialog_edit_account"/>
 

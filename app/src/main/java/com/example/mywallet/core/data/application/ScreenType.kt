@@ -6,4 +6,5 @@ enum class ScreenType {
     MODAL,
     FULL_SCREEN,
     BOTTOM_SHEET,
+    OPTIONS,
 }

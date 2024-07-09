@@ -6,7 +6,7 @@ import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Update
 import com.example.mywallet.core.data.bank.Bank
-import com.example.mywallet.features.accountModule.account.data.AccountDetails
+import com.example.mywallet.features.account.accountDetails.data.AccountDetails
 import com.example.mywallet.storage.data.AccountDB
 import kotlinx.coroutines.flow.Flow
 

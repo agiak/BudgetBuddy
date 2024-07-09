@@ -34,7 +34,6 @@ class TransactionAddViewModel @Inject constructor(
         viewModelScope.launch {
             _state.value = AddTransactionUiState.Loading
             runCatching {
-                Timber.d("try to add transaction $transaction")
                 repository.addTransaction(transactionDB = transaction.toStoreTransaction())
             }.onSuccess {
                 _state.value = AddTransactionUiState.Success
