@@ -17,7 +17,7 @@ interface AccountDao {
     fun getAllAccountsObservable(): Flow<List<AccountDB>>?
 
     @Query("SELECT * FROM accounts")
-    fun getAllAccounts(): List<AccountDB>
+    suspend fun getAllAccounts(): List<AccountDB>
 
     @Query("SELECT SUM(balance) FROM accounts")
     fun getTotalBalance(): Flow<Double>?

@@ -12,8 +12,8 @@ fun RecyclerView.addDividerDecorator() {
     addItemDecoration(itemDecoration)
 }
 
-fun RecyclerView.addSpaceDecorator(space: Int) {
+fun RecyclerView.addSpaceDecorator(spaceInDp: Int) {
     val spaceItemDecoration =
-        SpaceDecoration(space.dpToPx(context)) // You can specify the space in pixels
+        SpaceDecoration(spaceInDp.dpToPx(context)) // You can specify the space in pixels
     addItemDecoration(spaceItemDecoration)
 }

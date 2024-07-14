@@ -11,7 +11,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingHorizontal="@dimen/main_margin_horizontal"
-        android:paddingVertical="@dimen/space_large"
+        android:paddingBottom="84dp"
+        android:clipToPadding="false"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -30,5 +31,36 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/ic_add"
         app:tint="@android:color/white" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btn_add_transaction_via_xlx"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/space_huge"
+        android:backgroundTint="@color/primary"
+        android:clickable="true"
+        app:borderWidth="0dp"
+        app:fabSize="normal"
+        app:layout_constraintBottom_toTopOf="@+id/btn_add_transaction"
+        app:layout_constraintEnd_toEndOf="@+id/btn_add_transaction"
+        app:layout_constraintStart_toStartOf="@+id/btn_add_transaction"
+        app:srcCompat="@drawable/ic_add"
+        app:tint="@android:color/white" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add via file"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_add_transaction_via_xlx"
+        app:layout_constraintEnd_toStartOf="@+id/btn_add_transaction_via_xlx"
+        app:layout_constraintTop_toTopOf="@+id/btn_add_transaction_via_xlx" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add manually"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_add_transaction"
+        app:layout_constraintEnd_toStartOf="@+id/btn_add_transaction_via_xlx"
+        app:layout_constraintTop_toTopOf="@+id/btn_add_transaction" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

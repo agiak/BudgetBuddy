@@ -61,6 +61,8 @@ mockito = "5.6.0"
 openAI = "3.0.0"
 ktor = "2.2.4"
 
+# CSV parsing
+kotlinCsvJvm = "1.9.3"
 
 ######################################  LIBRARIES  ##################################################
 
@@ -117,6 +119,9 @@ ktor-client = { group = "io.ktor", name = "ktor-client-android", version.ref = "
 glide = { group = "com.github.bumptech.glide", name = "glide", version.ref = "glide" }
 timber = { group = "com.jakewharton.timber", name = "timber", version.ref = "timber" }
 
+# CSV file parsing
+kotlin-csv-jvm = { module = "com.github.doyaaaaaken:kotlin-csv-jvm", version.ref = "kotlinCsvJvm" }
+
 # Testing
 junit = { group = "junit", name = "junit", version.ref = "jUnit" }
 androidx-test-ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "testJunit" }
@@ -154,6 +159,7 @@ network = ["retrofit", "converter-gson", "logging-interceptror"]
 room = ["room-runtime", "room-ktx"]
 hilt = ["hilt", "hilt-common", "hilt-work", "hilt-navigation-fragment"]
 chatGPT = ["openAI-client", "ktor-client"]
+csv-parsing = ["kotlin-csv-jvm"]
 
 # Testing
 testImplementationLibs = ["junit", "truth", "mockito"]

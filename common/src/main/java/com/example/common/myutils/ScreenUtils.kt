@@ -11,6 +11,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.view.WindowCompat
 import androidx.fragment.app.Fragment
 import com.example.common.R
+import com.google.android.material.snackbar.Snackbar
 import timber.log.Timber
 
 
@@ -20,6 +21,10 @@ fun Fragment.showToast(message: String, duration: Int = Toast.LENGTH_LONG) {
 
 fun AppCompatActivity.showToast(message: String, duration: Int = Toast.LENGTH_LONG) {
     Toast.makeText(this, message, duration).show()
+}
+
+fun Fragment.showSnackBar(message: String) {
+    Snackbar.make(requireView(), message, Snackbar.LENGTH_LONG).show()
 }
 
 /**

@@ -19,6 +19,8 @@
     <string name="nav_label_rule_salary">Salary Rule</string>
     <string name="nav_label_edit_account">Edit account</string>
     <string name="nav_label_filter_accounts">Filter accounts</string>
+    <string name="nav_label_transactions_via_file">Upload transactions via file</string>
+    <string name="nav_label_select_transactions">Select transactions</string>
 
     <!-- Menu labels -->
     <string name="menu_home">Home</string>

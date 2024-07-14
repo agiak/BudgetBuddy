@@ -21,7 +21,6 @@ class AddAccountRepositoryImpl @Inject constructor(
             dao.getAccountByName(accountDB.name)?.let { transactionsDao.insertTransaction(it.getInitialTransaction())}
         }
 
-
     // Every time user creates a new account insert an initial transaction as income transaction for stats reason
     private fun AccountDB.getInitialTransaction() = TransactionDB(
         date = this.createdDate,

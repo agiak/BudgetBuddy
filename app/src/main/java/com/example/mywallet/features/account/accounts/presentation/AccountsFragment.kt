@@ -30,9 +30,7 @@ class AccountsFragment : Fragment(), OptionsScreen {
     override val optionButtonDrawable: Int
         get() = R.drawable.ic_filter
 
-    override fun onOptionButtonClick() {
-        navigateToFilters()
-    }
+    override fun onOptionButtonClick() { navigateToFilters() }
 
     private val viewModel: AccountsViewModel by hiltNavGraphViewModels(R.id.graph_accounts)
 

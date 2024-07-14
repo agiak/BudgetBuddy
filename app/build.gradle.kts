@@ -83,7 +83,11 @@ dependencies {
     // Image loading
     implementation(libs.glide)
 
+    // Logging
     implementation(libs.timber)
+
+    // CSV parsing library
+    implementation(libs.bundles.csv.parsing)
 
     // Testing
     testImplementation(libs.bundles.testImplementationLibs)

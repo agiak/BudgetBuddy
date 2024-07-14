@@ -48,6 +48,9 @@
         <action
             android:id="@+id/action_navigation_transactions_to_navigation_transaction_add"
             app:destination="@id/navigation_transaction_add" />
+        <action
+            android:id="@+id/action_navigation_transactions_to_navigation_transaction_add_via_file"
+            app:destination="@id/graph_transactions_via_file" />
     </fragment>
 
     <fragment
@@ -85,5 +88,7 @@
     <include app:graph="@navigation/graph_account" />
 
     <include app:graph="@navigation/graph_accounts" />
+
+    <include app:graph="@navigation/graph_add_transactions_via_file"/>
 
 </navigation>

@@ -50,6 +50,8 @@ class TransactionsFragment : Fragment() {
             adapter = transactionsAdapter
             addSpaceDecorator(36)
         }
+
+        binding.btnAddTransactionViaXlx.setOnClickListener { navigateToAddTransactionsViaFile() }
     }
 
     private fun initSubscriptions() {
@@ -75,3 +77,6 @@ private fun TransactionsFragment.navigateToTransactionDetails(transactionID: Lon
             transactionID
         )
     )
+
+private fun TransactionsFragment.navigateToAddTransactionsViaFile() =
+    navigateToNextScreen(TransactionsFragmentDirections.actionNavigationTransactionsToNavigationTransactionAddViaFile())
