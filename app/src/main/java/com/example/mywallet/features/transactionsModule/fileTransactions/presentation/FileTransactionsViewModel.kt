@@ -2,7 +2,7 @@ package com.example.mywallet.features.transactionsModule.fileTransactions.presen
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.mywallet.features.transactionsModule.fileTransactions.data.FileGuidanceState
+import com.example.mywallet.features.transactionsModule.fileTransactions.data.FileState
 import com.example.mywallet.features.transactionsModule.fileTransactions.domain.FileGuideRepository
 import com.example.mywallet.features.transactionsModule.transactionsSelection.data.TransactionSelection
 import com.example.mywallet.features.transactionsModule.transactionsSelection.data.isEqual
@@ -13,6 +13,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import timber.log.Timber
 import java.io.File
@@ -24,23 +25,38 @@ class FileTransactionsViewModel @Inject constructor(
     private val transactionSelectionRepository: TransactionsSelectionRepository,
 ) : ViewModel() {
 
-    private val _state: MutableStateFlow<FileGuidanceState> =
-        MutableStateFlow(FileGuidanceState.Idle)
-    val state: StateFlow<FileGuidanceState> = _state.asStateFlow()
+    private val _transactions: MutableStateFlow<List<TransactionSelection>> =
+        MutableStateFlow(emptyList())
+    val transactions: StateFlow<List<TransactionSelection>> = _transactions.asStateFlow()
+
+    private val _loading: MutableStateFlow<Boolean> =
+        MutableStateFlow(false)
+    val loading: StateFlow<Boolean> = _loading.asStateFlow()
+
+    private val _error: MutableStateFlow<String?> =
+        MutableStateFlow(null)
+    val error: StateFlow<String?> = _error.asStateFlow()
+
+    private val _state: MutableStateFlow<FileState> =
+        MutableStateFlow(FileState.Idle)
+    val state: StateFlow<FileState> = _state.asStateFlow()
 
     private val mapTransactions: MutableMap<TransactionDB, Boolean> = mutableMapOf()
 
     fun parseFile(file: File) {
         viewModelScope.launch {
-            _state.value = FileGuidanceState.Loading
+            _loading.update { true }
             runCatching {
                 repository.createTransactions(file)
-            }.onSuccess {
-                mapTransactions.putAll(it.associateWith { true })
-                _state.value = FileGuidanceState.Result(it.toTransactionSelectionList())
-            }.onFailure {
-                Timber.e(it)
-                _state.value = FileGuidanceState.Error(it.message.toString())
+            }.onSuccess { retrievedTransactions ->
+                mapTransactions.putAll(retrievedTransactions.associateWith { true })
+                _transactions.update { retrievedTransactions.toTransactionSelectionList() }
+                _loading.update { false }
+                _state.update { FileState.Success }
+            }.onFailure { error ->
+                Timber.e(error)
+                _loading.update { false }
+                _error.update { error.message.toString() }
             }
         }
     }
@@ -54,11 +70,15 @@ class FileTransactionsViewModel @Inject constructor(
         viewModelScope.launch {
             runCatching {
                 transactionSelectionRepository.saveTransactions(mapTransactions)
-            }.onSuccess {
-                _state.value = FileGuidanceState.TransactionsSaved(it)
+            }.onSuccess { transactionsAdded ->
+                _state.update { FileState.Saved(transactionsAdded) }
             }.onFailure {
 
             }
         }
+    }
+
+    fun clearState() {
+        _state.update { FileState.Idle }
     }
 }

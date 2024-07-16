@@ -151,7 +151,8 @@ class TransactionAddFragment : Fragment() {
             accountTo = accountTo?.id,
             accountToName = accountTo?.name,
             bankToIcon = accountTo?.bank?.drawableID,
-            description = binding.descriptionField.text.toString()
+            description = binding.descriptionField.text.toString(),
+            applyTransaction = binding.checkboxApplyTransaction.isChecked
         )
 
     override fun onDestroyView() {

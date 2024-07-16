@@ -34,7 +34,7 @@ class TransactionAddViewModel @Inject constructor(
         viewModelScope.launch {
             _state.value = AddTransactionUiState.Loading
             runCatching {
-                repository.addTransaction(transactionDB = transaction.toStoreTransaction())
+                repository.addTransaction(transactionDB = transaction.toStoreTransaction(), transaction.applyTransaction)
             }.onSuccess {
                 _state.value = AddTransactionUiState.Success
             }.onFailure {

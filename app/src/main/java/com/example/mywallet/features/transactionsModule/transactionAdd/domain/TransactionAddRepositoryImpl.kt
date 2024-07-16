@@ -18,18 +18,27 @@ class TransactionAddRepositoryImpl @Inject constructor(
     private val accountsDao: AccountDao,
 ) : TransactionAddRepository {
 
-    override suspend fun addTransaction(transactionDB: TransactionDB) =
+    override suspend fun addTransaction(transactionDB: TransactionDB, applyTransaction: Boolean) =
         withContext(dispatchers.backgroundThread()) {
-            when {
-                transactionDB.type.isInternalTransaction() -> executeInternalTransaction(transactionDB)
-                else -> executeOneAccountTransaction(transactionDB)
+            if (!applyTransaction) {
+                transactionDao.insertTransaction(transactionDB)
+            } else {
+                executeTransaction(transactionDB)
             }
         }
+
+    private suspend fun executeTransaction(transactionDB: TransactionDB) {
+        when {
+            transactionDB.type.isInternalTransaction() -> executeInternalTransaction(transactionDB)
+            else -> executeOneAccountTransaction(transactionDB)
+        }
+    }
 
     private suspend fun executeOneAccountTransaction(transactionDB: TransactionDB) {
 
         // Adjust the transaction amount for expenses
-        val amount = if (transactionDB.type == TransactionType.OUTCOME) -transactionDB.amount else transactionDB.amount
+        val amount =
+            if (transactionDB.type == TransactionType.OUTCOME) -transactionDB.amount else transactionDB.amount
 
         // Retrieve the account information
         val accountFrom = accountsDao.getAccount(transactionDB.accountFrom)
@@ -61,7 +70,8 @@ class TransactionAddRepositoryImpl @Inject constructor(
         transactionDao.insertTransaction(transactionDB)
     }
 
-    override fun getAccounts(): Flow<List<AccountDB>> = accountsDao.getAllAccountsObservable() ?: flowOf(
-        emptyList()
-    )
+    override fun getAccounts(): Flow<List<AccountDB>> =
+        accountsDao.getAllAccountsObservable() ?: flowOf(
+            emptyList()
+        )
 }

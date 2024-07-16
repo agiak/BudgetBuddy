@@ -73,7 +73,7 @@ class SalaryWorker @AssistedInject constructor(
                 val salaryTransaction = salaryRule?.toSalaryTransaction()
                 if (salaryTransaction != null) {
                     Timber.d("inserts salary transaction $salaryTransaction")
-                    repository.addTransaction(salaryTransaction)
+                    repository.addTransaction(salaryTransaction, true)
                 } else {
                     Timber.d("No salary rule detected")
                 }

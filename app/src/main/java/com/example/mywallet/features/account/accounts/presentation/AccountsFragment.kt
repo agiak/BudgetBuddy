@@ -6,18 +6,17 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.hilt.navigation.fragment.hiltNavGraphViewModels
-import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.common.myutils.disableFullScreenTheme
 import com.example.common.myutils.scrollToUp
 import com.example.common.myutils.setLightStatusBars
 import com.example.mywallet.R
+import com.example.mywallet.core.presentation.ext.launchWhenResumed
 import com.example.mywallet.core.presentation.ext.navigateToNextScreen
 import com.example.mywallet.core.presentation.options.OptionsScreen
 import com.example.mywallet.databinding.FragmentAccountsBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
-import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class AccountsFragment : Fragment(), OptionsScreen {
@@ -52,7 +51,7 @@ class AccountsFragment : Fragment(), OptionsScreen {
     }
 
     private fun initSubscriptions() {
-        lifecycleScope.launch {
+        launchWhenResumed {
             viewModel.accounts.collectLatest { accounts ->
                 adapter.submitList(accounts)
                 binding.accountsList.scrollToUp()

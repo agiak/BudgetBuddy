@@ -101,6 +101,8 @@ class AccountViewModel @Inject constructor(
                 runCatching {
                     val updatedAccount = it.copy(name = newAccountInfo.name, bank = newAccountInfo.bank, balance = newAccountInfo.balance)
                     repository.updateAccount(updatedAccount)
+                }.onSuccess {
+                    _state.value = AccountUiState.AccountSaved
                 }
             }
         }
@@ -131,5 +133,6 @@ sealed class AccountUiState {
         val generalInformation: AccountDetails?
     ) : AccountUiState()
     data object AccountDeleted : AccountUiState()
+    data object AccountSaved : AccountUiState()
     data class Error(val errorMessage: String): AccountUiState()
 }

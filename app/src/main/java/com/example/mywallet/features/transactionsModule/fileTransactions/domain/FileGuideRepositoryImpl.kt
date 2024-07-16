@@ -35,10 +35,9 @@ class FileGuideRepositoryImpl @Inject constructor(
                     limit = 6
                 )
                 val accountFrom =
-                    AppValues.accounts.find { storedAccount -> storedAccount.name == accountFromName.trim() }
+                    AppValues.accounts.find { storedAccount -> storedAccount.name.uppercase() == accountFromName.trim().uppercase() }
                 val accountTo =
-                    AppValues.accounts.find { storedAccount -> storedAccount.name == accountToName.trim() }
-
+                    AppValues.accounts.find { storedAccount -> storedAccount.name.uppercase() == accountToName.trim().uppercase() }
 
                 accountFrom?.let {
                     TransactionDB(

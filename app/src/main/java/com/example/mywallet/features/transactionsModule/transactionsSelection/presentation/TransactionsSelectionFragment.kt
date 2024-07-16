@@ -4,18 +4,17 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.hilt.navigation.fragment.hiltNavGraphViewModels
 import androidx.navigation.fragment.findNavController
-import com.example.common.myutils.hide
 import com.example.common.myutils.setLightStatusBars
-import com.example.common.myutils.show
 import com.example.common.myutils.showSnackBar
 import com.example.common.myutils.showToast
 import com.example.mywallet.R
 import com.example.mywallet.core.presentation.ext.launchWhenResumed
 import com.example.mywallet.databinding.FragmentTransactionsSelectionBinding
-import com.example.mywallet.features.transactionsModule.fileTransactions.data.FileGuidanceState
+import com.example.mywallet.features.transactionsModule.fileTransactions.data.FileState
 import com.example.mywallet.features.transactionsModule.fileTransactions.presentation.FileTransactionsViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
@@ -49,21 +48,24 @@ class TransactionsSelectionFragment : Fragment() {
     }
 
     private fun initSubscriptions() {
+        launchWhenResumed { viewModel.loading.collectLatest { isLoading -> binding.loader.isVisible = isLoading } }
+        launchWhenResumed { viewModel.error.collectLatest { error -> error?.let { showToast(it) } } }
+
         launchWhenResumed {
             viewModel.state.collectLatest { state ->
-                binding.loader.hide()
-                when (state) {
-                    is FileGuidanceState.Error -> showToast(state.errorMessage)
-                    FileGuidanceState.Idle -> {}
-                    FileGuidanceState.Loading -> binding.loader.show()
-                    is FileGuidanceState.Result -> {
-                        transactionsAdapter.submitList(state.transactions)
-                    }
-                    is FileGuidanceState.TransactionsSaved -> {
-                        showSnackBar("Added ${state.transactionsAddedSize} transactions")
+                when(state) {
+                    is FileState.Saved -> {
+                        showSnackBar("Added ${state.transactionsAdded} transactions")
                         findNavController().navigateUp()
                     }
+                    else -> {}
                 }
+            }
+        }
+
+        launchWhenResumed {
+            viewModel.transactions.collectLatest {
+                transactionsAdapter.submitList(it)
             }
         }
     }
@@ -77,4 +79,5 @@ class TransactionsSelectionFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
+
 }

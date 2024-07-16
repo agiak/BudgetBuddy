@@ -13,4 +13,5 @@ data class TransactionNew(
     val accountToName: String?,
     val bankToIcon: Int?,
     val description: String,
+    val applyTransaction: Boolean,
 )

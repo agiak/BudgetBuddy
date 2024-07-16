@@ -8,17 +8,16 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.hilt.navigation.fragment.hiltNavGraphViewModels
-import com.example.common.myutils.hide
 import com.example.common.myutils.setLightStatusBars
-import com.example.common.myutils.show
 import com.example.common.myutils.showToast
 import com.example.mywallet.R
 import com.example.mywallet.core.presentation.ext.launchWhenResumed
 import com.example.mywallet.core.presentation.ext.navigateToNextScreen
 import com.example.mywallet.databinding.FragmentTransactionsViaFileBinding
-import com.example.mywallet.features.transactionsModule.fileTransactions.data.FileGuidanceState
+import com.example.mywallet.features.transactionsModule.fileTransactions.data.FileState
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import timber.log.Timber
@@ -68,14 +67,13 @@ class FileGuidanceFragment : Fragment() {
     }
 
     private fun initSubscriptions() {
+        launchWhenResumed { viewModel.error.collectLatest { error -> error?.let { showToast(it) } } }
+        launchWhenResumed { viewModel.loading.collectLatest { isLoading -> binding.loader.isVisible = isLoading } }
         launchWhenResumed {
             viewModel.state.collectLatest { state ->
-                binding.loader.hide()
-                when (state) {
-                    is FileGuidanceState.Error -> showToast(state.errorMessage)
-                    FileGuidanceState.Loading -> binding.loader.show()
-                    is FileGuidanceState.Result -> {
-                        Timber.d("fetched list ${state.transactions}")
+                when(state) {
+                    FileState.Success -> {
+                        viewModel.clearState()
                         navigateToTransactionSelection()
                     }
                     else -> {}

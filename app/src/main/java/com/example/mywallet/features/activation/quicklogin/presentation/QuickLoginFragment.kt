@@ -6,16 +6,15 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.common.myutils.setLightStatusBars
+import com.example.mywallet.core.presentation.ext.launchWhenResumed
 import com.example.mywallet.core.presentation.ext.startMainFlow
 import com.example.mywallet.databinding.FragmentQuickLoginBinding
 import com.example.mywallet.features.activation.quicklogin.data.QuickLoginState
 import com.example.mywallet.features.activation.quicklogin.data.UserState
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
-import kotlinx.coroutines.launch
 import timber.log.Timber
 
 @AndroidEntryPoint
@@ -42,7 +41,7 @@ class QuickLoginFragment : Fragment() {
     }
 
     private fun initSubscriptions() {
-        lifecycleScope.launch {
+        launchWhenResumed {
             viewModel.state.collectLatest { state->
                 when(state) {
                     QuickLoginState.Loading -> {
@@ -73,7 +72,6 @@ class QuickLoginFragment : Fragment() {
 
     private fun navigateToCreateAccount() =
         findNavController().navigate(QuickLoginFragmentDirections.actionNavigationQuickLoginToNavigationAddAccount())
-
 
     override fun onDestroyView() {
         super.onDestroyView()

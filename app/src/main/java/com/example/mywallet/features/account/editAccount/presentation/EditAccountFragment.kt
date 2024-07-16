@@ -13,6 +13,7 @@ import com.example.mywallet.core.presentation.bank.BankAdapter
 import com.example.mywallet.core.presentation.ext.launchWhenResumed
 import com.example.mywallet.databinding.DialogEditAccountBinding
 import com.example.mywallet.features.account.accountDetails.data.AccountDetails
+import com.example.mywallet.features.account.accountDetails.presentation.AccountUiState
 import com.example.mywallet.features.account.accountDetails.presentation.AccountViewModel
 import com.example.mywallet.features.account.editAccount.data.AccountEditableInfo
 import com.google.android.material.bottomsheet.BottomSheetBehavior
@@ -60,7 +61,6 @@ class EditAccountFragment : BottomSheetDialogFragment() {
         binding.btnSave.setOnClickListener {
             viewModel.updateAccountDetails(getUpdatedAccountInfo())
             binding.root.hideKeyboard()
-            dismiss()
         }
     }
 
@@ -71,6 +71,15 @@ class EditAccountFragment : BottomSheetDialogFragment() {
                     bankAdapter.submitList(Bank.entries.toBankSelectionList(it.bank))
                     binding.nameField.setText(it.name)
                     binding.balanceField.setText(it.balance)
+                }
+            }
+        }
+
+        launchWhenResumed {
+            viewModel.state.collectLatest { state ->
+                when(state) {
+                    AccountUiState.AccountSaved -> dismiss()
+                    else -> {}
                 }
             }
         }
