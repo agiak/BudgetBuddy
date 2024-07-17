@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -45,13 +46,35 @@ class TransactionsFragment : Fragment() {
     }
 
     private fun initViews() {
-        binding.btnAddTransaction.setOnClickListener { navigateToAddTransaction() }
+        setUpFloatingButtons()
+
         binding.transactionsList.apply {
             adapter = transactionsAdapter
-            addSpaceDecorator(36)
+            addSpaceDecorator(12)
+        }
+    }
+
+    private fun setUpFloatingButtons() {
+        binding.btnAddTransaction.apply {
+            shrink()
+            setOnClickListener {
+                when {
+                    !binding.fabGroup.isVisible -> {
+                        binding.fabGroup.isVisible = true
+                        binding.btnAddTransaction.extend()
+                    }
+
+                    else -> {
+                        binding.fabGroup.isVisible = false
+                        binding.btnAddTransaction.shrink()
+                    }
+                }
+            }
         }
 
-        binding.btnAddTransactionViaXlx.setOnClickListener { navigateToAddTransactionsViaFile() }
+        binding.btnAddTransactionManually.setOnClickListener { navigateToAddTransaction() }
+        binding.btnAddTransactionViaFile.setOnClickListener { navigateToAddTransactionsViaFile() }
+
     }
 
     private fun initSubscriptions() {

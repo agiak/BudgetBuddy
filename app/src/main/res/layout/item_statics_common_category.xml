@@ -5,7 +5,7 @@
     android:layout_width="284dp"
     android:layout_height="wrap_content"
     android:background="@drawable/bg_round"
-    android:layout_marginHorizontal="@dimen/main_margin_horizontal"
+    android:layout_marginHorizontal="@dimen/space_large"
     android:layout_marginVertical="@dimen/space_large"
     android:elevation="8dp"
     android:paddingHorizontal="@dimen/space_large"

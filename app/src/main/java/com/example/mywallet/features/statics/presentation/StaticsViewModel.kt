@@ -88,5 +88,4 @@ class StaticsViewModel @Inject constructor(
 
             StaticsItem.CommonStats(commonStats)
         }
-
 }

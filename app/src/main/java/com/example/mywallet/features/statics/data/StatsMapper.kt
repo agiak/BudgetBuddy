@@ -1,5 +1,6 @@
 package com.example.mywallet.features.statics.data
 
+import com.example.mywallet.core.data.common.TransactionType
 import com.example.mywallet.core.data.common.toCurrencyBalance
 import com.example.mywallet.storage.data.AccountDB
 import com.example.mywallet.storage.data.TransactionDB
@@ -19,9 +20,18 @@ fun List<AccountDB>.toMostValuableAccounts() = ArrayList<CommonStatField>().appl
 
 fun TransactionDB.toLargeTransaction(position: Int) = CommonStatField(
     orderNumber = position.toString(),
-    description = "$description\n$date",
+    description = getDetails(),
     value = amount.toCurrencyBalance()
 )
+
+private fun TransactionDB.getDetails(): String =
+    when(type) {
+        TransactionType.MONEY_TRANSFER -> "Transferred from ${accountFromName} to ${accountToName}"
+        TransactionType.OUTCOME -> "Charged to $accountFromName"
+        TransactionType.INVESTMENT -> "Transferred from ${accountFromName} to ${accountToName}"
+        TransactionType.INCOME -> "Income to $accountFromName"
+    }
+
 
 fun List<TransactionDB>.toLargerTransactions() = ArrayList<CommonStatField>().apply {
     forEachIndexed { index: Int, transaction: TransactionDB ->
