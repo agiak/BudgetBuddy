@@ -7,9 +7,11 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.hilt.navigation.fragment.hiltNavGraphViewModels
 import androidx.navigation.fragment.findNavController
+import com.example.common.myutils.addTitleElevationAnimation
 import com.example.common.myutils.disableFullScreenTheme
 import com.example.common.myutils.scrollToUp
 import com.example.common.myutils.setLightStatusBars
+import com.example.common.myutils.show
 import com.example.mywallet.R
 import com.example.mywallet.core.presentation.ext.launchWhenResumed
 import com.example.mywallet.core.presentation.ext.navigateToNextScreen
@@ -19,17 +21,12 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 
 @AndroidEntryPoint
-class AccountsFragment : Fragment(), OptionsScreen {
+class AccountsFragment : Fragment() {
 
     private var _binding: FragmentAccountsBinding? = null
     private val binding get() = _binding!!
 
-    private val adapter = AccountsAdapter(onClick = { navigateToAccountDetail(it) })
-
-    override val optionButtonDrawable: Int
-        get() = R.drawable.ic_filter
-
-    override fun onOptionButtonClick() { navigateToFilters() }
+    private val accountsAdapter = AccountsAdapter(onClick = { navigateToAccountDetail(it) })
 
     private val viewModel: AccountsViewModel by hiltNavGraphViewModels(R.id.graph_accounts)
 
@@ -48,12 +45,23 @@ class AccountsFragment : Fragment(), OptionsScreen {
         setLightStatusBars(true)
         initViews()
         initSubscriptions()
+        initToolbar()
+    }
+
+    private fun initToolbar() {
+        binding.toolbar.screenTitle.text = "This is the perfect title for the screen"
+        binding.toolbar.backButton.setOnClickListener { findNavController().navigateUp() }
+        binding.toolbar.optionsButton.apply {
+            setImageResource(R.drawable.ic_filter)
+            setOnClickListener { navigateToFilters() }
+            show()
+        }
     }
 
     private fun initSubscriptions() {
         launchWhenResumed {
             viewModel.accounts.collectLatest { accounts ->
-                adapter.submitList(accounts)
+                accountsAdapter.submitList(accounts)
                 binding.accountsList.scrollToUp()
             }
         }
@@ -61,7 +69,10 @@ class AccountsFragment : Fragment(), OptionsScreen {
 
     private fun initViews() {
         binding.btnAddAccount.setOnClickListener { navigateToAddAccount() }
-        binding.accountsList.adapter = adapter
+        binding.accountsList.apply {
+            adapter = accountsAdapter
+            addTitleElevationAnimation(binding.toolbar.root)
+        }
     }
 
     override fun onDestroyView() {

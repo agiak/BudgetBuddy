@@ -5,6 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/layout_main_toolbar" />
+
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/title_lbl"
         android:layout_width="match_parent"
@@ -15,7 +19,7 @@
         android:paddingHorizontal="@dimen/main_margin_horizontal"
         android:paddingVertical="@dimen/main_margin_vertical"
         android:text="This is where you can add rules to be executed every specied period"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
     <View
         android:id="@+id/view"
@@ -48,10 +52,11 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rules_list"
         android:layout_width="match_parent"
+        android:layout_height="0dp"
         android:layout_marginTop="@dimen/space_large"
-        android:layout_height="wrap_content"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        tools:listitem="@layout/item_rule"
-        app:layout_constraintTop_toBottomOf="@+id/rules_description" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rules_description"
+        tools:listitem="@layout/item_rule" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

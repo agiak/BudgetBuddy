@@ -9,11 +9,13 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import com.example.common.myutils.addTitleElevation
 import com.example.common.myutils.hide
 import com.example.common.myutils.onDateListener
 import com.example.common.myutils.setLightStatusBars
 import com.example.common.myutils.show
 import com.example.common.myutils.showToast
+import com.example.mywallet.R
 import com.example.mywallet.core.data.common.TransactionType
 import com.example.mywallet.core.data.common.isInternalTransaction
 import com.example.mywallet.databinding.FragmentTransactionAddBinding
@@ -49,6 +51,13 @@ class TransactionAddFragment : Fragment() {
         setLightStatusBars(true)
         initViews()
         initSubscriptions()
+        initToolbar()
+    }
+
+    private fun initToolbar() {
+        binding.toolbar.screenTitle.text = getString(R.string.add_transaction_screen_title)
+        binding.toolbar.backButton.setOnClickListener { findNavController().navigateUp() }
+        binding.toolbar.optionsButton.hide()
     }
 
     private fun initSubscriptions() {
@@ -82,6 +91,8 @@ class TransactionAddFragment : Fragment() {
     }
 
     private fun initViews() {
+        binding.scrollView.addTitleElevation(binding.toolbar.root)
+
         binding.btnAddAccount.setOnClickListener { viewModel.createAccount(getNewTransaction()) }
 
         binding.accountFromField.setOnItemClickListener { parent, view, position, id ->

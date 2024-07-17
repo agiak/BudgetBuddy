@@ -1,26 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <include
-        android:id="@+id/toolbar"
-        layout="@layout/layout_main_toolbar"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <include
         android:id="@+id/main_toolbar"
         layout="@layout/layout_nav_toolbar"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <androidx.constraintlayout.widget.Barrier
-        android:id="@+id/toolbar_barrier"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:barrierDirection="bottom"
-        app:constraint_referenced_ids="toolbar,main_toolbar" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/nav_view"
@@ -43,7 +32,7 @@
         app:layout_constraintBottom_toTopOf="@id/nav_view"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar_barrier"
+        app:layout_constraintTop_toBottomOf="@+id/main_toolbar"
         app:navGraph="@navigation/graph_main" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

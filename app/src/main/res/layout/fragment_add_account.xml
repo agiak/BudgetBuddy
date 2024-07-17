@@ -1,125 +1,139 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:fillViewport="true"
-    tools:context=".features.transactionsModule.transactions.presentation.TransactionsFragment">
+    android:layout_height="match_parent">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/layout_main_toolbar" />
+
+    <ScrollView
+        android:id="@id/scrollView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        tools:context=".features.transactionsModule.transactions.presentation.TransactionsFragment">
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/description"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/main_margin_horizontal"
-            android:layout_marginVertical="@dimen/main_margin_vertical"
-            android:text="Create account by connecting it with your bank"
-            android:textAlignment="center"
-            android:textColor="@color/primary"
-            android:textSize="@dimen/text_xxlarge"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:layout_editor_absoluteX="24dp" />
-
-        <androidx.appcompat.widget.LinearLayoutCompat
-            android:id="@+id/linearLayoutCompat"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/main_margin_horizontal"
-            android:layout_marginVertical="@dimen/main_margin_vertical"
-            android:layout_marginTop="@dimen/space_large"
-            android:orientation="vertical"
-            app:layout_constraintTop_toBottomOf="@+id/description">
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/name_layout"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/space_large"
-                android:hint="Enter name for this account"
-                app:helperText="Required*">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/name_field"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-            </com.google.android.material.textfield.TextInputLayout>
+            android:layout_height="wrap_content">
 
             <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/main_margin_horizontal"
+                android:layout_marginVertical="@dimen/main_margin_vertical"
+                android:text="Create account by connecting it with your bank"
+                android:textAlignment="center"
+                android:textColor="@color/primary"
+                android:textSize="@dimen/text_xxlarge"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:layout_editor_absoluteX="24dp" />
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/linearLayoutCompat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/main_margin_horizontal"
+                android:layout_marginVertical="@dimen/main_margin_vertical"
                 android:layout_marginTop="@dimen/space_large"
-                style="@style/ScreenTitle"
-                android:text="Select your bank" />
+                android:orientation="vertical"
+                app:layout_constraintTop_toBottomOf="@+id/description">
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/bank_list"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/space_medium"
-                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-                app:spanCount="4"
-                tools:listitem="@layout/item_bank" />
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/balance_layout"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/space_large"
-                android:hint="Current balance"
-                app:helperText="Required*"
-                app:startIconDrawable="@drawable/ic_euro"
-                app:startIconTint="@color/primary">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/balance_field"
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/name_layout"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="numberDecimal" />
+                    android:layout_marginTop="@dimen/space_large"
+                    android:hint="Enter name for this account"
+                    app:helperText="Required*">
 
-            </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/name_field"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/date_layout"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/space_large"
-                android:hint="Date of opening account"
-                app:helperText="Required*"
-                app:startIconDrawable="@drawable/ic_calendar"
-                app:startIconTint="@color/primary">
+                </com.google.android.material.textfield.TextInputLayout>
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/date_field"
+                <androidx.appcompat.widget.AppCompatTextView
+                    style="@style/ScreenTitle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:focusable="false"
-                    android:inputType="none" />
+                    android:layout_marginTop="@dimen/space_large"
+                    android:text="Select your bank" />
 
-            </com.google.android.material.textfield.TextInputLayout>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/bank_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_medium"
+                    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                    app:spanCount="4"
+                    tools:listitem="@layout/item_bank" />
 
-        </androidx.appcompat.widget.LinearLayoutCompat>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/balance_layout"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_large"
+                    android:hint="Current balance"
+                    app:helperText="Required*"
+                    app:startIconDrawable="@drawable/ic_euro"
+                    app:startIconTint="@color/primary">
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btn_add_account"
-            style="@style/PrimaryButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/main_margin_horizontal"
-            android:layout_marginVertical="@dimen/main_margin_vertical"
-            android:enabled="false"
-            android:text="Create account"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayoutCompat"
-            app:layout_constraintVertical_bias="1.0" />
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/balance_field"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="numberDecimal" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+                </com.google.android.material.textfield.TextInputLayout>
 
-</ScrollView>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/date_layout"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_large"
+                    android:hint="Date of opening account"
+                    app:helperText="Required*"
+                    app:startIconDrawable="@drawable/ic_calendar"
+                    app:startIconTint="@color/primary">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/date_field"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:focusable="false"
+                        android:inputType="none" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_add_account"
+                style="@style/PrimaryButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/main_margin_horizontal"
+                android:layout_marginVertical="@dimen/main_margin_vertical"
+                android:enabled="false"
+                android:text="@string/add_account_action_button"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayoutCompat"
+                app:layout_constraintVertical_bias="1.0" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

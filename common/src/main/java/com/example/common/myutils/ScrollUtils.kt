@@ -12,6 +12,12 @@ fun ScrollView.addTitleElevation(title: View){
     }
 }
 
+fun NestedScrollView.addTitleElevation(title: View){
+    setOnScrollChangeListener { scrollView, _, _, _, _ ->
+        title.isSelected = scrollView.canScrollVertically(-1)
+    }
+}
+
 /**
  * When NestedScrollView is scrolled up adds elevation to the given titleView
  *

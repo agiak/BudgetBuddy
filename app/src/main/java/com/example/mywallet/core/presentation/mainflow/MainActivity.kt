@@ -17,7 +17,6 @@ import com.example.mywallet.core.data.application.ScreenType
 import com.example.mywallet.core.data.application.identifyScreenType
 import com.example.mywallet.core.presentation.ext.navigateFromBottom
 import com.example.mywallet.core.presentation.options.MainActivityLifecycleObserver
-import com.example.mywallet.core.presentation.options.OptionsScreen
 import com.example.mywallet.databinding.ActivityMainBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import dagger.hilt.android.AndroidEntryPoint
@@ -58,10 +57,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initToolbar() {
-        binding.toolbar.apply {
-            backButton.setOnClickListener { navController.popBackStack() }
-        }
-
         binding.mainToolbar.apply {
             profileImage.setOnClickListener { navController.navigateFromBottom(R.id.graph_profile) }
         }
@@ -82,56 +77,16 @@ class MainActivity : AppCompatActivity() {
 
     private fun handleToolbars(currentDestination: NavDestination) {
         val screenType = currentDestination.id.identifyScreenType()
-        resetToolbars()
         when (screenType) {
             ScreenType.INSIDE -> {
-                binding.toolbar.apply {
-                    root.show()
-                    screenTitle.text = currentDestination.label
-                }
                 binding.mainToolbar.root.hide()
                 binding.navView.hide()
             }
 
             ScreenType.MENU -> {
                 binding.mainToolbar.root.show()
-                binding.toolbar.root.hide()
                 binding.navView.show()
             }
-
-            ScreenType.MODAL -> {
-                binding.mainToolbar.root.hide()
-                binding.toolbar.root.hide()
-                binding.navView.hide()
-            }
-
-            ScreenType.FULL_SCREEN -> {
-                binding.mainToolbar.root.hide()
-                binding.navView.hide()
-                binding.toolbar.root.hide()
-            }
-            ScreenType.BOTTOM_SHEET -> {}
-            ScreenType.OPTIONS -> {
-                binding.toolbar.apply {
-                    root.show()
-                    screenTitle.text = currentDestination.label
-                }
-                binding.mainToolbar.root.hide()
-                binding.navView.hide()
-                binding.toolbar.optionsButton.show()
-            }
-        }
-    }
-
-    private fun resetToolbars() {
-        binding.toolbar.optionsButton.hide()
-    }
-
-    fun setUpOptionButton(optionsScreen: OptionsScreen) {
-        binding.toolbar.optionsButton.apply {
-            show()
-            setImageResource(optionsScreen.optionButtonDrawable)
-            setOnClickListener { optionsScreen.onOptionButtonClick() }
         }
     }
 

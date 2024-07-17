@@ -11,6 +11,9 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.hilt.navigation.fragment.hiltNavGraphViewModels
+import androidx.navigation.fragment.findNavController
+import com.example.common.myutils.addTitleElevation
+import com.example.common.myutils.hide
 import com.example.common.myutils.setLightStatusBars
 import com.example.common.myutils.showToast
 import com.example.mywallet.R
@@ -64,18 +67,30 @@ class FileGuidanceFragment : Fragment() {
         setLightStatusBars(true)
         initViews()
         initSubscriptions()
+        initToolbar()
+    }
+
+    private fun initToolbar() {
+        binding.toolbar.screenTitle.text = getString(R.string.file_guidance_screen_title)
+        binding.toolbar.backButton.setOnClickListener { findNavController().navigateUp() }
+        binding.toolbar.optionsButton.hide()
     }
 
     private fun initSubscriptions() {
         launchWhenResumed { viewModel.error.collectLatest { error -> error?.let { showToast(it) } } }
-        launchWhenResumed { viewModel.loading.collectLatest { isLoading -> binding.loader.isVisible = isLoading } }
+        launchWhenResumed {
+            viewModel.loading.collectLatest { isLoading ->
+                binding.loader.isVisible = isLoading
+            }
+        }
         launchWhenResumed {
             viewModel.state.collectLatest { state ->
-                when(state) {
+                when (state) {
                     FileState.Success -> {
                         viewModel.clearState()
                         navigateToTransactionSelection()
                     }
+
                     else -> {}
                 }
             }
@@ -84,6 +99,7 @@ class FileGuidanceFragment : Fragment() {
 
     private fun initViews() {
         binding.actionBtn.setOnClickListener { openFilePicker() }
+        binding.scrollView.addTitleElevation(binding.toolbar.root)
     }
 
     private fun openFilePicker() {

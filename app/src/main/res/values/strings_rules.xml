@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <string name="rule_screen_title">Add your rules now</string>
+
     <string name="rule_salary_title">Monthly salary</string>
     <string name="rule_salary_description">Set your monthly salary</string>
 

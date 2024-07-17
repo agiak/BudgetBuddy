@@ -5,60 +5,80 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/guidance_lbl_1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/main_margin_horizontal"
-        android:paddingVertical="@dimen/space_large"
-        android:text="@string/file_uploading_guidance_1"
-        app:layout_constraintTop_toTopOf="parent" />
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/layout_main_toolbar" />
 
-    <View
-        android:id="@+id/view2"
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollView"
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/primary_light"
-        app:layout_constraintTop_toBottomOf="@+id/guidance_lbl_1" />
-
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/guidance_lbl_2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/main_margin_horizontal"
-        android:layout_marginTop="@dimen/space_large"
-        android:text="@string/file_uploading_guidance_2"
-        app:layout_constraintTop_toBottomOf="@+id/view2" />
-
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/guidance_image"
-        android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginHorizontal="@dimen/main_margin_horizontal"
-        android:layout_marginVertical="@dimen/space_large"
-        android:background="@drawable/bg_round"
-        android:elevation="8dp"
-        android:padding="@dimen/space_xsmall"
-        android:scaleType="fitStart"
-        app:layout_constraintDimensionRatio="6:1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/guidance_lbl_2"
-        app:srcCompat="@drawable/ic_file_guidance" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/action_btn"
-        style="@style/PrimaryButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/main_margin_horizontal"
-        android:layout_marginVertical="@dimen/main_margin_vertical"
-        android:text="Select file"
+        android:fillViewport="true"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/guidance_image"
-        app:layout_constraintVertical_bias="1.0"
-        tools:layout_editor_absoluteX="24dp" />
+        app:layout_constraintTop_toBottomOf="@id/toolbar">
 
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/guidance_lbl_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/main_margin_horizontal"
+                android:paddingVertical="@dimen/space_large"
+                android:text="@string/file_uploading_guidance_1"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/view2"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/primary_light"
+                app:layout_constraintTop_toBottomOf="@+id/guidance_lbl_1" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/guidance_lbl_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/main_margin_horizontal"
+                android:layout_marginTop="@dimen/space_large"
+                android:text="@string/file_uploading_guidance_2"
+                app:layout_constraintTop_toBottomOf="@+id/view2" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/guidance_image"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginHorizontal="@dimen/main_margin_horizontal"
+                android:layout_marginVertical="@dimen/space_large"
+                android:background="@drawable/bg_round"
+                android:elevation="8dp"
+                android:padding="@dimen/space_xsmall"
+                android:scaleType="fitStart"
+                app:layout_constraintDimensionRatio="6:1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/guidance_lbl_2"
+                app:srcCompat="@drawable/ic_file_guidance" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/action_btn"
+                style="@style/PrimaryButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/main_margin_horizontal"
+                android:layout_marginVertical="@dimen/main_margin_vertical"
+                android:text="Select file"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/guidance_image"
+                app:layout_constraintVertical_bias="1.0"
+                tools:layout_editor_absoluteX="24dp" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
 
     <FrameLayout
         android:id="@+id/loader"

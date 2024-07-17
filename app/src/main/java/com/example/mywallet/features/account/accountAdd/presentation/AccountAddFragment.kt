@@ -9,9 +9,13 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import com.example.common.myutils.addTitleElevation
+import com.example.common.myutils.hide
 import com.example.common.myutils.onDateListener
 import com.example.common.myutils.setLightStatusBars
+import com.example.common.myutils.show
 import com.example.common.myutils.showToast
+import com.example.mywallet.R
 import com.example.mywallet.core.data.bank.Bank
 import com.example.mywallet.core.data.bank.toBankSelectionList
 import com.example.mywallet.core.presentation.bank.BankAdapter
@@ -48,6 +52,21 @@ class AccountAddFragment : Fragment() {
         setLightStatusBars(true)
         initViews()
         initSubscriptions()
+        initToolbar()
+    }
+
+    private fun initToolbar() {
+        if (isMainFlow()) {
+            with(binding.toolbar) {
+                root.show()
+                screenTitle.text = getString(R.string.add_account_screen_title)
+                backButton.setOnClickListener { findNavController().navigateUp() }
+                optionsButton.hide()
+            }
+            binding.description.hide()
+        } else {
+            binding.toolbar.root.hide()
+        }
     }
 
     private fun initSubscriptions() {
@@ -73,6 +92,7 @@ class AccountAddFragment : Fragment() {
     private fun showLoading() {}
 
     private fun initViews() {
+        binding.scrollView.addTitleElevation(binding.toolbar.root)
         binding.btnAddAccount.setOnClickListener { viewModel.createAccount(getAccount()) }
         binding.dateField.apply {
             onDateListener()

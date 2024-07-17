@@ -53,7 +53,7 @@ class QuickLoginFragment : Fragment() {
                             UserState.Uneducated -> navigateToGuide()
                             UserState.Unregister -> navigateToRegister()
                             UserState.Unsetted -> navigateToCreateAccount()
-                            UserState.Valid -> requireContext().startMainFlow()
+                            UserState.Valid -> requireActivity().startMainFlow()
                         }
                     }
                     is QuickLoginState.Error -> {

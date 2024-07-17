@@ -8,6 +8,8 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.hilt.navigation.fragment.hiltNavGraphViewModels
 import androidx.navigation.fragment.findNavController
+import com.example.common.myutils.addTitleElevationAnimation
+import com.example.common.myutils.hide
 import com.example.common.myutils.setLightStatusBars
 import com.example.common.myutils.showSnackBar
 import com.example.common.myutils.showToast
@@ -45,19 +47,32 @@ class TransactionsSelectionFragment : Fragment() {
         setLightStatusBars(true)
         initViews()
         initSubscriptions()
+        initToolbar()
+    }
+
+    private fun initToolbar() {
+        binding.toolbar.screenTitle.text =
+            getString(R.string.file_import_transactions_selection_screen_title)
+        binding.toolbar.backButton.setOnClickListener { findNavController().navigateUp() }
+        binding.toolbar.optionsButton.hide()
     }
 
     private fun initSubscriptions() {
-        launchWhenResumed { viewModel.loading.collectLatest { isLoading -> binding.loader.isVisible = isLoading } }
+        launchWhenResumed {
+            viewModel.loading.collectLatest { isLoading ->
+                binding.loader.isVisible = isLoading
+            }
+        }
         launchWhenResumed { viewModel.error.collectLatest { error -> error?.let { showToast(it) } } }
 
         launchWhenResumed {
             viewModel.state.collectLatest { state ->
-                when(state) {
+                when (state) {
                     is FileState.Saved -> {
                         showSnackBar("Added ${state.transactionsAdded} transactions")
                         findNavController().navigateUp()
                     }
+
                     else -> {}
                 }
             }
@@ -72,7 +87,10 @@ class TransactionsSelectionFragment : Fragment() {
 
     private fun initViews() {
         binding.actionBtn.setOnClickListener { viewModel.saveTransactions() }
-        binding.transactionsList.adapter = transactionsAdapter
+        binding.transactionsList.apply {
+            adapter = transactionsAdapter
+            addTitleElevationAnimation(binding.toolbar.root)
+        }
     }
 
     override fun onDestroyView() {

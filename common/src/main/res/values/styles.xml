@@ -6,6 +6,7 @@
         <item name="android:layout_width">@dimen/main_vector_size_medium</item>
         <item name="android:layout_height">@dimen/main_vector_size_medium</item>
         <item name="srcCompat">@drawable/ic_back_black</item>
+        <item name="android:elevation">12dp</item>
     </style>
 
     <style name="BackButtonBackgrounded">
@@ -60,6 +61,10 @@
 
     <style name="DatePickerButton" parent="Widget.AppCompat.Button.ButtonBar.AlertDialog">
         <item name="android:textColor">@color/primary</item>
+    </style>
+
+    <style name="AppTheme.Appbar" parent="@style/ThemeOverlay.AppCompat.ActionBar">
+        <item name="colorControlNormal">@color/primary</item>
     </style>
 
 </resources>

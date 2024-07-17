@@ -11,11 +11,13 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import com.example.common.myutils.addTitleElevation
 import com.example.common.myutils.hide
 import com.example.common.myutils.hideKeyboard
 import com.example.common.myutils.setLightStatusBars
 import com.example.common.myutils.show
 import com.example.common.myutils.showToast
+import com.example.mywallet.R
 import com.example.mywallet.core.data.common.AppValues
 import com.example.mywallet.core.presentation.ext.isPermissionGranted
 import com.example.mywallet.core.presentation.ext.launchWhenResumed
@@ -65,6 +67,13 @@ class SalaryFragment : Fragment() {
         setLightStatusBars(true)
         initViews()
         initSubscriptions()
+        initToolbar()
+    }
+
+    private fun initToolbar() {
+        binding.toolbar.screenTitle.text = getString(R.string.salary_screen_title)
+        binding.toolbar.backButton.setOnClickListener { findNavController().navigateUp() }
+        binding.toolbar.optionsButton.hide()
     }
 
     private fun initSubscriptions() {
@@ -72,9 +81,7 @@ class SalaryFragment : Fragment() {
             viewModel.state.collectLatest { state ->
                 binding.loader.hide()
                 when (state) {
-                    is SalaryState.CurrentSalaryRule -> {
-                        onRuleFound(state)
-                    }
+                    is SalaryState.CurrentSalaryRule -> { onRuleFound(state) }
 
                     SalaryState.Loading -> onLoading()
 
@@ -103,6 +110,8 @@ class SalaryFragment : Fragment() {
     }
 
     private fun initViews() {
+        binding.scrollView.addTitleElevation(binding.toolbar.root)
+
         binding.switchEnable.setOnCheckedChangeListener { buttonView, isChecked ->
             if (isChecked) {
                 binding.salaryDataGroup.isVisible = true

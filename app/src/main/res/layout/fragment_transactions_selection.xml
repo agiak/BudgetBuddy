@@ -5,16 +5,21 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/layout_main_toolbar" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/transactions_list"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:clipToPadding="false"
         android:paddingHorizontal="@dimen/main_margin_horizontal"
         android:paddingBottom="84dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
         tools:listitem="@layout/item_transaction_selection" />
 
     <androidx.appcompat.widget.AppCompatButton

@@ -6,7 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
+import com.example.common.myutils.hide
 import com.example.common.myutils.setLightStatusBars
+import com.example.mywallet.R
 import com.example.mywallet.core.presentation.ext.addDividerDecorator
 import com.example.mywallet.core.presentation.ext.launchWhenResumed
 import com.example.mywallet.core.presentation.ext.navigateToNextScreen
@@ -45,6 +48,13 @@ class RulesFragment : Fragment() {
         setLightStatusBars(true)
         initViews()
         initSubscriptions()
+        initToolbar()
+    }
+
+    private fun initToolbar() {
+        binding.toolbar.screenTitle.text = getString(R.string.rule_screen_title)
+        binding.toolbar.backButton.setOnClickListener { findNavController().navigateUp() }
+        binding.toolbar.optionsButton.hide()
     }
 
     private fun initSubscriptions() {
