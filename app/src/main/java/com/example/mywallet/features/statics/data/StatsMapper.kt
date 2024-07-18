@@ -1,5 +1,6 @@
 package com.example.mywallet.features.statics.data
 
+import com.example.mywallet.core.data.bank.Bank
 import com.example.mywallet.core.data.common.TransactionType
 import com.example.mywallet.core.data.common.toCurrencyBalance
 import com.example.mywallet.storage.data.AccountDB
@@ -49,6 +50,18 @@ fun Map<AccountDB, Int>.toMostUsedAccounts() = ArrayList<CommonStatField>().appl
                 value = value.toString()
             )
         )
+        counter++
+    }
+}
+
+fun Map<Bank, Double>.toMostTrustedBanks() = ArrayList<CommonStatField>().apply {
+    var counter = 0
+    this@toMostTrustedBanks.forEach { bank, amount ->
+        add(CommonStatField(
+            orderNumber = (counter + 1).toString(),
+            description = bank.name,
+            value = amount.toCurrencyBalance()
+        ))
         counter++
     }
 }

@@ -2,15 +2,16 @@ package com.example.mywallet.features.statics.presentation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.mywallet.core.data.bank.Bank
 import com.example.mywallet.core.domain.dispatchers.IDispatchers
 import com.example.mywallet.features.statics.data.CommonStatCategory
 import com.example.mywallet.features.statics.data.StaticsItem
 import com.example.mywallet.features.statics.data.StaticsUiState
 import com.example.mywallet.features.statics.data.toLargerTransactions
+import com.example.mywallet.features.statics.data.toMostTrustedBanks
 import com.example.mywallet.features.statics.data.toMostUsedAccounts
 import com.example.mywallet.features.statics.data.toMostValuableAccounts
 import com.example.mywallet.features.statics.domain.StaticsRepository
-import com.example.mywallet.features.statics.domain.StaticsRepositoryImpl
 import com.example.mywallet.storage.data.AccountDB
 import com.example.mywallet.storage.data.TransactionDB
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -60,15 +61,16 @@ class StaticsViewModel @Inject constructor(
     private suspend fun createCommonStats(): StaticsItem.CommonStats =
         withContext(dispatchers.backgroundThread()) {
 
-            val newRepo = (repository as StaticsRepositoryImpl)
-            val mostValuableAccountsDeferred = async { newRepo.fetchMostValuableAccounts() }
-            val mostLargerTransactionsDeferred = async { newRepo.fetchMostLargerTransactions() }
-            val mostUsedAccountsDeferred = async { newRepo.fetchMostUsedAccounts() }
+            val mostValuableAccountsDeferred = async { repository.fetchMostValuableAccounts() }
+            val mostLargerTransactionsDeferred = async { repository.fetchMostLargerTransactions() }
+            val mostUsedAccountsDeferred = async { repository.fetchMostUsedAccounts() }
+            val mostTrustedBanks = async { repository.fetchMostTrustedBanks() }
 
             val result = awaitAll(
                 mostValuableAccountsDeferred,
                 mostLargerTransactionsDeferred,
                 mostUsedAccountsDeferred,
+                mostTrustedBanks
             )
 
             val commonStats = listOf(
@@ -83,6 +85,10 @@ class StaticsViewModel @Inject constructor(
                 CommonStatCategory(
                     title = "Accounts with most transactions",
                     results = (result[2] as Map<AccountDB, Int>).toMostUsedAccounts()
+                ),
+                CommonStatCategory(
+                    title = "Most trusted banks",
+                    results = (result[3] as Map<Bank, Double>).toMostTrustedBanks()
                 ),
             )
 

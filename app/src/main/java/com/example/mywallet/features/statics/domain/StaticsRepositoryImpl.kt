@@ -1,5 +1,6 @@
 package com.example.mywallet.features.statics.domain
 
+import com.example.mywallet.core.data.bank.Bank
 import com.example.mywallet.core.domain.dispatchers.IDispatchers
 import com.example.mywallet.storage.data.AccountDB
 import com.example.mywallet.storage.data.TransactionDB
@@ -43,17 +44,17 @@ class StaticsRepositoryImpl @Inject constructor(
             accountsDao.getAllAccounts()
         }
 
-    suspend fun fetchMostValuableAccounts(): List<AccountDB> =
+    override suspend fun fetchMostValuableAccounts(): List<AccountDB> =
         withContext(dispatchers.backgroundThread()) {
             accounts.sortedByDescending { it.balance }.take(5)
         }
 
-    suspend fun fetchMostLargerTransactions(): List<TransactionDB> =
+    override suspend fun fetchMostLargerTransactions(): List<TransactionDB> =
         withContext(dispatchers.backgroundThread()) {
             transactions.sortedByDescending { it.amount }.take(5)
         }
 
-    suspend fun fetchMostUsedAccounts(): Map<AccountDB, Int> =
+    override suspend fun fetchMostUsedAccounts(): Map<AccountDB, Int> =
         withContext(dispatchers.backgroundThread()) {
             val accountMap = accounts.associateWith { account ->
                 transactions.count { it.accountTo == account.id || it.accountFrom == account.id }
@@ -65,4 +66,13 @@ class StaticsRepositoryImpl @Inject constructor(
                 .associate { it.key to it.value }
         }
 
+    override suspend fun fetchMostTrustedBanks(): Map<Bank, Double> =
+        withContext(dispatchers.backgroundThread()) {
+            accounts.groupBy { it.bank }
+                .mapValues { (_, accounts) -> accounts.sumOf { it.balance } }
+                .entries
+                .sortedByDescending { it.value }
+                .take(5)
+                .associate { it.key to it.value }
+        }
 }

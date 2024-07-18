@@ -65,7 +65,7 @@ class HomeFragment : Fragment() {
         homeAdapter = HomeAdapter(createViewHolders())
         binding.homeList.apply {
             adapter = homeAdapter
-            addSpaceDecorator(32)
+            addSpaceDecorator(24)
         }
     }
 
