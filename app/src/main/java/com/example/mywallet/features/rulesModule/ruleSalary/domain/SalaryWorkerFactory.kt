@@ -5,7 +5,7 @@ import androidx.work.ListenableWorker
 import androidx.work.WorkerFactory
 import androidx.work.WorkerParameters
 import com.example.mywallet.features.transactionsModule.transactionAdd.domain.TransactionAddRepository
-import com.example.mywallet.storage.domain.database.daos.RuleDao
+import com.example.core.storage.domain.database.daos.RuleDao
 import javax.inject.Inject
 
 class SalaryWorkerFactory @Inject constructor(

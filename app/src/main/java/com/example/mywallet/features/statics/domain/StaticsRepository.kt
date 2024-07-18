@@ -1,8 +1,8 @@
 package com.example.mywallet.features.statics.domain
 
-import com.example.mywallet.core.data.bank.Bank
-import com.example.mywallet.storage.data.AccountDB
-import com.example.mywallet.storage.data.TransactionDB
+import com.example.core.data.bank.Bank
+import com.example.core.storage.data.AccountDB
+import com.example.core.storage.data.TransactionDB
 
 interface StaticsRepository {
 

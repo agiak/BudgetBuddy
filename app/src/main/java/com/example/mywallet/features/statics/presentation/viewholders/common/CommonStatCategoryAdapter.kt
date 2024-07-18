@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.mywallet.core.presentation.ext.addDividerDecorator
+import com.example.core.presentation.ext.addDividerDecorator
 import com.example.mywallet.databinding.ItemStaticsCommonCategoryBinding
 import com.example.mywallet.features.statics.data.CommonStatCategory
 

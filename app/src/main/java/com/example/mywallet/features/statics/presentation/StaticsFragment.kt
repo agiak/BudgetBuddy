@@ -10,8 +10,8 @@ import com.example.common.myutils.hide
 import com.example.common.myutils.setLightStatusBars
 import com.example.common.myutils.show
 import com.example.common.myutils.showToast
-import com.example.mywallet.core.presentation.ext.addSpaceDecorator
-import com.example.mywallet.core.presentation.ext.launchWhenResumed
+import com.example.core.presentation.ext.addSpaceDecorator
+import com.example.core.presentation.ext.launchWhenResumed
 import com.example.mywallet.databinding.FragmentStaticsBinding
 import com.example.mywallet.databinding.ItemStaticsCommonStatsBinding
 import com.example.mywallet.features.statics.data.StaticsItem

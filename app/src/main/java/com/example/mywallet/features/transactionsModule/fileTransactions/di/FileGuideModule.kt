@@ -1,6 +1,6 @@
 package com.example.mywallet.features.transactionsModule.fileTransactions.di
 
-import com.example.mywallet.core.domain.dispatchers.IDispatchers
+import com.example.core.domain.dispatchers.IDispatchers
 import com.example.mywallet.features.transactionsModule.fileTransactions.domain.FileGuideRepository
 import com.example.mywallet.features.transactionsModule.fileTransactions.domain.FileGuideRepositoryImpl
 import dagger.Module

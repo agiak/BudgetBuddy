@@ -13,10 +13,10 @@ import com.example.common.myutils.hide
 import com.example.common.myutils.setLightStatusBars
 import com.example.common.myutils.show
 import com.example.common.myutils.showToast
+import com.example.core.data.account.AccountDetails
 import com.example.mywallet.R
-import com.example.mywallet.core.presentation.ext.launchWhenResumed
+import com.example.core.presentation.ext.launchWhenResumed
 import com.example.mywallet.databinding.FragmentAccountBinding
-import com.example.mywallet.features.account.accountDetails.data.AccountDetails
 import com.google.android.material.tabs.TabLayoutMediator
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest

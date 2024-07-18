@@ -1,9 +1,9 @@
 package com.example.mywallet.features.rulesModule.ruleSalary.domain
 
-import com.example.mywallet.core.domain.dispatchers.IDispatchers
-import com.example.mywallet.features.rulesModule.rules.data.Rule
-import com.example.mywallet.storage.data.RuleDB
-import com.example.mywallet.storage.domain.database.daos.RuleDao
+import com.example.core.domain.dispatchers.IDispatchers
+import com.example.core.data.rule.Rule
+import com.example.core.storage.data.RuleDB
+import com.example.core.storage.domain.database.daos.RuleDao
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 

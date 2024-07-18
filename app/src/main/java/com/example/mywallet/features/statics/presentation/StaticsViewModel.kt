@@ -2,8 +2,8 @@ package com.example.mywallet.features.statics.presentation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.mywallet.core.data.bank.Bank
-import com.example.mywallet.core.domain.dispatchers.IDispatchers
+import com.example.core.data.bank.Bank
+import com.example.core.domain.dispatchers.IDispatchers
 import com.example.mywallet.features.statics.data.CommonStatCategory
 import com.example.mywallet.features.statics.data.StaticsItem
 import com.example.mywallet.features.statics.data.StaticsUiState
@@ -12,8 +12,8 @@ import com.example.mywallet.features.statics.data.toMostTrustedBanks
 import com.example.mywallet.features.statics.data.toMostUsedAccounts
 import com.example.mywallet.features.statics.data.toMostValuableAccounts
 import com.example.mywallet.features.statics.domain.StaticsRepository
-import com.example.mywallet.storage.data.AccountDB
-import com.example.mywallet.storage.data.TransactionDB
+import com.example.core.storage.data.AccountDB
+import com.example.core.storage.data.TransactionDB
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.async
 import kotlinx.coroutines.awaitAll

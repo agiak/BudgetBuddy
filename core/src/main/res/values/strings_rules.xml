@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="rule_salary_title">Monthly salary</string>
+    <string name="rule_salary_description">Set your monthly salary</string>
+
+    <string name="rule_interest_title">Account interest</string>
+    <string name="rule_interest_description">Set interest for an account that it will be paid every month</string>
+
+</resources>

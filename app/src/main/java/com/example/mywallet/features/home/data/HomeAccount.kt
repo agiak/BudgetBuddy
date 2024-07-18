@@ -1,6 +1,6 @@
 package com.example.mywallet.features.home.data
 
-import com.example.mywallet.core.data.bank.Bank
+import com.example.core.data.bank.Bank
 
 data class HomeAccount(
     val id: Long,

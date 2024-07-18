@@ -1,12 +1,9 @@
 package com.example.mywallet.features.rulesModule.rules.di
 
-import com.example.movierama.storage.domain.sharedpreferences.PreferenceManager
-import com.example.mywallet.core.domain.dispatchers.IDispatchers
-import com.example.mywallet.features.profileModule.profile.domain.ProfileRepository
-import com.example.mywallet.features.profileModule.profile.domain.ProfileRepositoryImpl
+import com.example.core.domain.dispatchers.IDispatchers
 import com.example.mywallet.features.rulesModule.ruleSalary.domain.SalaryRepository
 import com.example.mywallet.features.rulesModule.ruleSalary.domain.SalaryRepositoryImpl
-import com.example.mywallet.storage.domain.database.daos.RuleDao
+import com.example.core.storage.domain.database.daos.RuleDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

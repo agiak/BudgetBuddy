@@ -2,7 +2,7 @@ package com.example.mywallet.features.account.accounts.presentation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.mywallet.core.data.common.AppValues
+import com.example.core.data.common.AppValues
 import com.example.mywallet.features.account.accounts.data.Account
 import com.example.mywallet.features.account.accounts.data.toAccounts
 import com.example.mywallet.features.account.accounts.domain.AccountsRepository

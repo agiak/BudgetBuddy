@@ -18,9 +18,9 @@ import com.example.common.myutils.setLightStatusBars
 import com.example.common.myutils.show
 import com.example.common.myutils.showToast
 import com.example.mywallet.R
-import com.example.mywallet.core.data.common.AppValues
-import com.example.mywallet.core.presentation.ext.isPermissionGranted
-import com.example.mywallet.core.presentation.ext.launchWhenResumed
+import com.example.core.data.common.AppValues
+import com.example.core.presentation.ext.isPermissionGranted
+import com.example.core.presentation.ext.launchWhenResumed
 import com.example.mywallet.databinding.FragmentRuleSalaryBinding
 import com.example.mywallet.features.rulesModule.ruleSalary.data.SalaryRuleData
 import com.example.mywallet.features.rulesModule.ruleSalary.data.SalaryState

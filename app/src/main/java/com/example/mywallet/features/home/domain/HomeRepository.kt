@@ -1,7 +1,7 @@
 package com.example.mywallet.features.home.domain
 
-import com.example.mywallet.storage.data.AccountDB
-import com.example.mywallet.storage.data.TransactionDB
+import com.example.core.storage.data.AccountDB
+import com.example.core.storage.data.TransactionDB
 import kotlinx.coroutines.flow.Flow
 
 interface HomeRepository {

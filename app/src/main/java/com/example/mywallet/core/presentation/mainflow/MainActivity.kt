@@ -15,7 +15,7 @@ import com.example.common.myutils.show
 import com.example.mywallet.R
 import com.example.mywallet.core.data.application.ScreenType
 import com.example.mywallet.core.data.application.identifyScreenType
-import com.example.mywallet.core.presentation.ext.navigateFromBottom
+import com.example.core.presentation.ext.navigateFromBottom
 import com.example.mywallet.core.presentation.options.MainActivityLifecycleObserver
 import com.example.mywallet.databinding.ActivityMainBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView

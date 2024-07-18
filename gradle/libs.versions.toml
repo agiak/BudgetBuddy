@@ -1,6 +1,9 @@
 #########################################   VERSIONS   ###############################################
 [versions]
 
+# Java
+java = "17"
+
 # Config values
 minSdk = "28"
 targetSdk = "34"
@@ -63,6 +66,7 @@ ktor = "2.2.4"
 
 # CSV parsing
 kotlinCsvJvm = "1.9.3"
+jetbrainsKotlinJvm = "1.9.22"
 
 ######################################  LIBRARIES  ##################################################
 
@@ -147,6 +151,7 @@ hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
 # Navigation
 navigation-safeargs = { id = "androidx.navigation.safeargs", version.ref = "navigation" }
 androidLibrary = { id = "com.android.library", version.ref = "agp" }
+jetbrains-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "jetbrainsKotlinJvm" }
 
 ########################################  BUNDLES ##################################################
 

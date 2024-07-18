@@ -1,7 +1,7 @@
 package com.example.mywallet.features.profileModule.profile.di
 
-import com.example.movierama.storage.domain.sharedpreferences.PreferenceManager
-import com.example.mywallet.core.domain.dispatchers.IDispatchers
+import com.example.core.storage.domain.sharedprefs.PreferenceManager
+import com.example.core.domain.dispatchers.IDispatchers
 import com.example.mywallet.features.profileModule.profile.domain.ProfileRepository
 import com.example.mywallet.features.profileModule.profile.domain.ProfileRepositoryImpl
 import dagger.Module

@@ -1,6 +1,6 @@
 package com.example.mywallet.features.activation.guide.domain
 
-import com.example.movierama.storage.domain.sharedpreferences.PreferenceManager
+import com.example.core.storage.domain.sharedprefs.PreferenceManager
 import com.example.mywallet.features.activation.guide.domain.GuideRepository.Companion.GUIDE_KEY
 import javax.inject.Inject
 

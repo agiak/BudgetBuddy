@@ -1,7 +1,7 @@
 package com.example.mywallet.features.account.accounts.data
 
-import com.example.mywallet.core.data.common.toCurrencyBalance
-import com.example.mywallet.storage.data.AccountDB
+import com.example.core.data.common.toCurrencyBalance
+import com.example.core.storage.data.AccountDB
 
 fun AccountDB.toAccount(): Account = Account(
     id = id,

@@ -8,9 +8,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.example.common.myutils.setLightStatusBars
-import com.example.mywallet.core.data.user.User
-import com.example.mywallet.core.presentation.ext.navigateToNextScreen
-import com.example.mywallet.core.presentation.ext.startMainFlow
+import com.example.core.data.User
+import com.example.core.presentation.ext.navigateToNextScreen
+import com.example.mywallet.core.presentation.startMainFlow
 import com.example.mywallet.databinding.FragmentRegisterBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest

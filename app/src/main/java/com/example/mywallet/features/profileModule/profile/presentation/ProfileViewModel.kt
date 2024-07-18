@@ -2,7 +2,7 @@ package com.example.mywallet.features.profileModule.profile.presentation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.mywallet.core.data.user.User
+import com.example.core.data.User
 import com.example.mywallet.features.profileModule.profile.domain.ProfileRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.SharingStarted

@@ -1,6 +1,6 @@
 package com.example.mywallet.features.transactionsModule.transactionAdd.data
 
-import com.example.mywallet.core.data.common.TransactionType
+import com.example.core.data.common.TransactionType
 
 data class TransactionNew(
     val date: String,

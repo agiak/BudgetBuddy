@@ -1,6 +1,6 @@
 package com.example.mywallet.features.transactionsModule.transactionsSelection.domain
 
-import com.example.mywallet.storage.data.TransactionDB
+import com.example.core.storage.data.TransactionDB
 
 interface TransactionsSelectionRepository {
 

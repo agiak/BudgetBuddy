@@ -16,8 +16,8 @@ import com.example.common.myutils.setLightStatusBars
 import com.example.common.myutils.show
 import com.example.common.myutils.showToast
 import com.example.mywallet.R
-import com.example.mywallet.core.data.common.TransactionType
-import com.example.mywallet.core.data.common.isInternalTransaction
+import com.example.core.data.common.TransactionType
+import com.example.core.data.common.isInternalTransaction
 import com.example.mywallet.databinding.FragmentTransactionAddBinding
 import com.example.mywallet.features.transactionsModule.transactionAdd.data.AccountSelection
 import com.example.mywallet.features.transactionsModule.transactionAdd.data.TransactionNew

@@ -16,3 +16,11 @@ dependencyResolutionManagement {
 rootProject.name = "MyWallet"
 include(":app")
 include(":common")
+include(":features")
+include(":features:home")
+include(":features:home:public")
+include(":features:home:impl")
+include(":features:statics")
+include(":features:statics:public")
+include(":features:statics:impl")
+include(":core")

@@ -1,9 +1,9 @@
 package com.example.mywallet.features.profileModule.profile.domain
 
-import com.example.movierama.storage.domain.sharedpreferences.PreferenceManager
-import com.example.mywallet.core.data.user.User
-import com.example.mywallet.core.domain.dispatchers.IDispatchers
-import com.example.mywallet.features.activation.register.domain.RegisterRepository.Companion.USER_KEY
+import com.example.core.data.User
+import com.example.core.domain.dispatchers.IDispatchers
+import com.example.core.domain.user.UserRepository.Companion.USER_KEY
+import com.example.core.storage.domain.sharedprefs.PreferenceManager
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 

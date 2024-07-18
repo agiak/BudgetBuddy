@@ -1,9 +1,9 @@
 package com.example.mywallet.features.home.data
 
-import com.example.mywallet.core.data.common.TransactionType
-import com.example.mywallet.core.data.common.toCurrencyBalance
-import com.example.mywallet.storage.data.AccountDB
-import com.example.mywallet.storage.data.TransactionDB
+import com.example.core.data.common.TransactionType
+import com.example.core.data.common.toCurrencyBalance
+import com.example.core.storage.data.AccountDB
+import com.example.core.storage.data.TransactionDB
 
 fun AccountDB.toHomeAccount(): HomeAccount = HomeAccount(
     id = id,

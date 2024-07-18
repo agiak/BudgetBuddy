@@ -1,6 +1,6 @@
 package com.example.mywallet.features.transactionsModule.transactions.data
 
-import com.example.mywallet.core.data.common.TransactionType
+import com.example.core.data.common.TransactionType
 
 data class Transaction(
     val id: Long,

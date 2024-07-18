@@ -1,7 +1,7 @@
 package com.example.mywallet.features.account.accountDetails.presentation.viewholders.activity
 
 import androidx.recyclerview.widget.RecyclerView
-import com.example.mywallet.core.presentation.ext.addSpaceDecorator
+import com.example.core.presentation.ext.addSpaceDecorator
 import com.example.mywallet.databinding.ItemAccountDetailsActivityBinding
 import com.example.mywallet.features.account.accountDetails.data.AccountDetailsItem
 

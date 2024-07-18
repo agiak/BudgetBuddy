@@ -1,6 +1,6 @@
 package com.example.mywallet.features.activation.guide.di
 
-import com.example.movierama.storage.domain.sharedpreferences.PreferenceManager
+import com.example.core.storage.domain.sharedprefs.PreferenceManager
 import com.example.mywallet.features.activation.guide.domain.GuideRepository
 import com.example.mywallet.features.activation.guide.domain.GuideRepositoryImpl
 import dagger.Module

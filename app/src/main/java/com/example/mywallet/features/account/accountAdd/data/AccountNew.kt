@@ -1,6 +1,6 @@
 package com.example.mywallet.features.account.accountAdd.data
 
-import com.example.mywallet.core.data.bank.Bank
+import com.example.core.data.bank.Bank
 
 data class AccountNew(
     val name: String,

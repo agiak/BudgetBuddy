@@ -8,7 +8,7 @@ import com.example.mywallet.features.transactionsModule.transactionsSelection.da
 import com.example.mywallet.features.transactionsModule.transactionsSelection.data.isEqual
 import com.example.mywallet.features.transactionsModule.transactionsSelection.data.toTransactionSelectionList
 import com.example.mywallet.features.transactionsModule.transactionsSelection.domain.TransactionsSelectionRepository
-import com.example.mywallet.storage.data.TransactionDB
+import com.example.core.storage.data.TransactionDB
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow

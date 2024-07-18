@@ -11,8 +11,8 @@ import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.example.common.myutils.moveNext
 import com.example.common.myutils.setLightStatusBars
-import com.example.mywallet.core.presentation.ext.getNextScreenNavOptions
-import com.example.mywallet.core.presentation.ext.navigateToNextScreen
+import com.example.core.presentation.ext.getNextScreenNavOptions
+import com.example.core.presentation.ext.navigateToNextScreen
 import com.example.mywallet.databinding.FragmentGuideBinding
 import com.example.mywallet.databinding.FragmentRegisterBinding
 import com.example.mywallet.features.activation.guide.data.GuideStep

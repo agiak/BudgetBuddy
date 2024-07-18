@@ -1,6 +1,6 @@
 package com.example.mywallet.features.rulesModule.ruleSalary.domain
 
-import com.example.mywallet.storage.data.RuleDB
+import com.example.core.storage.data.RuleDB
 
 interface SalaryRepository {
 

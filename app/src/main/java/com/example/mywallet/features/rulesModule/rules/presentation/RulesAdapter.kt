@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.mywallet.databinding.ItemRuleBinding
-import com.example.mywallet.features.rulesModule.rules.data.Rule
+import com.example.core.data.rule.Rule
 
 class RulesAdapter(
     private val onClick: (rule: Rule) -> Unit,

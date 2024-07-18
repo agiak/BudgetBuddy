@@ -13,8 +13,8 @@ import com.example.common.myutils.scrollToUp
 import com.example.common.myutils.setLightStatusBars
 import com.example.common.myutils.show
 import com.example.mywallet.R
-import com.example.mywallet.core.presentation.ext.launchWhenResumed
-import com.example.mywallet.core.presentation.ext.navigateToNextScreen
+import com.example.core.presentation.ext.launchWhenResumed
+import com.example.core.presentation.ext.navigateToNextScreen
 import com.example.mywallet.core.presentation.options.OptionsScreen
 import com.example.mywallet.databinding.FragmentAccountsBinding
 import dagger.hilt.android.AndroidEntryPoint

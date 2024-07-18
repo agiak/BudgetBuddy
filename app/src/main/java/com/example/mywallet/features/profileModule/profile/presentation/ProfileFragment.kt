@@ -8,8 +8,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.common.myutils.setLightStatusBars
-import com.example.mywallet.core.presentation.ext.launchWhenResumed
-import com.example.mywallet.core.presentation.ext.navigateToNextScreen
+import com.example.core.presentation.ext.launchWhenResumed
+import com.example.core.presentation.ext.navigateToNextScreen
 import com.example.mywallet.databinding.FragmentProfileBinding
 import com.example.mywallet.features.profileModule.profile.data.ProfileSetting
 import dagger.hilt.android.AndroidEntryPoint

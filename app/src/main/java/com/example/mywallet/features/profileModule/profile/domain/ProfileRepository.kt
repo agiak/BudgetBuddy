@@ -1,6 +1,6 @@
 package com.example.mywallet.features.profileModule.profile.domain
 
-import com.example.mywallet.core.data.user.User
+import com.example.core.data.User
 
 interface ProfileRepository {
 

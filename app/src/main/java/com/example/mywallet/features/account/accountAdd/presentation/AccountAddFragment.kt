@@ -15,12 +15,12 @@ import com.example.common.myutils.onDateListener
 import com.example.common.myutils.setLightStatusBars
 import com.example.common.myutils.show
 import com.example.common.myutils.showToast
+import com.example.core.data.bank.Bank
+import com.example.core.data.bank.toBankSelectionList
+import com.example.core.presentation.bank.BankAdapter
 import com.example.mywallet.R
-import com.example.mywallet.core.data.bank.Bank
-import com.example.mywallet.core.data.bank.toBankSelectionList
-import com.example.mywallet.core.presentation.bank.BankAdapter
-import com.example.mywallet.core.presentation.ext.isMainFlow
-import com.example.mywallet.core.presentation.ext.startMainFlow
+import com.example.mywallet.core.presentation.isMainFlow
+import com.example.mywallet.core.presentation.startMainFlow
 import com.example.mywallet.databinding.FragmentAddAccountBinding
 import com.example.mywallet.features.account.accountAdd.data.AccountNew
 import dagger.hilt.android.AndroidEntryPoint

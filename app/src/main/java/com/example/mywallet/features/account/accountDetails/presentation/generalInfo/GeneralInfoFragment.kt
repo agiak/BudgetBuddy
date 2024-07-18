@@ -8,10 +8,10 @@ import androidx.fragment.app.Fragment
 import androidx.hilt.navigation.fragment.hiltNavGraphViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.common.myutils.showDialog
+import com.example.core.data.account.AccountDetails
 import com.example.mywallet.R
-import com.example.mywallet.core.presentation.ext.launchWhenResumed
+import com.example.core.presentation.ext.launchWhenResumed
 import com.example.mywallet.databinding.FragmentAccountGeneralInfoBinding
-import com.example.mywallet.features.account.accountDetails.data.AccountDetails
 import com.example.mywallet.features.account.accountDetails.presentation.AccountFragmentDirections
 import com.example.mywallet.features.account.accountDetails.presentation.AccountViewModel
 import kotlinx.coroutines.flow.collectLatest

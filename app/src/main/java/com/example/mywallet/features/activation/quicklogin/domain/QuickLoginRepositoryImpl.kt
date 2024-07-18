@@ -1,12 +1,12 @@
 package com.example.mywallet.features.activation.quicklogin.domain
 
-import com.example.movierama.storage.domain.sharedpreferences.PreferenceManager
-import com.example.mywallet.core.data.user.User
-import com.example.mywallet.core.domain.dispatchers.IDispatchers
+import com.example.core.data.User
+import com.example.core.domain.dispatchers.IDispatchers
+import com.example.core.domain.user.UserRepository.Companion.USER_KEY
+import com.example.core.storage.domain.database.daos.AccountDao
+import com.example.core.storage.domain.sharedprefs.PreferenceManager
 import com.example.mywallet.features.activation.guide.domain.GuideRepository.Companion.GUIDE_KEY
 import com.example.mywallet.features.activation.quicklogin.data.UserState
-import com.example.mywallet.features.activation.register.domain.RegisterRepository.Companion.USER_KEY
-import com.example.mywallet.storage.domain.database.daos.AccountDao
 import javax.inject.Inject
 
 class QuickLoginRepositoryImpl @Inject constructor(

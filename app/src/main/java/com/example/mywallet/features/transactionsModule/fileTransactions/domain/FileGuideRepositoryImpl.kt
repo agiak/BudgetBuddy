@@ -1,9 +1,9 @@
 package com.example.mywallet.features.transactionsModule.fileTransactions.domain
 
-import com.example.mywallet.core.data.common.AppValues
-import com.example.mywallet.core.data.common.TransactionType
-import com.example.mywallet.core.domain.dispatchers.IDispatchers
-import com.example.mywallet.storage.data.TransactionDB
+import com.example.core.data.common.AppValues
+import com.example.core.data.common.TransactionType
+import com.example.core.domain.dispatchers.IDispatchers
+import com.example.core.storage.data.TransactionDB
 import kotlinx.coroutines.withContext
 import timber.log.Timber
 import java.io.File

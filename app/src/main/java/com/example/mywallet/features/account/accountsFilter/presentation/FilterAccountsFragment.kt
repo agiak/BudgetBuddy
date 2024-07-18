@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.hilt.navigation.fragment.hiltNavGraphViewModels
 import com.example.common.myutils.hideKeyboard
 import com.example.mywallet.R
-import com.example.mywallet.core.presentation.ext.launchWhenResumed
+import com.example.core.presentation.ext.launchWhenResumed
 import com.example.mywallet.databinding.DialogFilterAccountsBinding
 import com.example.mywallet.features.account.accounts.presentation.AccountsViewModel
 import com.example.mywallet.features.account.accountsFilter.data.AccountFilterSelection

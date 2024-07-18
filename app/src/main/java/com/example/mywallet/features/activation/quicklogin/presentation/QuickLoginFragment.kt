@@ -8,8 +8,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.common.myutils.setLightStatusBars
-import com.example.mywallet.core.presentation.ext.launchWhenResumed
-import com.example.mywallet.core.presentation.ext.startMainFlow
+import com.example.core.presentation.ext.launchWhenResumed
+import com.example.mywallet.core.presentation.startMainFlow
 import com.example.mywallet.databinding.FragmentQuickLoginBinding
 import com.example.mywallet.features.activation.quicklogin.data.QuickLoginState
 import com.example.mywallet.features.activation.quicklogin.data.UserState

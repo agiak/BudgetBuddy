@@ -7,8 +7,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.hilt.navigation.fragment.hiltNavGraphViewModels
 import com.example.mywallet.R
-import com.example.mywallet.core.presentation.ext.addSpaceDecorator
-import com.example.mywallet.core.presentation.ext.launchWhenResumed
+import com.example.core.presentation.ext.addSpaceDecorator
+import com.example.core.presentation.ext.launchWhenResumed
 import com.example.mywallet.databinding.FragmentAccountActivityBinding
 import com.example.mywallet.databinding.ItemAccountDetailsActivityBinding
 import com.example.mywallet.databinding.ItemAccountDetailsStaticsBinding

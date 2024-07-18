@@ -1,6 +1,6 @@
 package com.example.mywallet.features.account.accountAdd.domain
 
-import com.example.mywallet.storage.data.AccountDB
+import com.example.core.storage.data.AccountDB
 
 interface AddAccountRepository {
 

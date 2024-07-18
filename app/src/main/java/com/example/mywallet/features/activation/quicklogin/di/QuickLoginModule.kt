@@ -1,10 +1,10 @@
 package com.example.mywallet.features.activation.quicklogin.di
 
-import com.example.movierama.storage.domain.sharedpreferences.PreferenceManager
-import com.example.mywallet.core.domain.dispatchers.IDispatchers
+import com.example.core.storage.domain.sharedprefs.PreferenceManager
+import com.example.core.domain.dispatchers.IDispatchers
 import com.example.mywallet.features.activation.quicklogin.domain.QuickLoginRepository
 import com.example.mywallet.features.activation.quicklogin.domain.QuickLoginRepositoryImpl
-import com.example.mywallet.storage.domain.database.daos.AccountDao
+import com.example.core.storage.domain.database.daos.AccountDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

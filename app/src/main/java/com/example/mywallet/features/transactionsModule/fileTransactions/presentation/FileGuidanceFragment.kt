@@ -17,8 +17,8 @@ import com.example.common.myutils.hide
 import com.example.common.myutils.setLightStatusBars
 import com.example.common.myutils.showToast
 import com.example.mywallet.R
-import com.example.mywallet.core.presentation.ext.launchWhenResumed
-import com.example.mywallet.core.presentation.ext.navigateToNextScreen
+import com.example.core.presentation.ext.launchWhenResumed
+import com.example.core.presentation.ext.navigateToNextScreen
 import com.example.mywallet.databinding.FragmentTransactionsViaFileBinding
 import com.example.mywallet.features.transactionsModule.fileTransactions.data.FileState
 import dagger.hilt.android.AndroidEntryPoint

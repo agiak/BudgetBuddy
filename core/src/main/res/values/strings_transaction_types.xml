@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="transaction_type_income">Income</string>
+    <string name="transaction_type_outcome">Outcome</string>
+    <string name="transaction_type_money_transfer">Money transfer</string>
+    <string name="transaction_type_investment">Investment</string>
+</resources>

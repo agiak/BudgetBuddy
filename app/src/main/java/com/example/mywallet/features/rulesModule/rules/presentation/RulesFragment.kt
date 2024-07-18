@@ -10,11 +10,11 @@ import androidx.navigation.fragment.findNavController
 import com.example.common.myutils.hide
 import com.example.common.myutils.setLightStatusBars
 import com.example.mywallet.R
-import com.example.mywallet.core.presentation.ext.addDividerDecorator
-import com.example.mywallet.core.presentation.ext.launchWhenResumed
-import com.example.mywallet.core.presentation.ext.navigateToNextScreen
+import com.example.core.presentation.ext.addDividerDecorator
+import com.example.core.presentation.ext.launchWhenResumed
+import com.example.core.presentation.ext.navigateToNextScreen
 import com.example.mywallet.databinding.FragmentRulesBinding
-import com.example.mywallet.features.rulesModule.rules.data.Rule
+import com.example.core.data.rule.Rule
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

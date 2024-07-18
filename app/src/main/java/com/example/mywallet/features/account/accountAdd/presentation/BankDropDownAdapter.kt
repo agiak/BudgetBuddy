@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Filter
 import com.example.mywallet.R
-import com.example.mywallet.core.data.bank.Bank
+import com.example.core.data.bank.Bank
 import com.example.mywallet.databinding.ItemSupportedBankBinding
 
 class BankDropDownAdapter(

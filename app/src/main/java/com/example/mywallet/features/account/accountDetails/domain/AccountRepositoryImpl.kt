@@ -1,14 +1,14 @@
 package com.example.mywallet.features.account.accountDetails.domain
 
 import com.example.common.APP_DATE_FORMAT
-import com.example.mywallet.core.data.common.TransactionType
-import com.example.mywallet.core.domain.dispatchers.IDispatchers
-import com.example.mywallet.features.account.accountDetails.data.AccountDetails
+import com.example.core.data.account.AccountDetails
+import com.example.core.data.common.TransactionType
+import com.example.core.domain.dispatchers.IDispatchers
+import com.example.core.storage.data.AccountDB
+import com.example.core.storage.data.TransactionDB
+import com.example.core.storage.domain.database.daos.AccountDao
+import com.example.core.storage.domain.database.daos.TransactionDao
 import com.example.mywallet.features.account.accountDetails.data.AccountStatics
-import com.example.mywallet.storage.data.AccountDB
-import com.example.mywallet.storage.data.TransactionDB
-import com.example.mywallet.storage.domain.database.daos.AccountDao
-import com.example.mywallet.storage.domain.database.daos.TransactionDao
 import kotlinx.coroutines.async
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.withContext

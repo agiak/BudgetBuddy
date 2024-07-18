@@ -1,9 +1,9 @@
 package com.example.mywallet.features.account.accounts.di
 
-import com.example.mywallet.core.domain.dispatchers.IDispatchers
+import com.example.core.domain.dispatchers.IDispatchers
 import com.example.mywallet.features.account.accounts.domain.AccountsRepository
 import com.example.mywallet.features.account.accounts.domain.AccountsRepositoryImpl
-import com.example.mywallet.storage.domain.database.daos.AccountDao
+import com.example.core.storage.domain.database.daos.AccountDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

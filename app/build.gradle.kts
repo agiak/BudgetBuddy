@@ -32,15 +32,15 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.toVersion(libs.versions.java.get().toInt())
+        targetCompatibility = JavaVersion.toVersion(libs.versions.java.get().toInt())
     }
     buildFeatures {
         buildConfig = true
         viewBinding = true
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = libs.versions.java.get()
     }
     kapt {
         correctErrorTypes = true
@@ -50,6 +50,11 @@ android {
 dependencies {
     
     implementation(project(":common"))
+    implementation(project(":core"))
+
+    // Features
+    implementation(project(":features:home:public"))
+    implementation(project(":features:statics:public"))
     implementation(libs.bundles.kotlin.main)
 
     // UI components

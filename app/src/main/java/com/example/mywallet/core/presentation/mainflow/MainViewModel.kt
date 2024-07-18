@@ -2,8 +2,8 @@ package com.example.mywallet.core.presentation.mainflow
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.mywallet.core.data.user.User
-import com.example.mywallet.core.domain.user.UserRepository
+import com.example.core.data.User
+import com.example.core.domain.user.UserRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
