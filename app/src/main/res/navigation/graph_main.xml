@@ -55,7 +55,7 @@
 
     <fragment
         android:id="@+id/navigation_statics"
-        android:name="com.example.mywallet.features.statics.presentation.StaticsFragment"
+        android:name="com.example.features.statics.data.presentation.StaticsFragment"
         android:label="@string/nav_label_statics"
         tools:layout="@layout/fragment_statics" />
 

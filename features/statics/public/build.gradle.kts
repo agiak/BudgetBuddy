@@ -34,9 +34,17 @@ android {
     kotlinOptions {
         jvmTarget = libs.versions.java.get()
     }
+    buildFeatures {
+        buildConfig = true
+        viewBinding = true
+    }
 }
 
 dependencies {
+
+    // Implement 2 shared-common modules
+    implementation(project(":common"))
+    implementation(project(":core"))
 
     // UI components
     implementation(libs.bundles.ui.components)
