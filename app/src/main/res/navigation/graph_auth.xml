@@ -23,7 +23,7 @@
 
     <fragment
         android:id="@+id/navigation_quide"
-        android:name="com.example.mywallet.features.activation.guide.presentation.GuideFragment"
+        android:name="com.example.feature.quide.presentation.GuideFragment"
         android:label="@string/nav_label_guide"
         tools:layout="@layout/fragment_guide" >
         <action
@@ -35,7 +35,7 @@
 
     <fragment
         android:id="@+id/navigation_register"
-        android:name="com.example.mywallet.features.activation.register.presentation.RegisterFragment"
+        android:name="com.example.features.register.presentation.RegisterFragment"
         android:label="@string/nav_label_register"
         tools:layout="@layout/fragment_register" >
         <action

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="guide_step1">Keep track your money</string>
+    <string name="guide_step2">Move money from pocket to pocket</string>
+    <string name="guide_step3">See analyzed stats for your accounts</string>
+</resources>
