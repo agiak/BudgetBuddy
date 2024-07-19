@@ -1,4 +1,4 @@
-package com.example.mywallet.features.statics.presentation.viewholders.common
+package com.example.features.statics.impl.data.presentation.viewholders.common
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -7,9 +7,8 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.core.presentation.ext.addDividerDecorator
-import com.example.features.statics.data.data.CommonStatCategory
-import com.example.features.statics.data.presentation.viewholders.common.CommonStatFieldAdapter
-import com.example.features.statics.databinding.ItemStaticsCommonCategoryBinding
+import com.example.features.statics.impl.data.data.CommonStatCategory
+import com.example.features.statics.impl.databinding.ItemStaticsCommonCategoryBinding
 
 class CommonStatCategoryAdapter :
     ListAdapter<CommonStatCategory, CommonStatCategoryAdapter.CommonStatViewHolder>(

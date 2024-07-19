@@ -1,12 +1,12 @@
-package com.example.mywallet.features.statics.presentation
+package com.example.features.statics.impl.data.presentation
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.features.statics.data.data.StaticsItem
-import com.example.features.statics.data.presentation.viewholders.StaticsItemViewHolderFactory
-import com.example.features.statics.data.presentation.viewholders.common.CommonStatsViewHolder
+import com.example.features.statics.impl.data.data.StaticsItem
+import com.example.features.statics.impl.data.presentation.viewholders.StaticsItemViewHolderFactory
+import com.example.features.statics.impl.data.presentation.viewholders.common.CommonStatsViewHolder
 
 class StaticsAdapter(
     private val viewHolderFactories: List<StaticsItemViewHolderFactory<out StaticsItem>>

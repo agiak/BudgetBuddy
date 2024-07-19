@@ -1,9 +1,8 @@
-package com.example.features.statics.data.presentation.viewholders.common
+package com.example.features.statics.impl.data.presentation.viewholders.common
 
 import androidx.recyclerview.widget.RecyclerView
-import com.example.features.statics.data.data.StaticsItem
-import com.example.features.statics.databinding.ItemStaticsCommonStatsBinding
-import com.example.mywallet.features.statics.presentation.viewholders.common.CommonStatCategoryAdapter
+import com.example.features.statics.impl.data.data.StaticsItem
+import com.example.features.statics.impl.databinding.ItemStaticsCommonStatsBinding
 
 class CommonStatsViewHolder(
     private val binding: ItemStaticsCommonStatsBinding,

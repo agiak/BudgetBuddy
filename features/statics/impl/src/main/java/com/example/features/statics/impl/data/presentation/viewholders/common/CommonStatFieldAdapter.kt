@@ -1,4 +1,4 @@
-package com.example.features.statics.data.presentation.viewholders.common
+package com.example.features.statics.impl.data.presentation.viewholders.common
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -6,8 +6,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.features.statics.data.data.CommonStatField
-import com.example.features.statics.databinding.ItemStaticsCommonStatRowBinding
+import com.example.features.statics.impl.data.data.CommonStatField
+import com.example.features.statics.impl.databinding.ItemStaticsCommonStatRowBinding
 
 class CommonStatFieldAdapter :
     ListAdapter<CommonStatField, CommonStatFieldAdapter.CommonStatFieldViewHolder>(

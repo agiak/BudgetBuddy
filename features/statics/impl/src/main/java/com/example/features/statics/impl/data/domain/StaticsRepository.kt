@@ -1,4 +1,4 @@
-package com.example.features.statics.data.domain
+package com.example.features.statics.impl.data.domain
 
 import com.example.core.data.bank.Bank
 import com.example.core.storage.data.AccountDB

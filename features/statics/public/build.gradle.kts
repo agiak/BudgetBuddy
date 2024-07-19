@@ -45,6 +45,7 @@ dependencies {
     // Implement 2 shared-common modules
     implementation(project(":common"))
     implementation(project(":core"))
+    implementation(project(":features:statics:impl"))
 
     // UI components
     implementation(libs.bundles.ui.components)

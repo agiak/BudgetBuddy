@@ -1,4 +1,4 @@
-package com.example.features.statics.data.data
+package com.example.features.statics.impl.data.data
 
 import com.example.core.data.bank.Bank
 import com.example.core.data.common.TransactionType

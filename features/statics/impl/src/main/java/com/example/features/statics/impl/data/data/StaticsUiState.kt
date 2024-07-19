@@ -1,4 +1,4 @@
-package com.example.features.statics.data.data
+package com.example.features.statics.impl.data.data
 
 sealed class StaticsUiState {
     data object Idle : StaticsUiState()
