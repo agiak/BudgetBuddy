@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="statics_common_stat_category_accounts">Most valuable accounts</string>
+    <string name="statics_common_stat_category_transactions">Larger transactions</string>
+    <string name="statics_common_stat_category_accounts_with_most_transactions">Accounts with most transactions</string>
+    <string name="statics_common_stat_category_trusted_banks">Most trusted banks</string>
+
+</resources>

@@ -6,6 +6,7 @@ import com.example.core.data.bank.Bank
 import com.example.core.domain.dispatchers.IDispatchers
 import com.example.core.storage.data.AccountDB
 import com.example.core.storage.data.TransactionDB
+import com.example.features.statics.R
 import com.example.features.statics.impl.data.data.CommonStatCategory
 import com.example.features.statics.impl.data.data.StaticsItem
 import com.example.features.statics.impl.data.data.StaticsUiState
@@ -75,19 +76,19 @@ class StaticsViewModel @Inject constructor(
 
             val commonStats = listOf(
                 CommonStatCategory(
-                    title = "Most valuable accounts",
+                    title = R.string.statics_common_stat_category_accounts,
                     results = (result[0] as List<AccountDB>).toMostValuableAccounts()
                 ),
                 CommonStatCategory(
-                    title = "Larger transactions",
+                    title = R.string.statics_common_stat_category_transactions,
                     results = (result[1] as List<TransactionDB>).toLargerTransactions()
                 ),
                 CommonStatCategory(
-                    title = "Accounts with most transactions",
+                    title = R.string.statics_common_stat_category_accounts_with_most_transactions,
                     results = (result[2] as Map<AccountDB, Int>).toMostUsedAccounts()
                 ),
                 CommonStatCategory(
-                    title = "Most trusted banks",
+                    title = R.string.statics_common_stat_category_trusted_banks,
                     results = (result[3] as Map<Bank, Double>).toMostTrustedBanks()
                 ),
             )

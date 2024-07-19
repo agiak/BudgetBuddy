@@ -34,7 +34,7 @@ class CommonStatCategoryAdapter :
 
         fun bind(commonStatCategory: CommonStatCategory) {
             with(commonStatCategory) {
-                binding.title.text = commonStatCategory.title
+                binding.title.text = context.getString(commonStatCategory.title)
                 val fieldAdapter = CommonStatFieldAdapter()
                 binding.fieldList.apply {
                     adapter = fieldAdapter
