@@ -8,7 +8,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.features.statics.impl"
+    namespace = "com.example.feature.quicklogin"
     compileSdk = libs.versions.compileSdk.get().toInt()
 
     defaultConfig {
@@ -45,6 +45,7 @@ dependencies {
     // Implement 2 shared-common modules
     implementation(project(":common"))
     implementation(project(":core"))
+    implementation(project(":features:statics:impl"))
 
     // UI components
     implementation(libs.bundles.ui.components)
@@ -52,12 +53,12 @@ dependencies {
     // Lifecycle components
     implementation(libs.bundles.lifecycle.components)
 
+    // Navigation
+    implementation(libs.bundles.navigation)
+
     // Dagger - Hilt
     implementation(libs.bundles.hilt)
     kapt(libs.hilt.compiler)
-
-    // Shared preferences
-    implementation(libs.hawk)
 
     // Logging
     implementation(libs.timber)
