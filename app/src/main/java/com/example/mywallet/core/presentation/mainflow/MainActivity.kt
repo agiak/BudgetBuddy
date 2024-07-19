@@ -12,11 +12,13 @@ import androidx.work.WorkManager
 import com.example.common.myutils.addPrintingBackstack
 import com.example.common.myutils.hide
 import com.example.common.myutils.show
+import com.example.core.data.screens.MainFlow
+import com.example.core.presentation.ext.navigateFromBottom
 import com.example.mywallet.R
 import com.example.mywallet.core.data.application.ScreenType
 import com.example.mywallet.core.data.application.identifyScreenType
-import com.example.core.presentation.ext.navigateFromBottom
 import com.example.mywallet.core.presentation.options.MainActivityLifecycleObserver
+import com.example.mywallet.core.presentation.startAuthFlow
 import com.example.mywallet.databinding.ActivityMainBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import dagger.hilt.android.AndroidEntryPoint
@@ -25,7 +27,7 @@ import kotlinx.coroutines.launch
 import timber.log.Timber
 
 @AndroidEntryPoint
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), MainFlow {
 
     private lateinit var binding: ActivityMainBinding
 
@@ -106,5 +108,7 @@ class MainActivity : AppCompatActivity() {
                 }
             }
     }
+
+    override fun startAuthorizationFlow() { this.startAuthFlow() }
 
 }

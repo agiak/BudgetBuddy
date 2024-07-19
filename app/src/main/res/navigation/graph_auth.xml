@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/navigation_quick_login"
-        android:name="com.example.mywallet.features.activation.quicklogin.presentation.QuickLoginFragment"
+        android:name="com.example.quicklogin.presentation.QuickLoginFragment"
         android:label="@string/nav_label_quick_login"
         tools:layout="@layout/fragment_quick_login" >
         <action
@@ -29,6 +29,8 @@
         <action
             android:id="@+id/action_navigation_quide_to_navigation_register"
             app:destination="@id/navigation_register" />
+        <deepLink
+            app:uri="android-app://example.google.app/authentication_guide" />
     </fragment>
 
     <fragment
@@ -39,11 +41,16 @@
         <action
             android:id="@+id/action_navigation_register_to_navigation_add_account"
             app:destination="@id/navigation_add_account" />
+        <deepLink
+            app:uri="android-app://example.google.app/authentication_register" />
     </fragment>
 
     <fragment
         android:id="@+id/navigation_add_account"
         android:name="com.example.mywallet.features.account.accountAdd.presentation.AccountAddFragment"
         android:label="@string/nav_label_add_account"
-        tools:layout="@layout/fragment_add_account" />
+        tools:layout="@layout/fragment_add_account">
+        <deepLink
+            app:uri="android-app://example.google.app/authentication_create_account" />
+    </fragment>
 </navigation>

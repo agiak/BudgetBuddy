@@ -5,6 +5,6 @@ fun interface GuideRepository {
     fun setGuideToDisplayed()
 
     companion object {
-        val GUIDE_KEY = "guide_key["
+        val GUIDE_KEY = "guide_key"
     }
 }

@@ -1,10 +1,10 @@
-package com.example.mywallet.features.activation.quicklogin.di
+package com.example.features.quicklogin.impl.di
 
-import com.example.core.storage.domain.sharedprefs.PreferenceManager
 import com.example.core.domain.dispatchers.IDispatchers
-import com.example.mywallet.features.activation.quicklogin.domain.QuickLoginRepository
-import com.example.mywallet.features.activation.quicklogin.domain.QuickLoginRepositoryImpl
 import com.example.core.storage.domain.database.daos.AccountDao
+import com.example.core.storage.domain.sharedprefs.PreferenceManager
+import com.example.features.quicklogin.impl.domain.QuickLoginRepository
+import com.example.features.quicklogin.impl.domain.QuickLoginRepositoryImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

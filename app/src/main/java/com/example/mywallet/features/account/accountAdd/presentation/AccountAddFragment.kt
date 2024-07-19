@@ -18,9 +18,9 @@ import com.example.common.myutils.showToast
 import com.example.core.data.bank.Bank
 import com.example.core.data.bank.toBankSelectionList
 import com.example.core.presentation.bank.BankAdapter
+import com.example.core.presentation.ext.isMainFlow
 import com.example.mywallet.R
-import com.example.mywallet.core.presentation.isMainFlow
-import com.example.mywallet.core.presentation.startMainFlow
+import com.example.mywallet.core.presentation.openMainFlow
 import com.example.mywallet.databinding.FragmentAddAccountBinding
 import com.example.mywallet.features.account.accountAdd.data.AccountNew
 import dagger.hilt.android.AndroidEntryPoint
@@ -85,7 +85,7 @@ class AccountAddFragment : Fragment() {
     private fun onSuccess() {
         when {
             isMainFlow() -> findNavController().popBackStack()
-            else -> requireContext().startMainFlow()
+            else -> requireContext().openMainFlow()
         }
     }
 

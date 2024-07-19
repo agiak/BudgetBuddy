@@ -1,4 +1,4 @@
-package com.example.mywallet.features.activation.quicklogin.data
+package com.example.features.quicklogin.impl.data
 
 sealed class QuickLoginState {
     data object Loading: QuickLoginState()

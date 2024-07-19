@@ -1,4 +1,4 @@
-package com.example.mywallet.features.activation.quicklogin.presentation
+package com.example.quicklogin.presentation
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,13 +6,17 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.findNavController
 import com.example.common.myutils.setLightStatusBars
+import com.example.core.data.screens.AuthorizationFlow
+import com.example.core.presentation.createAccountScreen
 import com.example.core.presentation.ext.launchWhenResumed
-import com.example.mywallet.core.presentation.startMainFlow
-import com.example.mywallet.databinding.FragmentQuickLoginBinding
-import com.example.mywallet.features.activation.quicklogin.data.QuickLoginState
-import com.example.mywallet.features.activation.quicklogin.data.UserState
+import com.example.core.presentation.ext.navigateToScreen
+import com.example.core.presentation.guideScreen
+import com.example.core.presentation.registerScreen
+import com.example.feature.quicklogin.R
+import com.example.feature.quicklogin.databinding.FragmentQuickLoginBinding
+import com.example.features.quicklogin.impl.data.QuickLoginState
+import com.example.features.quicklogin.impl.data.UserState
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import timber.log.Timber
@@ -45,7 +49,7 @@ class QuickLoginFragment : Fragment() {
             viewModel.state.collectLatest { state->
                 when(state) {
                     QuickLoginState.Loading -> {
-                        binding.lblStatus.text = "Loading"
+                        binding.lblStatus.text = getString(R.string.quick_login_loading)
                     }
                     is QuickLoginState.Result -> {
                         Timber.d("user state is ${state.userState}")
@@ -53,7 +57,7 @@ class QuickLoginFragment : Fragment() {
                             UserState.Uneducated -> navigateToGuide()
                             UserState.Unregister -> navigateToRegister()
                             UserState.Unsetted -> navigateToCreateAccount()
-                            UserState.Valid -> requireActivity().startMainFlow()
+                            UserState.Valid -> (requireActivity() as AuthorizationFlow).startMainFlow()
                         }
                     }
                     is QuickLoginState.Error -> {
@@ -64,14 +68,11 @@ class QuickLoginFragment : Fragment() {
         }
     }
 
-    private fun navigateToRegister() =
-        findNavController().navigate(QuickLoginFragmentDirections.actionNavigationQuickLoginToNavigationRegister())
+    private fun navigateToRegister() = navigateToScreen(registerScreen)
 
-    private fun navigateToGuide() =
-        findNavController().navigate(QuickLoginFragmentDirections.actionNavigationQuickLoginToNavigationQuide())
+    private fun navigateToGuide() = navigateToScreen(guideScreen)
 
-    private fun navigateToCreateAccount() =
-        findNavController().navigate(QuickLoginFragmentDirections.actionNavigationQuickLoginToNavigationAddAccount())
+    private fun navigateToCreateAccount() = navigateToScreen(createAccountScreen)
 
     override fun onDestroyView() {
         super.onDestroyView()

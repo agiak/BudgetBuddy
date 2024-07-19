@@ -10,7 +10,7 @@ import androidx.lifecycle.lifecycleScope
 import com.example.common.myutils.setLightStatusBars
 import com.example.core.data.User
 import com.example.core.presentation.ext.navigateToNextScreen
-import com.example.mywallet.core.presentation.startMainFlow
+import com.example.mywallet.core.presentation.openMainFlow
 import com.example.mywallet.databinding.FragmentRegisterBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
@@ -67,7 +67,7 @@ class RegisterFragment : Fragment() {
     private fun navigateToNextScreen() {
         when (hasAccounts) {
             false -> navigateToAddAccountScreen()
-            else -> requireContext().startMainFlow()
+            else -> requireContext().openMainFlow()
         }
     }
 

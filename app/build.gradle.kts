@@ -55,6 +55,8 @@ dependencies {
     // Features
     implementation(project(":features:home:public"))
     implementation(project(":features:statics:public"))
+    implementation(project(":features:quicklogin:public"))
+
     implementation(libs.bundles.kotlin.main)
 
     // UI components

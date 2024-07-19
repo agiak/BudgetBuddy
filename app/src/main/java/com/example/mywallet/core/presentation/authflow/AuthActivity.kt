@@ -8,13 +8,15 @@ import androidx.core.view.isVisible
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import com.example.common.myutils.addPrintingBackstack
-import com.example.mywallet.features.activation.splash.SplashViewModel
+import com.example.core.data.screens.AuthorizationFlow
 import com.example.mywallet.R
+import com.example.mywallet.core.presentation.openMainFlow
 import com.example.mywallet.databinding.ActivityAuthBinding
+import com.example.mywallet.features.activation.splash.SplashViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class AuthActivity : AppCompatActivity() {
+class AuthActivity : AppCompatActivity(), AuthorizationFlow {
 
     private lateinit var binding: ActivityAuthBinding
 
@@ -58,4 +60,6 @@ class AuthActivity : AppCompatActivity() {
             }
         }
     }
+
+    override fun startMainFlow() { this.openMainFlow() }
 }
