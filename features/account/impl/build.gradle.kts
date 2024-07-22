@@ -1,6 +1,5 @@
-@Suppress("DSL_SCOPE_VIOLATION") // TODO: Remove once KTIJ-19369 is fixed
 plugins {
-    alias(libs.plugins.androidApplication)
+    alias(libs.plugins.androidLibrary)
     alias(libs.plugins.kotlinAndroid)
     alias(libs.plugins.kotlin.kapt)
     alias(libs.plugins.hilt)
@@ -9,17 +8,14 @@ plugins {
 }
 
 android {
-    namespace = "com.example.mywallet"
+    namespace = "com.example.features.account.impl"
     compileSdk = libs.versions.compileSdk.get().toInt()
 
     defaultConfig {
-        applicationId = "com.example.mywallet"
         minSdk = libs.versions.minSdk.get().toInt()
-        targetSdk = libs.versions.targetSdk.get().toInt()
-        versionCode = 1
-        versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles("consumer-rules.pro")
     }
 
     buildTypes {
@@ -35,33 +31,20 @@ android {
         sourceCompatibility = JavaVersion.toVersion(libs.versions.java.get().toInt())
         targetCompatibility = JavaVersion.toVersion(libs.versions.java.get().toInt())
     }
+    kotlinOptions {
+        jvmTarget = libs.versions.java.get()
+    }
     buildFeatures {
         buildConfig = true
         viewBinding = true
     }
-    kotlinOptions {
-        jvmTarget = libs.versions.java.get()
-    }
-    kapt {
-        correctErrorTypes = true
-    }
 }
 
 dependencies {
-    
+
+    // Implement 2 shared-common modules
     implementation(project(":common"))
     implementation(project(":core"))
-
-    // Features
-    implementation(project(":features:home:public"))
-    implementation(project(":features:statics:public"))
-    implementation(project(":features:quicklogin:public"))
-    implementation(project(":features:register:public"))
-    implementation(project(":features:guide:public"))
-    implementation(project(":features:account:public"))
-
-    // Kotlin
-    implementation(libs.bundles.kotlin.main)
 
     // UI components
     implementation(libs.bundles.ui.components)
@@ -73,32 +56,8 @@ dependencies {
     implementation(libs.bundles.hilt)
     kapt(libs.hilt.compiler)
 
-    // Navigation
-    implementation(libs.bundles.navigation)
-
-    // Network (Retrofit)
-    implementation(libs.bundles.network)
-
-    // Local database (Room)
-    implementation(libs.bundles.room)
-    annotationProcessor(libs.room.compiler)
-    kapt(libs.room.compiler)
-    implementation(libs.hawk)
-
-    // WorkManager
-    implementation(libs.workManager)
-
-    // OpenAI
-    implementation(libs.bundles.chatGPT)
-
-    // Image loading
-    implementation(libs.glide)
-
     // Logging
     implementation(libs.timber)
-
-    // CSV parsing library
-    implementation(libs.bundles.csv.parsing)
 
     // Testing
     testImplementation(libs.bundles.testImplementationLibs)
