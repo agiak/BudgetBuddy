@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/graph_rules"
+    app:startDestination="@+id/navigation_rules">
+
+    <fragment
+        android:id="@+id/navigation_rules"
+        android:name="com.example.features.rules.allRules.presentation.RulesFragment"
+        android:label="@string/nav_label_rules"
+        tools:layout="@layout/fragment_rules" >
+        <action
+            android:id="@+id/action_navigation_rules_to_navigation_rule_salary"
+            app:destination="@id/navigation_rule_salary" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_rule_salary"
+        android:name="com.example.features.rules.salary.presentation.SalaryFragment"
+        android:label="@string/nav_label_rule_salary"
+        tools:layout="@layout/fragment_rule_salary" />
+
+</navigation>

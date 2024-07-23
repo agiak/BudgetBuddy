@@ -1,14 +1,18 @@
 plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.kotlinAndroid)
+    alias(libs.plugins.kotlin.kapt)
+    alias(libs.plugins.hilt)
+    alias(libs.plugins.navigation.safeargs)
+    alias(libs.plugins.ksp)
 }
 
 android {
     namespace = "com.example.features.rules.impl"
-    compileSdk = 34
+    compileSdk = libs.versions.compileSdk.get().toInt()
 
     defaultConfig {
-        minSdk = 24
+        minSdk = libs.versions.minSdk.get().toInt()
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
@@ -24,20 +28,38 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.toVersion(libs.versions.java.get().toInt())
+        targetCompatibility = JavaVersion.toVersion(libs.versions.java.get().toInt())
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = libs.versions.java.get()
+    }
+    buildFeatures {
+        buildConfig = true
+        viewBinding = true
     }
 }
 
 dependencies {
 
-    implementation(libs.core.ktx)
-    implementation(libs.appcompat)
-    implementation(libs.material)
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.test.ext.junit)
-    androidTestImplementation(libs.espresso.core)
+    // Implement 2 shared-common modules
+    implementation(project(":common"))
+    implementation(project(":core"))
+
+    // UI components
+    implementation(libs.bundles.ui.components)
+
+    // Lifecycle components
+    implementation(libs.bundles.lifecycle.components)
+
+    // Dagger - Hilt
+    implementation(libs.bundles.hilt)
+    kapt(libs.hilt.compiler)
+
+    // Logging
+    implementation(libs.timber)
+
+    // Testing
+    testImplementation(libs.bundles.testImplementationLibs)
+    androidTestImplementation(libs.bundles.androidTestImplementationLibs)
 }

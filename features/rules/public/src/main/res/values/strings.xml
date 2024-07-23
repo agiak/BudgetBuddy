@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="nav_label_rules">Rules</string>
+    <string name="nav_label_rule_salary">Salary Rule</string>
+
+    <string name="rule_screen_title">Add your rules now</string>
+
+    <string name="salary_screen_title">Set up your salary payment</string>
+    <string name="string_add_transaction">Add Transaction</string>
+
+    <string-array name="notification_channels_ids">
+        <item>channel_general</item>
+
+    </string-array>
+
+    <string-array name="notification_channels_names">
+        <item>General channel</item>
+    </string-array>
+
+    <string-array name="notification_channels_descriptions">
+        <item>General channel contains general information</item>
+    </string-array>
+
+    <string name="notification_salary_title">Monthly salary</string>
+
+</resources>

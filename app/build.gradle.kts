@@ -57,6 +57,7 @@ dependencies {
     implementation(project(":features:statics:public"))
     implementation(project(":features:quicklogin:public"))
     implementation(project(":features:register:public"))
+    implementation(project(":features:rules:public"))
     implementation(project(":features:guide:public"))
     implementation(project(":features:accounts:public"))
     implementation(project(":features:account:public"))

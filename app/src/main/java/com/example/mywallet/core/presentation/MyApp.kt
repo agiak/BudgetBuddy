@@ -8,9 +8,9 @@ import android.os.Build
 import android.util.Log
 import androidx.annotation.RequiresApi
 import androidx.work.Configuration
+import com.example.features.rules.salary.domain.SalaryWorkerFactory
 import com.example.mywallet.BuildConfig
 import com.example.mywallet.R
-import com.example.mywallet.features.rulesModule.ruleSalary.domain.SalaryWorkerFactory
 import dagger.hilt.android.HiltAndroidApp
 import timber.log.Timber
 import timber.log.Timber.DebugTree
