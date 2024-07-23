@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="nav_label_accounts">Accounts</string>
+    <string name="nav_label_filter_accounts">Filter accounts</string>
+    <string name="nav_label_add_account">Add Account</string>
+
+    <string name="filter_accounts_group_by_bank">Group by Bank</string>
+
+    <string name="filter_accounts_order_by_descending">Descending</string>
+    <string name="filter_accounts_order_by_ascending">Ascending</string>
+    <string name="filter_accounts_order_by_date_adding">Date adding</string>
+
+    <string name="filter_accounts_action_button">Apply filters</string>
+
+</resources>

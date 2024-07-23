@@ -9,3 +9,6 @@ const val createAccountScreen = "android-app://example.google.app/authentication
 // Rules flow
 const val rulesScreen = ""
 const val rulesSalaryScreen = ""
+
+// Add account flow
+const val addAccountScreen = "android-app://example.google.app/addAccount"
