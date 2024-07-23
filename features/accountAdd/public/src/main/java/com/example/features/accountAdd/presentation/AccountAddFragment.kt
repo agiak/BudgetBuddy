@@ -14,6 +14,7 @@ import com.example.common.myutils.hide
 import com.example.common.myutils.onDateListener
 import com.example.common.myutils.setLightStatusBars
 import com.example.common.myutils.show
+import com.example.common.myutils.showSnackBar
 import com.example.common.myutils.showToast
 import com.example.core.data.bank.Bank
 import com.example.core.data.bank.toBankSelectionList
@@ -84,7 +85,10 @@ class AccountAddFragment : Fragment() {
 
     private fun onSuccess() {
         when {
-            isMainFlow() -> findNavController().popBackStack()
+            isMainFlow() -> {
+                showSnackBar(getString(R.string.account_added_successfully))
+                findNavController().popBackStack()
+            }
             else -> (requireActivity() as? AuthorizationFlow)?.startMainFlow()
         }
     }

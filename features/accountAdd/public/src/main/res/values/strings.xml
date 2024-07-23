@@ -3,5 +3,6 @@
 
     <string name="add_account_screen_title">Create account by connecting it with your bank</string>
     <string name="add_account_action_button">Create account</string>
+    <string name="account_added_successfully">Account added successfully</string>
 
 </resources>
