@@ -19,7 +19,11 @@ class TransactionsViewModel @Inject constructor(
 ) : ViewModel() {
 
     val transactions: StateFlow<List<Transaction>> = repository.fetchTransactions()
-        .map { storedTransactions -> storedTransactions.toTransactions() }
+        .map { storedTransactions ->
+            storedTransactions
+                .toTransactions()
+                .sortedByDescending { it.id }
+        }
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(), emptyList())
 
     fun deleteTransaction(accountID: Long) {
