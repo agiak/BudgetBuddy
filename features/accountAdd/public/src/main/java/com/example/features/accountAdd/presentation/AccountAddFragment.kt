@@ -1,4 +1,4 @@
-package com.example.mywallet.features.account.accountAdd.presentation
+package com.example.features.accountAdd.presentation
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -17,12 +17,12 @@ import com.example.common.myutils.show
 import com.example.common.myutils.showToast
 import com.example.core.data.bank.Bank
 import com.example.core.data.bank.toBankSelectionList
+import com.example.core.data.screens.AuthorizationFlow
 import com.example.core.presentation.bank.BankAdapter
 import com.example.core.presentation.ext.isMainFlow
-import com.example.mywallet.R
-import com.example.mywallet.core.presentation.openMainFlow
-import com.example.mywallet.databinding.FragmentAddAccountBinding
-import com.example.mywallet.features.account.accountAdd.data.AccountNew
+import com.example.features.accountAdd.R
+import com.example.features.accountAdd.databinding.FragmentAddAccountBinding
+import com.example.features.accountAdd.impl.data.AccountNew
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -85,7 +85,7 @@ class AccountAddFragment : Fragment() {
     private fun onSuccess() {
         when {
             isMainFlow() -> findNavController().popBackStack()
-            else -> requireContext().openMainFlow()
+            else -> (requireActivity() as? AuthorizationFlow)?.startMainFlow()
         }
     }
 

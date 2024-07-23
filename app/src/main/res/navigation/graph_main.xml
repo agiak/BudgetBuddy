@@ -61,7 +61,7 @@
 
     <fragment
         android:id="@+id/navigation_add_account"
-        android:name="com.example.mywallet.features.account.accountAdd.presentation.AccountAddFragment"
+        android:name="com.example.features.accountAdd.presentation.AccountAddFragment"
         android:label="@string/nav_label_add_account"
         tools:layout="@layout/fragment_add_account" />
 

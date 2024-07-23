@@ -1,4 +1,4 @@
-package com.example.mywallet.features.account.accountAdd.domain
+package com.example.features.accountAdd.impl.domain
 
 import com.example.core.storage.data.AccountDB
 

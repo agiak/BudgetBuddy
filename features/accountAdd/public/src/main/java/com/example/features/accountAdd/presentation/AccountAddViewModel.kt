@@ -1,10 +1,10 @@
-package com.example.mywallet.features.account.accountAdd.presentation
+package com.example.features.accountAdd.presentation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.mywallet.features.account.accountAdd.data.AccountNew
-import com.example.mywallet.features.account.accountAdd.data.toAccountDB
-import com.example.mywallet.features.account.accountAdd.domain.AddAccountRepository
+import com.example.features.accountAdd.impl.data.AccountNew
+import com.example.features.accountAdd.impl.data.toAccountDB
+import com.example.features.accountAdd.impl.domain.AddAccountRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
