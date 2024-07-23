@@ -7,14 +7,14 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Filter
 import com.example.mywallet.databinding.ItemAccountAddTransactionBinding
-import com.example.mywallet.features.transactionsModule.transactionAdd.data.AccountSelection
+import com.example.mywallet.features.rulesModule.ruleSalary.data.SelectedAccount
 
 class SalaryAccountsAdapter(
     private val context: Context,
-    private val accounts: List<AccountSelection>
-) : ArrayAdapter<AccountSelection>(context, 0, accounts) {
+    private val accounts: List<SelectedAccount>
+) : ArrayAdapter<SelectedAccount>(context, 0, accounts) {
 
-    private var filteredAccounts: List<AccountSelection> = accounts
+    private var filteredAccounts: List<SelectedAccount> = accounts
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
         val binding: ItemAccountAddTransactionBinding
@@ -50,7 +50,7 @@ class SalaryAccountsAdapter(
         return filteredAccounts.size
     }
 
-    override fun getItem(position: Int): AccountSelection? {
+    override fun getItem(position: Int): SelectedAccount? {
         return filteredAccounts[position]
     }
 
@@ -78,7 +78,7 @@ class SalaryAccountsAdapter(
 
         @Suppress("UNCHECKED_CAST")
         override fun publishResults(constraint: CharSequence?, results: FilterResults?) {
-            filteredAccounts = results?.values as List<AccountSelection>
+            filteredAccounts = results?.values as List<SelectedAccount>
             notifyDataSetChanged()
         }
     }

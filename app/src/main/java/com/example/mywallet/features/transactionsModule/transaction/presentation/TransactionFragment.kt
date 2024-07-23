@@ -11,13 +11,12 @@ import com.example.common.myutils.hide
 import com.example.common.myutils.setLightStatusBars
 import com.example.mywallet.R
 import com.example.mywallet.databinding.FragmentTransactionBinding
-import com.example.mywallet.features.transactionsModule.transactionAdd.presentation.TransactionAddViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class TransactionFragment : Fragment() {
 
-    private val viewModel: TransactionAddViewModel by viewModels()
+    private val viewModel: TransactionViewModel by viewModels()
 
     private var _binding: FragmentTransactionBinding? = null
     private val binding get() = _binding!!

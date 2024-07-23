@@ -77,7 +77,7 @@
 
     <fragment
         android:id="@+id/navigation_transaction_add"
-        android:name="com.example.mywallet.features.transactionsModule.transactionAdd.presentation.TransactionAddFragment"
+        android:name="com.example.features.transactionAdd.presentation.TransactionAddFragment"
         android:label="@string/nav_label_add_transaction"
         tools:layout="@layout/fragment_transaction_add" />
 

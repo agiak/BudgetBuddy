@@ -60,6 +60,7 @@ dependencies {
     implementation(project(":features:guide:public"))
     implementation(project(":features:account:public"))
     implementation(project(":features:accountAdd:public"))
+    implementation(project(":features:transactionAdd:public"))
 
     // Kotlin
     implementation(libs.bundles.kotlin.main)

@@ -17,16 +17,16 @@ import com.example.common.myutils.hideKeyboard
 import com.example.common.myutils.setLightStatusBars
 import com.example.common.myutils.show
 import com.example.common.myutils.showToast
-import com.example.mywallet.R
 import com.example.core.data.common.AppValues
 import com.example.core.presentation.ext.isPermissionGranted
 import com.example.core.presentation.ext.launchWhenResumed
+import com.example.mywallet.R
 import com.example.mywallet.databinding.FragmentRuleSalaryBinding
 import com.example.mywallet.features.rulesModule.ruleSalary.data.SalaryRuleData
 import com.example.mywallet.features.rulesModule.ruleSalary.data.SalaryState
-import com.example.mywallet.features.transactionsModule.transactionAdd.data.AccountSelection
-import com.example.mywallet.features.transactionsModule.transactionAdd.data.toAccountSelection
-import com.example.mywallet.features.transactionsModule.transactionAdd.data.toAccountSelections
+import com.example.mywallet.features.rulesModule.ruleSalary.data.SelectedAccount
+import com.example.mywallet.features.rulesModule.ruleSalary.data.toAccountSelectedList
+import com.example.mywallet.features.rulesModule.ruleSalary.data.toSelectedAccount
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 
@@ -38,7 +38,7 @@ class SalaryFragment : Fragment() {
     private var _binding: FragmentRuleSalaryBinding? = null
     private val binding get() = _binding!!
 
-    private var selectedAccount: AccountSelection? = null
+    private var selectedAccount: SelectedAccount? = null
     private lateinit var accountsAdapter: SalaryAccountsAdapter
 
     @RequiresApi(Build.VERSION_CODES.TIRAMISU)
@@ -105,7 +105,7 @@ class SalaryFragment : Fragment() {
         binding.switchEnable.isChecked = true
         binding.bankField.setText(currentRuleState.account.name)
         selectedAccount = AppValues.accounts.find { it.name == currentRuleState.account.name }
-            ?.toAccountSelection() //TODO needs improvement
+            ?.toSelectedAccount() //TODO needs improvement
         binding.amountField.setText(currentRuleState.amount.toString())
     }
 
@@ -125,12 +125,12 @@ class SalaryFragment : Fragment() {
 
         accountsAdapter = SalaryAccountsAdapter(
             context = requireContext(),
-            accounts = AppValues.accounts.toAccountSelections()
+            accounts = AppValues.accounts.toAccountSelectedList()
         )
         binding.bankField.apply {
             setAdapter(accountsAdapter)
             setOnItemClickListener { parent, view, position, id ->
-                selectedAccount = parent.getItemAtPosition(position) as? AccountSelection?
+                selectedAccount = parent.getItemAtPosition(position) as? SelectedAccount?
                 hideKeyboard()
             }
         }

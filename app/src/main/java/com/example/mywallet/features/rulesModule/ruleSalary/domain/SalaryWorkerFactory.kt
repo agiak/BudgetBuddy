@@ -4,12 +4,11 @@ import android.content.Context
 import androidx.work.ListenableWorker
 import androidx.work.WorkerFactory
 import androidx.work.WorkerParameters
-import com.example.mywallet.features.transactionsModule.transactionAdd.domain.TransactionAddRepository
 import com.example.core.storage.domain.database.daos.RuleDao
 import javax.inject.Inject
 
 class SalaryWorkerFactory @Inject constructor(
-    private val repository: TransactionAddRepository, //TODO this needs to be changed
+    private val repository: SalaryTransactionRepository,
     private val ruleDao: RuleDao,
 ): WorkerFactory() {
     override fun createWorker(

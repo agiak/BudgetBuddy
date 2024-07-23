@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-
-    <string name="add_account_screen_title">Create account by connecting it with your bank</string>
-    <string name="add_account_action_button">Create account</string>
-
-</resources>

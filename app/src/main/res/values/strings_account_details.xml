@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-
-    <string name="account_details_activity_income">Income: %1$s</string>
-    <string name="account_details_activity_outcome">Outcome: %1$s</string>
-    <string name="account_details_activity_num_transactions">Number of transactions: %1$s</string>
-    <string name="account_details_activity_change">Growth from last month: %1$s</string>
-
-</resources>

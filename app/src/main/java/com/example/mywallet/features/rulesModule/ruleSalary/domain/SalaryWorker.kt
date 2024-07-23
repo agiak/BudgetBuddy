@@ -13,15 +13,14 @@ import androidx.work.ExistingPeriodicWorkPolicy
 import androidx.work.PeriodicWorkRequestBuilder
 import androidx.work.WorkManager
 import androidx.work.WorkerParameters
-import com.example.mywallet.R
 import com.example.core.data.common.TransactionType
+import com.example.core.data.rule.Rule
 import com.example.core.domain.ext.getCurrentDateFormatted
 import com.example.core.domain.ext.getCurrentDateTime
-import com.example.core.data.rule.Rule
-import com.example.mywallet.features.transactionsModule.transactionAdd.domain.TransactionAddRepository
 import com.example.core.storage.data.RuleDB
 import com.example.core.storage.data.TransactionDB
 import com.example.core.storage.domain.database.daos.RuleDao
+import com.example.mywallet.R
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedInject
 import kotlinx.coroutines.runBlocking
@@ -35,7 +34,7 @@ private const val WORK_TAG = "Salary worker tag"
 class SalaryWorker @AssistedInject constructor(
     @Assisted context: Context,
     @Assisted workerParams: WorkerParameters,
-    private val repository: TransactionAddRepository,
+    private val repository: SalaryTransactionRepository,
     private val ruleDao: RuleDao,
 ) : CoroutineWorker(context, workerParams) {
 
