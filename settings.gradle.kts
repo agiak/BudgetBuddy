@@ -69,3 +69,13 @@ include(":features:transactionAdd:impl")
 include(":features:accounts")
 include(":features:accounts:public")
 include(":features:accounts:impl")
+
+// Transactions feature
+include(":features:transactions")
+include(":features:transactions:public")
+include(":features:transactions:impl")
+
+// Transaction feature
+include(":features:transaction")
+include(":features:transaction:public")
+include(":features:transaction:impl")

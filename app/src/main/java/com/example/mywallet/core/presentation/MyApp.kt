@@ -10,7 +10,6 @@ import androidx.annotation.RequiresApi
 import androidx.work.Configuration
 import com.example.features.rules.salary.domain.SalaryWorkerFactory
 import com.example.mywallet.BuildConfig
-import com.example.mywallet.R
 import dagger.hilt.android.HiltAndroidApp
 import timber.log.Timber
 import timber.log.Timber.DebugTree
@@ -42,9 +41,12 @@ class MyApp : Application(), Configuration.Provider {
     @RequiresApi(Build.VERSION_CODES.O)
     private fun subscribeToNotificationsChannel() {
         val manager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-        val channelsNames = resources.getStringArray(R.array.notification_channels_names)
-        val channelsIds = resources.getStringArray(R.array.notification_channels_ids)
-        val channelsDescriptions = resources.getStringArray(R.array.notification_channels_descriptions)
+        val channelsNames =
+            resources.getStringArray(com.example.features.rules.R.array.notification_channels_names)
+        val channelsIds =
+            resources.getStringArray(com.example.features.rules.R.array.notification_channels_ids)
+        val channelsDescriptions =
+            resources.getStringArray(com.example.features.rules.R.array.notification_channels_descriptions)
 
         val availableChannels = ArrayList<NotificationChannel>().apply {
             channelsIds.forEachIndexed { index, channelID ->

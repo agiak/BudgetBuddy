@@ -8,4 +8,8 @@ fun Int.identifyScreenType(): ScreenType =
         else -> ScreenType.INSIDE
     }
 
-private val menuScreens = listOf(R.id.navigation_home, R.id.navigation_statics, R.id.navigation_transactions)
+private val menuScreens = listOf(
+    R.id.navigation_home,
+    R.id.navigation_statics,
+    com.example.features.transactions.R.id.navigation_transactions
+)

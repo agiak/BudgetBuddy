@@ -19,7 +19,11 @@
         </action>
         <action
             android:id="@+id/action_navigation_home_to_navigation_transaction"
-            app:destination="@id/navigation_transaction" />
+            app:destination="@id/graph_transaction">
+            <argument
+                android:name="transactionId"
+                app:argType="long" />
+        </action>
         <action
             android:id="@+id/action_navigation_home_to_navigation_accounts"
             app:destination="@id/graph_accounts" />
@@ -38,22 +42,6 @@
     </fragment>
 
     <fragment
-        android:id="@+id/navigation_transactions"
-        android:name="com.example.mywallet.features.transactionsModule.transactions.presentation.TransactionsFragment"
-        android:label="@string/nav_label_transactions"
-        tools:layout="@layout/fragment_transactions">
-        <action
-            android:id="@+id/action_navigation_transactions_to_navigation_transaction"
-            app:destination="@id/navigation_transaction" />
-        <action
-            android:id="@+id/action_navigation_transactions_to_navigation_transaction_add"
-            app:destination="@id/navigation_transaction_add" />
-        <action
-            android:id="@+id/action_navigation_transactions_to_navigation_transaction_add_via_file"
-            app:destination="@id/graph_transactions_via_file" />
-    </fragment>
-
-    <fragment
         android:id="@+id/navigation_statics"
         android:name="com.example.features.statics.data.presentation.StaticsFragment"
         android:label="@string/nav_label_statics"
@@ -64,16 +52,6 @@
         android:name="com.example.features.accountAdd.presentation.AccountAddFragment"
         android:label="@string/nav_label_add_account"
         tools:layout="@layout/fragment_add_account" />
-
-    <fragment
-        android:id="@+id/navigation_transaction"
-        android:name="com.example.mywallet.features.transactionsModule.transaction.presentation.TransactionFragment"
-        android:label="@string/nav_label_transaction"
-        tools:layout="@layout/fragment_transaction">
-        <argument
-            android:name="transactionId"
-            app:argType="long" />
-    </fragment>
 
     <fragment
         android:id="@+id/navigation_transaction_add"
@@ -90,5 +68,9 @@
     <include app:graph="@navigation/graph_accounts" />
 
     <include app:graph="@navigation/graph_add_transactions_via_file"/>
+
+    <include app:graph="@navigation/graph_transaction" />
+
+    <include app:graph="@navigation/graph_transactions" />
 
 </navigation>

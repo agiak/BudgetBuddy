@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/graph_transactions"
+    app:startDestination="@id/navigation_transactions">
+
+    <fragment
+        android:id="@+id/navigation_transactions"
+        android:name="com.example.features.transactions.transactions.presentation.TransactionsFragment"
+        android:label="@string/nav_label_transactions"
+        tools:layout="@layout/fragment_transactions">
+        <action
+            android:id="@+id/action_navigation_transactions_to_navigation_transaction"
+            app:destination="@id/graph_transaction">
+
+            <argument
+                android:name="transactionId"
+                app:argType="long" />
+
+        </action>
+        <action
+            android:id="@+id/action_navigation_transactions_to_navigation_add_transaction"
+            app:destination="@id/navigation_add_transaction" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_add_transaction"
+        android:name="com.example.features.transactionAdd.presentation.TransactionAddFragment"
+        android:label="@string/nav_label_add_transaction"
+        tools:layout="@layout/fragment_transaction_add">
+
+        <deepLink
+            app:uri="android-app://example.google.app/addAccount" />
+    </fragment>
+
+    <include app:graph="@navigation/graph_transaction" />
+
+</navigation>
