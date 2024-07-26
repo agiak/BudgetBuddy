@@ -60,7 +60,9 @@ class MainActivity : AppCompatActivity(), MainFlow {
 
     private fun initToolbar() {
         binding.mainToolbar.apply {
-            profileImage.setOnClickListener { navController.navigateFromBottom(com.example.features.profile.R.id.graph_profile) }
+            profileImage.setOnClickListener {
+                navController.navigateFromBottom(com.example.features.profile.R.id.graph_profile)
+            }
         }
     }
 
