@@ -8,7 +8,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.features.transactions"
+    namespace = "com.example.features.transactionsViaFile"
     compileSdk = libs.versions.compileSdk.get().toInt()
 
     defaultConfig {
@@ -17,6 +17,7 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
     }
+
 
     buildTypes {
         release {
@@ -45,12 +46,7 @@ dependencies {
     // Implement 2 shared-common modules
     implementation(project(":common"))
     implementation(project(":core"))
-    implementation(project(":features:transactions:impl"))
-
-    // Extra features
-    implementation(project(":features:transaction:public"))
-    implementation(project(":features:transactionAdd:public"))
-    implementation(project(":features:transactionsViaFile:public"))
+    implementation(project(":features:transactionsViaFile:impl"))
 
     // UI components
     implementation(libs.bundles.ui.components)

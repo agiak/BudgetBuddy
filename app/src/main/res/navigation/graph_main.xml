@@ -67,8 +67,6 @@
 
     <include app:graph="@navigation/graph_accounts" />
 
-    <include app:graph="@navigation/graph_add_transactions_via_file"/>
-
     <include app:graph="@navigation/graph_transaction" />
 
     <include app:graph="@navigation/graph_transactions" />

@@ -8,7 +8,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.features.transactions"
+    namespace = "com.example.features.transactionsViaFile.impl"
     compileSdk = libs.versions.compileSdk.get().toInt()
 
     defaultConfig {
@@ -45,21 +45,12 @@ dependencies {
     // Implement 2 shared-common modules
     implementation(project(":common"))
     implementation(project(":core"))
-    implementation(project(":features:transactions:impl"))
-
-    // Extra features
-    implementation(project(":features:transaction:public"))
-    implementation(project(":features:transactionAdd:public"))
-    implementation(project(":features:transactionsViaFile:public"))
 
     // UI components
     implementation(libs.bundles.ui.components)
 
     // Lifecycle components
     implementation(libs.bundles.lifecycle.components)
-
-    // Navigation
-    implementation(libs.bundles.navigation)
 
     // Dagger - Hilt
     implementation(libs.bundles.hilt)

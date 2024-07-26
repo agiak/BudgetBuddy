@@ -103,6 +103,4 @@ private fun TransactionsFragment.navigateToTransactionDetails(transactionID: Lon
     )
 
 private fun TransactionsFragment.navigateToAddTransactionsViaFile() =
-    {
-//        navigateToNextScreen(TransactionsFragmentDirections.actionNavigationTransactionsToNavigationTransactionAddViaFile())
-    }
+    navigateToNextScreen(TransactionsFragmentDirections.actionNavigationTransactionsToGraphTransactionsViaFile())

@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-
-    <string name="file_guidance_screen_title">Import transactions via file</string>
-
-    <string name="file_import_transactions_selection_screen_title">Select which transactions are valid</string>
-
-</resources>

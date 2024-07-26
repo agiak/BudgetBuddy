@@ -79,3 +79,8 @@ include(":features:transactions:impl")
 include(":features:transaction")
 include(":features:transaction:public")
 include(":features:transaction:impl")
+
+// Transactions via file feature
+include(":features:transactionsViaFile")
+include(":features:transactionsViaFile:public")
+include(":features:transactionsViaFile:impl")

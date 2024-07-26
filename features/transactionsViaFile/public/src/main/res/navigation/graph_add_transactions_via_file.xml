@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/graph_transactions_via_file"
+    app:startDestination="@id/navigation_transactions_via_file">
+
+    <fragment
+        android:id="@+id/navigation_transactions_via_file"
+        android:name="com.example.features.transactionsViaFile.fileImport.presentation.FileGuidanceFragment"
+        android:label="@string/nav_label_transactions_via_file"
+        tools:layout="@layout/fragment_transactions_via_file">
+        <action
+            android:id="@+id/action_navigation_transactions_via_file_to_navigation_select_transactions"
+            app:destination="@id/navigation_select_transactions" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_select_transactions"
+        android:name="com.example.features.transactionsViaFile.transactionsSelection.presentation.TransactionsSelectionFragment"
+        android:label="@string/nav_label_select_transactions"
+        tools:layout="@layout/fragment_transactions_selection">
+    </fragment>
+
+</navigation>

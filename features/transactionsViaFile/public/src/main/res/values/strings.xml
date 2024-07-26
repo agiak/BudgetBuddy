@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="nav_label_transactions_via_file">Upload transactions via file</string>
+    <string name="nav_label_select_transactions">Select transactions</string>
+
+    <string name="file_guidance_screen_title">Import transactions via file</string>
+
+    <string name="file_import_transactions_selection_screen_title">Select which transactions are valid</string>
+
+    <string name="file_uploading_guidance_1">Want to save time on adding transactions? You can now automatically add them by uploading an XLS file!\n\n
+    It’s simple:\n
+    1. Prepare Your File: Make sure your XLS file follows our predefined format.\n
+    2. Upload Your File: Click the Upload button and select your file.\n
+    3. Watch the Magic: Our system will instantly add all the transactions for you!\n\nNo more manual entries, just quick and easy uploads. Try it now and streamline your transaction management!
+    </string>
+
+    <string name="file_uploading_guidance_2">To ensure your transactions are added automatically, your XLS file must follow our exact format.\n\n
+        If the file doesnt match the required format, it wont be accepted, and the transactions wont be added.\n\n
+        Check out the image below to see the correct format.
+    </string>
+
+</resources>
