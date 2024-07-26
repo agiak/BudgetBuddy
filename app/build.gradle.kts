@@ -66,6 +66,7 @@ dependencies {
     implementation(project(":features:transactions:public"))
     implementation(project(":features:transaction:public"))
     implementation(project(":features:transactionsViaFile:public"))
+    implementation(project(":features:profile:public"))
 
     // Kotlin
     implementation(libs.bundles.kotlin.main)

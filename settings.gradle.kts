@@ -84,3 +84,8 @@ include(":features:transaction:impl")
 include(":features:transactionsViaFile")
 include(":features:transactionsViaFile:public")
 include(":features:transactionsViaFile:impl")
+
+// Profile feature
+include(":features:profile")
+include(":features:profile:public")
+include(":features:profile:impl")

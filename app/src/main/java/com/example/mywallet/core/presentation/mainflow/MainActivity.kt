@@ -60,7 +60,7 @@ class MainActivity : AppCompatActivity(), MainFlow {
 
     private fun initToolbar() {
         binding.mainToolbar.apply {
-            profileImage.setOnClickListener { navController.navigateFromBottom(R.id.graph_profile) }
+            profileImage.setOnClickListener { navController.navigateFromBottom(com.example.features.profile.R.id.graph_profile) }
         }
     }
 
@@ -109,6 +109,8 @@ class MainActivity : AppCompatActivity(), MainFlow {
             }
     }
 
-    override fun startAuthorizationFlow() { this.startAuthFlow() }
+    override fun startAuthorizationFlow() {
+        this.startAuthFlow()
+    }
 
 }
