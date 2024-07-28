@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Navigation labels -->
+    <string name="nav_label_home">Home</string>
+    <string name="nav_label_statics">Statics</string>
+    <string name="nav_label_transactions">Transactions</string>
+    <string name="nav_label_account">Account details</string>
+    <string name="nav_label_accounts">Accounts</string>
+    <string name="nav_label_add_account">Add Account</string>
+    <string name="nav_label_add_transaction">Add Transaction</string>
+    <string name="nav_label_transaction">Transaction details</string>
+    <string name="nav_label_quick_login">Quick login</string>
+    <string name="nav_label_register">Register</string>
+    <string name="nav_label_guide">Guide</string>
+    <string name="nav_label_profile">Profile</string>
+    <string name="nav_label_profile_edit">Edit profile</string>
+    <string name="nav_label_rules">Rules</string>
+    <string name="nav_label_rule_salary">Salary Rule</string>
+    <string name="nav_label_edit_account">Edit account</string>
+    <string name="nav_label_filter_accounts">Filter accounts</string>
+    <string name="nav_label_transactions_via_file">Upload transactions via file</string>
+    <string name="nav_label_select_transactions">Select transactions</string>
+
+</resources>

@@ -49,6 +49,7 @@ dependencies {
 
     // Implement necessary modules
     implementation(project(":features:rules:public"))
+    implementation(project(":features:guide:public"))
 
     // UI components
     implementation(libs.bundles.ui.components)

@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="nav_label_rules">Rules</string>
-    <string name="nav_label_rule_salary">Salary Rule</string>
-
     <string name="rule_screen_title">Add your rules now</string>
 
     <string name="salary_screen_title">Set up your salary payment</string>

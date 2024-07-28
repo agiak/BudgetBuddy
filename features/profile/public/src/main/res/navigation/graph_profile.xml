@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_navigation_profile_to_graph_rules"
             app:destination="@id/graph_rules" />
+        <action
+            android:id="@+id/action_navigation_profile_to_navigation_guide"
+            app:destination="@id/navigation_guide" />
     </fragment>
 
     <fragment
@@ -23,6 +26,12 @@
         android:name="com.example.features.profile.editProfile.presentation.EditProfileFragment"
         android:label="@string/nav_label_profile_edit"
         tools:layout="@layout/fragment_profile_edit" />
+
+    <fragment
+        android:id="@+id/navigation_guide"
+        android:name="com.example.feature.quide.presentation.GuideFragment"
+        android:label="@string/nav_label_guide"
+        tools:layout="@layout/fragment_guide" />
 
     <include app:graph="@navigation/graph_rules" />
 

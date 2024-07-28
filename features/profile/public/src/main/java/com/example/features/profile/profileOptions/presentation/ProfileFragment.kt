@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.common.myutils.setLightStatusBars
+import com.example.core.presentation.ext.addDividerDecorator
 import com.example.core.presentation.ext.launchWhenResumed
 import com.example.core.presentation.ext.navigateToNextScreen
 import com.example.features.profile.databinding.FragmentProfileBinding
@@ -32,7 +33,7 @@ class ProfileFragment : Fragment() {
             ProfileSetting.EDIT_PROFILE -> navigateToEditProfile()
             ProfileSetting.LANGUAGE -> {}
             ProfileSetting.RULES -> navigateToRules()
-            ProfileSetting.MAIN_ACCOUNTS -> {}
+            ProfileSetting.GUIDE -> navigateToGuide()
         }
     }
 
@@ -67,6 +68,7 @@ class ProfileFragment : Fragment() {
         binding.btnClose.setOnClickListener { findNavController().popBackStack() }
         binding.listSettings.apply {
             adapter = settingAdapter
+            addDividerDecorator()
             settingAdapter.submitList(ProfileSetting.entries)
         }
     }
@@ -82,3 +84,6 @@ private fun ProfileFragment.navigateToEditProfile() =
 
 private fun ProfileFragment.navigateToRules() =
     navigateToNextScreen(ProfileFragmentDirections.actionNavigationProfileToGraphRules())
+
+private fun ProfileFragment.navigateToGuide() =
+    navigateToNextScreen(ProfileFragmentDirections.actionNavigationProfileToNavigationGuide())

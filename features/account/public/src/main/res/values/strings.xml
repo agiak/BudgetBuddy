@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="nav_label_edit_account">Edit account</string>
-    <string name="nav_label_account">Account details</string>
-
     <string name="account_tab_general_info">General info</string>
     <string name="account_tab_activity">Activity</string>
 
