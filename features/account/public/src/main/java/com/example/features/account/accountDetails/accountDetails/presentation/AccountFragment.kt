@@ -15,6 +15,7 @@ import com.example.common.myutils.show
 import com.example.common.myutils.showToast
 import com.example.core.data.account.AccountDetails
 import com.example.core.presentation.ext.launchWhenResumed
+import com.example.core.presentation.ext.onBack
 import com.example.features.account.R
 import com.example.features.account.databinding.FragmentAccountBinding
 import com.google.android.material.tabs.TabLayoutMediator
@@ -67,7 +68,7 @@ class AccountFragment : Fragment() {
             viewModel.state.collectLatest { state ->
                 hideLoading()
                 when(state) {
-                    AccountUiState.AccountDeleted -> findNavController().navigateUp()
+                    AccountUiState.AccountDeleted -> onBack()
                     is AccountUiState.Error -> showToast(state.errorMessage)
                     AccountUiState.Loading -> showLoading()
                     else -> {}
@@ -94,7 +95,7 @@ class AccountFragment : Fragment() {
     private fun initViews() {
         setUpTabLayout()
         binding.toolbar.setNavigationOnClickListener {
-            findNavController().popBackStack()
+            onBack()
         }
     }
 

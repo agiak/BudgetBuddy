@@ -7,13 +7,13 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.hilt.navigation.fragment.hiltNavGraphViewModels
-import androidx.navigation.fragment.findNavController
 import com.example.common.myutils.addTitleElevationAnimation
 import com.example.common.myutils.hide
 import com.example.common.myutils.setLightStatusBars
 import com.example.common.myutils.showSnackBar
 import com.example.common.myutils.showToast
 import com.example.core.presentation.ext.launchWhenResumed
+import com.example.core.presentation.ext.onBack
 import com.example.features.transactionsViaFile.R
 import com.example.features.transactionsViaFile.databinding.FragmentTransactionsSelectionBinding
 import com.example.features.transactionsViaFile.fileImport.presentation.FileTransactionsViewModel
@@ -53,7 +53,7 @@ class TransactionsSelectionFragment : Fragment() {
     private fun initToolbar() {
         binding.toolbar.screenTitle.text =
             getString(R.string.file_import_transactions_selection_screen_title)
-        binding.toolbar.backButton.setOnClickListener { findNavController().navigateUp() }
+        binding.toolbar.backButton.setOnClickListener { onBack() }
         binding.toolbar.optionsButton.hide()
     }
 
@@ -70,7 +70,7 @@ class TransactionsSelectionFragment : Fragment() {
                 when (state) {
                     is FileState.Saved -> {
                         showSnackBar("Added ${state.transactionsAdded} transactions")
-                        findNavController().navigateUp()
+                        onBack()
                     }
 
                     else -> {}
@@ -97,5 +97,4 @@ class TransactionsSelectionFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
-
 }

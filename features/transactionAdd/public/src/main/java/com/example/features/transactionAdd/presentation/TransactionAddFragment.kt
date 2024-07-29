@@ -8,7 +8,6 @@ import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.fragment.findNavController
 import com.example.common.myutils.addTitleElevation
 import com.example.common.myutils.hide
 import com.example.common.myutils.onDateListener
@@ -17,6 +16,7 @@ import com.example.common.myutils.show
 import com.example.common.myutils.showToast
 import com.example.core.data.common.TransactionType
 import com.example.core.data.common.isInternalTransaction
+import com.example.core.presentation.ext.onBack
 import com.example.features.transactionAdd.R
 import com.example.features.transactionAdd.databinding.FragmentTransactionAddBinding
 import com.example.features.transactionAdd.impl.data.AccountSelection
@@ -56,7 +56,7 @@ class TransactionAddFragment : Fragment() {
 
     private fun initToolbar() {
         binding.toolbar.screenTitle.text = getString(R.string.add_transaction_screen_title)
-        binding.toolbar.backButton.setOnClickListener { findNavController().navigateUp() }
+        binding.toolbar.backButton.setOnClickListener { onBack() }
         binding.toolbar.optionsButton.hide()
     }
 
@@ -67,7 +67,7 @@ class TransactionAddFragment : Fragment() {
                     is AddTransactionUiState.Error -> showToast(state.message)
                     AddTransactionUiState.Idle -> {}
                     AddTransactionUiState.Loading -> {}
-                    AddTransactionUiState.Success -> findNavController().popBackStack()
+                    AddTransactionUiState.Success -> onBack()
                 }
             }
         }

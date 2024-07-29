@@ -10,7 +10,6 @@ import androidx.annotation.RequiresApi
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.findNavController
 import com.example.common.myutils.addTitleElevation
 import com.example.common.myutils.hide
 import com.example.common.myutils.hideKeyboard
@@ -20,6 +19,7 @@ import com.example.common.myutils.showToast
 import com.example.core.data.common.AppValues
 import com.example.core.presentation.ext.isPermissionGranted
 import com.example.core.presentation.ext.launchWhenResumed
+import com.example.core.presentation.ext.onBack
 import com.example.features.rules.R
 import com.example.features.rules.databinding.FragmentRuleSalaryBinding
 import com.example.features.rules.salary.data.SalaryRuleData
@@ -72,7 +72,7 @@ class SalaryFragment : Fragment() {
 
     private fun initToolbar() {
         binding.toolbar.screenTitle.text = getString(R.string.salary_screen_title)
-        binding.toolbar.backButton.setOnClickListener { findNavController().navigateUp() }
+        binding.toolbar.backButton.setOnClickListener { onBack() }
         binding.toolbar.optionsButton.hide()
     }
 
@@ -86,7 +86,7 @@ class SalaryFragment : Fragment() {
                     SalaryState.Loading -> onLoading()
 
                     SalaryState.NoRuleFound -> onNoRuleFound()
-                    SalaryState.RuleActivated -> findNavController().popBackStack()
+                    SalaryState.RuleActivated -> onBack()
                 }
             }
         }

@@ -8,7 +8,6 @@ import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.fragment.findNavController
 import com.example.common.myutils.addTitleElevation
 import com.example.common.myutils.hide
 import com.example.common.myutils.onDateListener
@@ -21,6 +20,7 @@ import com.example.core.data.bank.toBankSelectionList
 import com.example.core.data.screens.AuthorizationFlow
 import com.example.core.presentation.bank.BankAdapter
 import com.example.core.presentation.ext.isMainFlow
+import com.example.core.presentation.ext.onBack
 import com.example.features.accountAdd.R
 import com.example.features.accountAdd.databinding.FragmentAddAccountBinding
 import com.example.features.accountAdd.impl.data.AccountNew
@@ -61,7 +61,7 @@ class AccountAddFragment : Fragment() {
             with(binding.toolbar) {
                 root.show()
                 screenTitle.text = getString(R.string.add_account_screen_title)
-                backButton.setOnClickListener { findNavController().navigateUp() }
+                backButton.setOnClickListener { onBack() }
                 optionsButton.hide()
             }
             binding.description.hide()
@@ -87,7 +87,7 @@ class AccountAddFragment : Fragment() {
         when {
             isMainFlow() -> {
                 showSnackBar(getString(R.string.account_added_successfully))
-                findNavController().popBackStack()
+                onBack()
             }
             else -> (requireActivity() as? AuthorizationFlow)?.startMainFlow()
         }

@@ -14,6 +14,7 @@ import com.example.common.myutils.setLightStatusBars
 import com.example.common.myutils.show
 import com.example.core.presentation.ext.launchWhenResumed
 import com.example.core.presentation.ext.navigateToNextScreen
+import com.example.core.presentation.ext.onBack
 import com.example.features.accounts.R
 import com.example.features.accounts.databinding.FragmentAccountsBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -48,8 +49,8 @@ class AccountsFragment : Fragment() {
     }
 
     private fun initToolbar() {
-        binding.toolbar.screenTitle.text = "This is the perfect title for the screen"
-        binding.toolbar.backButton.setOnClickListener { findNavController().navigateUp() }
+        binding.toolbar.screenTitle.text = getString(com.example.features.accounts.impl.R.string.accounts_screen_title)
+        binding.toolbar.backButton.setOnClickListener { onBack() }
         binding.toolbar.optionsButton.apply {
             setImageResource(R.drawable.ic_filter)
             setOnClickListener { navigateToFilters() }

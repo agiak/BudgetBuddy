@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="FilterAccountsRadioButton" parent="Widget.MaterialComponents.CompoundButton.RadioButton">
+        <item name="colorControlActivated">@color/alternative_light</item>
+        <item name="colorControlNormal">@color/main_grey</item>
+    </style>
+
+</resources>

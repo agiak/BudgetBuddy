@@ -18,6 +18,7 @@ import com.example.common.myutils.setLightStatusBars
 import com.example.common.myutils.showToast
 import com.example.core.presentation.ext.launchWhenResumed
 import com.example.core.presentation.ext.navigateToNextScreen
+import com.example.core.presentation.ext.onBack
 import com.example.features.transactionsViaFile.R
 import com.example.features.transactionsViaFile.databinding.FragmentTransactionsViaFileBinding
 import com.example.features.transactionsViaFile.impl.fileImport.data.FileState
@@ -72,7 +73,7 @@ class FileGuidanceFragment : Fragment() {
 
     private fun initToolbar() {
         binding.toolbar.screenTitle.text = getString(R.string.file_guidance_screen_title)
-        binding.toolbar.backButton.setOnClickListener { findNavController().navigateUp() }
+        binding.toolbar.backButton.setOnClickListener { onBack() }
         binding.toolbar.optionsButton.hide()
     }
 

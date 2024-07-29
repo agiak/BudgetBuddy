@@ -7,9 +7,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.fragment.findNavController
 import com.example.common.myutils.setLightStatusBars
 import com.example.core.data.User
+import com.example.core.presentation.ext.onBack
 import com.example.features.profile.databinding.FragmentProfileEditBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
@@ -59,7 +59,7 @@ class EditProfileFragment : Fragment() {
     private fun initViews() {
         binding.btnFinishEdit.setOnClickListener {
             viewModel.saveChanges(getUser())
-            findNavController().popBackStack()
+            onBack()
         }
     }
 

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <string name="accounts_screen_title">Manage your accounts</string>
     <string name="filter_accounts_group_by_bank">Group by Bank</string>
 
     <string name="filter_accounts_order_by_descending">Descending</string>

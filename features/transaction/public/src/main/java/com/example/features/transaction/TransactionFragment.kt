@@ -6,9 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.findNavController
 import com.example.common.myutils.hide
 import com.example.common.myutils.setLightStatusBars
+import com.example.core.presentation.ext.onBack
 import com.example.features.transaction.databinding.FragmentTransactionBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -39,7 +39,7 @@ class TransactionFragment : Fragment() {
 
     private fun initToolbar() {
         binding.toolbar.screenTitle.text = getString(R.string.transaction_details_screen_title)
-        binding.toolbar.backButton.setOnClickListener { findNavController().navigateUp() }
+        binding.toolbar.backButton.setOnClickListener { onBack() }
         binding.toolbar.optionsButton.hide()
     }
 

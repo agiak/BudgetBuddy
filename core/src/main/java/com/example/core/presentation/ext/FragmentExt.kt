@@ -10,6 +10,7 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.NavDeepLinkRequest
 import androidx.navigation.NavDirections
 import androidx.navigation.fragment.findNavController
+import com.example.core.data.screens.AuthorizationFlow
 import com.example.core.data.screens.MainFlow
 import kotlinx.coroutines.launch
 
@@ -44,3 +45,9 @@ fun Fragment.launchWhenResumed(block: suspend () -> Unit) {
 
 fun Fragment.isPermissionGranted(permission: String): Boolean =
     ContextCompat.checkSelfPermission(requireContext(), permission) == PackageManager.PERMISSION_GRANTED
+
+fun Fragment.onBack() = findNavController().navigateUp()
+
+fun Fragment.startMainFlow() = (requireActivity() as? AuthorizationFlow)?.startMainFlow()
+
+fun Fragment.startAuthFlow() = (requireActivity() as? MainFlow)?.startAuthorizationFlow()

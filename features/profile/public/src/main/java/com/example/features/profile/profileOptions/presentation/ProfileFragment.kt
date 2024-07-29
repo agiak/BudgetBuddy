@@ -11,6 +11,7 @@ import com.example.common.myutils.setLightStatusBars
 import com.example.core.presentation.ext.addDividerDecorator
 import com.example.core.presentation.ext.launchWhenResumed
 import com.example.core.presentation.ext.navigateToNextScreen
+import com.example.core.presentation.ext.onBack
 import com.example.features.profile.databinding.FragmentProfileBinding
 import com.example.features.profile.impl.profileOptions.data.ProfileSetting
 import dagger.hilt.android.AndroidEntryPoint
@@ -65,7 +66,7 @@ class ProfileFragment : Fragment() {
     }
 
     private fun initViews() {
-        binding.btnClose.setOnClickListener { findNavController().popBackStack() }
+        binding.btnClose.setOnClickListener { onBack() }
         binding.listSettings.apply {
             adapter = settingAdapter
             addDividerDecorator()

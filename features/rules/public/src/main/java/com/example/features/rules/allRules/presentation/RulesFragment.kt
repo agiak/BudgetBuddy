@@ -13,6 +13,7 @@ import com.example.core.data.rule.Rule
 import com.example.core.presentation.ext.addDividerDecorator
 import com.example.core.presentation.ext.launchWhenResumed
 import com.example.core.presentation.ext.navigateToNextScreen
+import com.example.core.presentation.ext.onBack
 import com.example.features.rules.R
 import com.example.features.rules.databinding.FragmentRulesBinding
 import com.example.mywallet.features.rulesModule.rules.presentation.RulesAdapter
@@ -54,7 +55,7 @@ class RulesFragment : Fragment() {
 
     private fun initToolbar() {
         binding.toolbar.screenTitle.text = getString(R.string.rule_screen_title)
-        binding.toolbar.backButton.setOnClickListener { findNavController().navigateUp() }
+        binding.toolbar.backButton.setOnClickListener { onBack() }
         binding.toolbar.optionsButton.hide()
     }
 

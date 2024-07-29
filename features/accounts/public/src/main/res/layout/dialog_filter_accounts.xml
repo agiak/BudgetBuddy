@@ -35,7 +35,7 @@
             android:id="@+id/group_by_list"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/space_large"
+            android:layout_marginTop="@dimen/space_medium"
             android:orientation="horizontal"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             tools:listitem="@layout/item_filter_group_by" />
@@ -52,6 +52,7 @@
             style="@style/SubTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:visibility="gone"
             tools:text="Ascending" />
 
         <androidx.recyclerview.widget.RecyclerView
