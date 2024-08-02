@@ -56,6 +56,9 @@ dependencies {
     implementation(libs.bundles.hilt)
     kapt(libs.hilt.compiler)
 
+    // Charts library (Vico)
+    implementation(libs.bundles.vico)
+
     // Shared preferences
     implementation(libs.hawk)
 

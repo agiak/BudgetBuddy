@@ -1,13 +1,18 @@
 package com.example.features.statics.impl.data.domain
 
+import com.example.common.myutils.formatToDateString
 import com.example.core.data.bank.Bank
+import com.example.core.data.common.TransactionType
 import com.example.core.domain.dispatchers.IDispatchers
 import com.example.core.storage.data.AccountDB
 import com.example.core.storage.data.TransactionDB
 import com.example.core.storage.domain.database.daos.AccountDao
 import com.example.core.storage.domain.database.daos.TransactionDao
+import com.example.features.statics.impl.data.data.StatsData
 import kotlinx.coroutines.async
 import kotlinx.coroutines.awaitAll
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
@@ -19,6 +24,14 @@ class StaticsRepositoryImpl @Inject constructor(
 
     private var transactions: List<TransactionDB> = emptyList()
     private var accounts: List<AccountDB> = emptyList()
+
+    override fun getStatsObservable(): Flow<StatsData> =
+        accountsDao.getAllAccountsObservable().combine(transactionsDao.getAllTransactionsObservable()) {
+            accountsRetrieved, transactionsRetrieved ->
+            transactions = transactionsRetrieved
+            accounts = accountsRetrieved
+            StatsData(accounts, transactions)
+        }
 
     override suspend fun init() {
         withContext(dispatchers.backgroundThread()) {
@@ -75,4 +88,16 @@ class StaticsRepositoryImpl @Inject constructor(
                 .take(5)
                 .associate { it.key to it.value }
         }
+
+
+    override suspend fun fetchInvestmentProgress(): Map<String, Double> {
+        val result = transactions
+            .filter { it.type == TransactionType.INVESTMENT }.groupBy { it.date.formatToDateString().substring(3) }
+            .mapValues { it.value.sumOf { transaction -> transaction.amount } }
+            .toSortedMap(compareBy {
+                val (month, year) = it.split("/")
+                "$year$month" // Create a comparable string "yyyyMM"
+            })
+        return result
+    }
 }

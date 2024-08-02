@@ -16,9 +16,7 @@ class HomeRepositoryImpl @Inject constructor(
     private val dispatchers: IDispatchers,
 ) : HomeRepository {
 
-    override fun fetchAccounts(): Flow<List<AccountDB>> = accountDao.getAllAccountsObservable() ?: flowOf(
-        emptyList()
-    )
+    override fun fetchAccounts(): Flow<List<AccountDB>> = accountDao.getAllAccountsObservable()
     override fun fetchLastTransactions(): Flow<List<TransactionDB>> =
         transactionsDao.getLastTransactions() ?: flowOf(emptyList())
 

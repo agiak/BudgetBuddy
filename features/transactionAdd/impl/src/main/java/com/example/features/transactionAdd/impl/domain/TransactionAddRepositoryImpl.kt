@@ -8,7 +8,6 @@ import com.example.core.storage.data.TransactionDB
 import com.example.core.storage.domain.database.daos.AccountDao
 import com.example.core.storage.domain.database.daos.TransactionDao
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
@@ -71,7 +70,5 @@ class TransactionAddRepositoryImpl @Inject constructor(
     }
 
     override fun getAccounts(): Flow<List<AccountDB>> =
-        accountsDao.getAllAccountsObservable() ?: flowOf(
-            emptyList()
-        )
+        accountsDao.getAllAccountsObservable()
 }

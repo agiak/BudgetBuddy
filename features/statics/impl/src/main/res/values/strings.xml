@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="statics_empty_description">There is no transactions made. Please make some transactions to see the stats.</string>
+</resources>

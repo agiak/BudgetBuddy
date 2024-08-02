@@ -8,7 +8,8 @@ fun TransactionDB.toTransactionSelection() = TransactionSelection(
     amount = amount.toCurrencyBalance(),
     date = date,
     description = description,
-    isSelected = true
+    isSelected = true,
+    type = type,
 )
 
 fun List<TransactionDB>.toTransactionSelectionList() = ArrayList<TransactionSelection>().apply {

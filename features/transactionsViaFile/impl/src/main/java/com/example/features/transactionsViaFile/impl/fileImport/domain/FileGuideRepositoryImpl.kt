@@ -1,5 +1,6 @@
 package com.example.features.transactionsViaFile.impl.fileImport.domain
 
+import com.example.common.myutils.formatToDateString
 import com.example.core.data.common.AppValues
 import com.example.core.data.common.TransactionType
 import com.example.core.domain.dispatchers.IDispatchers
@@ -41,13 +42,9 @@ class FileGuideRepositoryImpl @Inject constructor(
 
                 accountFrom?.let {
                     TransactionDB(
-                        date = date.trim(),
+                        date = date.formatToDateString(),
                         amount = amount.trim().toDouble(),
-                        type = TransactionType.entries.find {
-                            it.name == type.uppercase()
-                                .replace(" ", "_")
-                        }
-                            ?: TransactionType.MONEY_TRANSFER,
+                        type = TransactionType.INVESTMENT,
                         accountFrom = accountFrom.id,
                         accountFromName = accountFrom.name,
                         description = description.trim() ?: "",

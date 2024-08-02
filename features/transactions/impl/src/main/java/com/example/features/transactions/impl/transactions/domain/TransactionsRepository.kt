@@ -8,4 +8,6 @@ interface TransactionsRepository {
     fun fetchTransactions(): Flow<List<TransactionDB>>
 
     suspend fun deleteTransaction(transactionID: Long)
+
+    suspend fun deleteTransactions()
 }

@@ -14,4 +14,12 @@ fun String.toDate(): Date? {
     }
 }
 
+fun String.formatToDateString(): String {
+    val parts = split("/")
+    val day = parts[0].padStart(2, '0')
+    val month = parts[1].padStart(2, '0')
+    val year = parts[2]
+    return "$day/$month/$year"
+}
+
 fun String.isNumber(): Boolean = toIntOrNull() != null

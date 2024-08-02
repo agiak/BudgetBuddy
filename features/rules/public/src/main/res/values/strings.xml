@@ -8,7 +8,6 @@
 
     <string-array name="notification_channels_ids">
         <item>channel_general</item>
-
     </string-array>
 
     <string-array name="notification_channels_names">

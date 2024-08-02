@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="InvestmentProgressColumnStyle">
+        <item name="column1Style">@style/Column1Style</item>
+        <item name="showDataLabels">true</item>
+    </style>
+
+    <style name="Column1Style">
+        <item name="color">@color/alternative_light</item>
+    </style>
+
+    <style name="Chart8VerticalAxisStyle">
+        <item name="showGuidelines">false</item>
+    </style>
+
+    <style name="InvestmentProgressHorizontalAxisStyle">
+        <item name="showGuidelines">true</item>
+    </style>
+
+    <style name="VerticalAxisLabelStyle">
+        <item name="labelColor">@color/primary</item>
+    </style>
+
+    <style name="StatCategoryLabel">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/text_large</item>
+    </style>
+
+</resources>

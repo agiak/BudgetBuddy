@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/label"
+        style="@style/StatCategoryLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingVertical="@dimen/space_large"
+        android:paddingHorizontal="@dimen/main_margin_horizontal"
+        android:text="Investment Progress"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.patrykandpatrick.vico.views.cartesian.CartesianChartView
+        android:id="@+id/chart_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/main_margin_horizontal"
+        android:layout_marginVertical="@dimen/space_large"
+        android:background="@drawable/bg_round"
+        android:elevation="4dp"
+        android:padding="@dimen/space_medium"
+        app:bottomAxisStyle="@style/InvestmentProgressHorizontalAxisStyle"
+        app:chartHorizontalScrollingEnabled="true"
+        app:columnLayerStyle="@style/InvestmentProgressColumnStyle"
+        app:layers="column"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/label"
+        app:previewColumnSeriesCount="1"
+        app:showBottomAxis="true"
+        app:showStartAxis="true"
+        app:startAxisStyle="@style/Chart8VerticalAxisStyle"
+        tools:layout_editor_absoluteX="24dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

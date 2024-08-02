@@ -35,16 +35,17 @@ class TransactionsSelectionAdapter(
 
         fun bind(transaction: TransactionSelection, position: Int) {
             with(transaction) {
-
                 binding.btnCheck.isChecked = transaction.isSelected
                 binding.amount.text = amount
                 binding.details.text = details
                 binding.date.text = date
                 binding.description.text = description
+                binding.type.text = context.getString(transaction.type.description)
 
-                binding.btnCheck.setOnCheckedChangeListener { buttonView, isChecked ->
-                    transaction.isSelected = isChecked
+                binding.btnCheck.setOnClickListener {
+                    transaction.isSelected = !transaction.isSelected
                     onClick(transaction)
+                    notifyItemChanged(position)
                 }
             }
         }

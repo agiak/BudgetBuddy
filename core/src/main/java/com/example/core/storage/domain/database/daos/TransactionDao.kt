@@ -14,7 +14,7 @@ import kotlinx.coroutines.flow.Flow
 interface TransactionDao {
 
     @Query("SELECT * FROM transactions")
-    fun getAllTransactionsObservable(): Flow<List<TransactionDB>>?
+    fun getAllTransactionsObservable(): Flow<List<TransactionDB>>
 
     @Query("SELECT * FROM transactions")
     fun getAllTransactions(): List<TransactionDB>
@@ -39,6 +39,9 @@ interface TransactionDao {
 
     @Delete
     suspend fun deleteTransaction(transaction: TransactionDB)
+
+    @Query("DELETE FROM transactions")
+    suspend fun deleteAllTransactions()
 
     @Query("DELETE FROM transactions WHERE id = :transactionId")
     suspend fun deleteTransactionById(transactionId: Long)

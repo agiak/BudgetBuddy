@@ -14,7 +14,7 @@ import kotlinx.coroutines.flow.Flow
 interface AccountDao {
 
     @Query("SELECT * FROM accounts")
-    fun getAllAccountsObservable(): Flow<List<AccountDB>>?
+    fun getAllAccountsObservable(): Flow<List<AccountDB>>
 
     @Query("SELECT * FROM accounts")
     suspend fun getAllAccounts(): List<AccountDB>

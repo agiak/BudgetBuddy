@@ -37,7 +37,6 @@ class MyApp : Application(), Configuration.Provider {
             .setWorkerFactory(workerFactory)
             .build()
 
-
     @RequiresApi(Build.VERSION_CODES.O)
     private fun subscribeToNotificationsChannel() {
         val manager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager

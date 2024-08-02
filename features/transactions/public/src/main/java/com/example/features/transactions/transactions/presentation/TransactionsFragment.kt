@@ -52,6 +52,8 @@ class TransactionsFragment : Fragment() {
             adapter = transactionsAdapter
             addSpaceDecorator(12)
         }
+
+        binding.btnDelete.setOnClickListener { viewModel.deleteTransactions() }
     }
 
     private fun setUpFloatingButtons() {

@@ -33,4 +33,12 @@ class TransactionsViewModel @Inject constructor(
             }
         }
     }
+
+    fun deleteTransactions() {
+        viewModelScope.launch {
+            runCatching {
+                repository.deleteTransactions()
+            }
+        }
+    }
 }

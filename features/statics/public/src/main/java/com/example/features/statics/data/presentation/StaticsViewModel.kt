@@ -37,18 +37,21 @@ class StaticsViewModel @Inject constructor(
 
     init {
         viewModelScope.launch {
-            emitLoading()
-            repository.init()
-            fetchData()
+            repository.getStatsObservable().collect { data ->
+                Timber.d("data $data")
+                if (!data.isEmpty()) fetchData()
+                else _state.value = StaticsUiState.Result(listOf(StaticsItem.EmptyStats))
+            }
         }
     }
 
     private suspend fun fetchData() {
         viewModelScope.launch {
+            emitLoading()
             runCatching {
-                createCommonStats()
+                createStats()
             }.onSuccess { items ->
-                _state.value = StaticsUiState.Result(listOf(items))
+                _state.value = StaticsUiState.Result(items)
             }.onFailure {
                 Timber.e(it)
             }
@@ -59,19 +62,21 @@ class StaticsViewModel @Inject constructor(
         _state.value = StaticsUiState.Loading
     }
 
-    private suspend fun createCommonStats(): StaticsItem.CommonStats =
+    private suspend fun createStats(): List<StaticsItem> =
         withContext(dispatchers.backgroundThread()) {
 
             val mostValuableAccountsDeferred = async { repository.fetchMostValuableAccounts() }
             val mostLargerTransactionsDeferred = async { repository.fetchMostLargerTransactions() }
             val mostUsedAccountsDeferred = async { repository.fetchMostUsedAccounts() }
             val mostTrustedBanks = async { repository.fetchMostTrustedBanks() }
+            val investmentProgressDeferred = async { repository.fetchInvestmentProgress() }
 
             val result = awaitAll(
                 mostValuableAccountsDeferred,
                 mostLargerTransactionsDeferred,
                 mostUsedAccountsDeferred,
-                mostTrustedBanks
+                mostTrustedBanks,
+                investmentProgressDeferred
             )
 
             val commonStats = listOf(
@@ -93,6 +98,10 @@ class StaticsViewModel @Inject constructor(
                 ),
             )
 
-            StaticsItem.CommonStats(commonStats)
+            val commonStatsItem = StaticsItem.CommonStats(commonStats)
+            val investmentProgressItem =
+                StaticsItem.InvestmentProgress(result[4] as Map<String, Double>)
+
+            listOf(commonStatsItem, investmentProgressItem)
         }
 }

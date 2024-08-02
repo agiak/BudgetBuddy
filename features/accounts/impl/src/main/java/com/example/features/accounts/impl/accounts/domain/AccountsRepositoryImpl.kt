@@ -7,7 +7,6 @@ import com.example.features.accounts.impl.filters.data.AccountFilterSelection
 import com.example.features.accounts.impl.filters.data.AccountsFilterGroupBy
 import com.example.features.accounts.impl.filters.data.AccountsFilterOrderBy
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
@@ -17,9 +16,7 @@ class AccountsRepositoryImpl @Inject constructor(
 ) : AccountsRepository {
 
     override fun fetchAccounts(): Flow<List<AccountDB>> =
-        accountsDao.getAllAccountsObservable() ?: flowOf(
-            emptyList()
-        )
+        accountsDao.getAllAccountsObservable()
 
     override suspend fun applyFilters(filterSelection: AccountFilterSelection): List<AccountDB> =
         withContext(dispatchers.backgroundThread()) {

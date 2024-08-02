@@ -64,6 +64,9 @@ mockito = "5.6.0"
 openAI = "3.0.0"
 ktor = "2.2.4"
 
+# Chart library
+vico = "2.0.0-alpha.26"
+
 # CSV parsing
 kotlinCsvJvm = "1.9.3"
 jetbrainsKotlinJvm = "1.9.22"
@@ -126,6 +129,10 @@ timber = { group = "com.jakewharton.timber", name = "timber", version.ref = "tim
 # CSV file parsing
 kotlin-csv-jvm = { module = "com.github.doyaaaaaken:kotlin-csv-jvm", version.ref = "kotlinCsvJvm" }
 
+# Vico charts
+vico-views = { group = "com.patrykandpatrick.vico", name = "views", version.ref = "vico" }
+vico-core = { group = "com.patrykandpatrick.vico", name = "core", version.ref = "vico" }
+
 # Testing
 junit = { group = "junit", name = "junit", version.ref = "jUnit" }
 androidx-test-ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "testJunit" }
@@ -165,6 +172,7 @@ room = ["room-runtime", "room-ktx"]
 hilt = ["hilt", "hilt-common", "hilt-work", "hilt-navigation-fragment"]
 chatGPT = ["openAI-client", "ktor-client"]
 csv-parsing = ["kotlin-csv-jvm"]
+vico = ["vico-core", "vico-views"]
 
 # Testing
 testImplementationLibs = ["junit", "truth", "mockito"]

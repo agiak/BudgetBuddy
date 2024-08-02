@@ -16,9 +16,13 @@ import com.example.features.statics.databinding.FragmentStaticsBinding
 import com.example.features.statics.impl.data.data.StaticsItem
 import com.example.features.statics.impl.data.data.StaticsUiState
 import com.example.features.statics.impl.data.presentation.StaticsAdapter
+import com.example.features.statics.impl.data.presentation.viewholders.EmptyStatViewHolder
 import com.example.features.statics.impl.data.presentation.viewholders.StaticsItemViewHolderFactory
+import com.example.features.statics.impl.data.presentation.viewholders.charts.InvestmentProgressViewHolder
 import com.example.features.statics.impl.data.presentation.viewholders.common.CommonStatsViewHolder
+import com.example.features.statics.impl.databinding.ItemEmptyStatsBinding
 import com.example.features.statics.impl.databinding.ItemStaticsCommonStatsBinding
+import com.example.features.statics.impl.databinding.ItemStaticsInvestmentProgressBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import timber.log.Timber
@@ -70,7 +74,7 @@ class StaticsFragment : Fragment() {
         statsAdapter = StaticsAdapter(createViewHolders())
         binding.statsList.apply {
             adapter = statsAdapter
-            addSpaceDecorator(32)
+            addSpaceDecorator(16)
         }
     }
 
@@ -84,6 +88,22 @@ class StaticsFragment : Fragment() {
                 )
                 CommonStatsViewHolder(binding = binding)
             },
+            StaticsItemViewHolderFactory<StaticsItem.InvestmentProgress> { parent ->
+                val binding = ItemStaticsInvestmentProgressBinding.inflate(
+                    LayoutInflater.from(parent.context),
+                    parent,
+                    false
+                )
+                InvestmentProgressViewHolder(binding = binding)
+            },
+            StaticsItemViewHolderFactory<StaticsItem.EmptyStats> { parent ->
+                val binding = ItemEmptyStatsBinding.inflate(
+                    LayoutInflater.from(parent.context),
+                    parent,
+                    false
+                )
+                EmptyStatViewHolder(binding = binding)
+            }
         )
 
     override fun onDestroyView() {

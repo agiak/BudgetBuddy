@@ -66,6 +66,9 @@ dependencies {
     kapt(libs.room.compiler)
     implementation(libs.hawk)
 
+    // Charts library (Vico)
+    implementation(libs.bundles.vico)
+
     // Network (Retrofit)
     implementation(libs.bundles.network)
 
