@@ -1,19 +1,26 @@
 package com.example.features.profile.editProfile.presentation
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.result.PickVisualMediaRequest
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.lifecycleScope
+import com.example.common.myutils.hide
+import com.example.common.myutils.loadCircle
 import com.example.common.myutils.setLightStatusBars
 import com.example.core.data.User
+import com.example.core.presentation.ext.launchWhenResumed
 import com.example.core.presentation.ext.onBack
+import com.example.features.profile.R
 import com.example.features.profile.databinding.FragmentProfileEditBinding
+import com.example.features.profile.impl.editProfile.data.EditUserEvent
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
-import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class EditProfileFragment : Fragment() {
@@ -23,6 +30,17 @@ class EditProfileFragment : Fragment() {
     private var _binding: FragmentProfileEditBinding? = null
     private val binding get() = _binding!!
 
+    private val imagePickerLauncher =
+        registerForActivityResult(ActivityResultContracts.PickVisualMedia()) { uri ->
+            uri?.let {
+                requireContext().contentResolver.takePersistableUriPermission(
+                    it,
+                    Intent.FLAG_GRANT_READ_URI_PERMISSION
+                )
+                sentEvent(EditUserEvent.IconChanged(it.toString()))
+                binding.profileImage.loadCircle(it)
+            }
+        }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -37,11 +55,18 @@ class EditProfileFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setLightStatusBars(true)
         initViews()
+        initToolbar()
         initSubscriptions()
     }
 
+    private fun initToolbar() {
+        binding.toolbar.screenTitle.text = getString(R.string.screen_title)
+        binding.toolbar.backButton.setOnClickListener { onBack() }
+        binding.toolbar.optionsButton.hide()
+    }
+
     private fun initSubscriptions() {
-        lifecycleScope.launch {
+        launchWhenResumed {
             viewModel.user.collectLatest { user ->
                 user?.let {
                     setUserValues(it)
@@ -54,20 +79,38 @@ class EditProfileFragment : Fragment() {
         binding.firstnameField.setText(user.firstName)
         binding.lastnameField.setText(user.lastName)
         binding.emailField.setText(user.email)
+        user.icon?.let { binding.profileImage.loadCircle(it) }
     }
 
     private fun initViews() {
         binding.btnFinishEdit.setOnClickListener {
-            viewModel.saveChanges(getUser())
+            sentEvent(EditUserEvent.OnSave)
             onBack()
         }
+
+        binding.lastnameField.doAfterTextChanged { text ->
+            sentEvent(EditUserEvent.LastNameChanged(text.toString()))
+        }
+
+        binding.firstnameField.doAfterTextChanged { text ->
+            sentEvent(EditUserEvent.FirstNameChanged(text.toString()))
+        }
+
+        binding.emailField.doAfterTextChanged { text ->
+            sentEvent(EditUserEvent.EmailChanged(text.toString()))
+        }
+
+        binding.profileImage.setOnClickListener { openGallery() }
+        binding.btnEdit.setOnClickListener { openGallery() }
     }
 
-    private fun getUser(): User = User(
-        firstName = binding.firstnameField.text.toString(),
-        lastName = binding.lastnameField.text.toString(),
-        binding.emailField.text.toString()
-    )
+    private fun sentEvent(userEvent: EditUserEvent) {
+        viewModel.onEvent(userEvent)
+    }
+
+    private fun openGallery() {
+        imagePickerLauncher.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly))
+    }
 
     override fun onDestroyView() {
         super.onDestroyView()

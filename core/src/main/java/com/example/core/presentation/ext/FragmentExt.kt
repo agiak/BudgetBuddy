@@ -1,6 +1,7 @@
 package com.example.core.presentation.ext
 
 import android.content.pm.PackageManager
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
@@ -34,6 +35,13 @@ fun Fragment.navigateToScreen(screenDeepLinkUrl: String) {
     findNavController().navigate(request)
 }
 
+fun Fragment.navigateBackToScreenWithAnimation(screenDeepLinkUrl: String) {
+    val request = NavDeepLinkRequest.Builder
+        .fromUri(screenDeepLinkUrl.toUri())
+        .build()
+    findNavController().navigate(request, getPreviousScreenNavOptions())
+}
+
 
 fun Fragment.launchWhenResumed(block: suspend () -> Unit) {
     lifecycleScope.launch {
@@ -42,6 +50,7 @@ fun Fragment.launchWhenResumed(block: suspend () -> Unit) {
         }
     }
 }
+
 
 fun Fragment.isPermissionGranted(permission: String): Boolean =
     ContextCompat.checkSelfPermission(requireContext(), permission) == PackageManager.PERMISSION_GRANTED

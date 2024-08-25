@@ -21,6 +21,7 @@ import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import timber.log.Timber
@@ -36,6 +37,7 @@ class StaticsViewModel @Inject constructor(
     val state: StateFlow<StaticsUiState> = _state.asStateFlow()
 
     init {
+        Timber.d("init was called")
         viewModelScope.launch {
             repository.getStatsObservable().collect { data ->
                 Timber.d("data $data")
@@ -51,6 +53,7 @@ class StaticsViewModel @Inject constructor(
             runCatching {
                 createStats()
             }.onSuccess { items ->
+                _state.update { it }
                 _state.value = StaticsUiState.Result(items)
             }.onFailure {
                 Timber.e(it)

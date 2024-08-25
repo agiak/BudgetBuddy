@@ -3,6 +3,7 @@ package com.example.features.register.presentation
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.core.data.User
+import com.example.core.domain.user.UserRepository
 import com.example.feature.register.impl.domain.RegisterRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.SharingStarted
@@ -13,6 +14,7 @@ import javax.inject.Inject
 @HiltViewModel
 class RegisterViewModel @Inject constructor(
     private val repository: RegisterRepository,
+    private val userRepository: UserRepository,
 ) : ViewModel() {
 
     val hasAccount = flow<Boolean> {
@@ -24,7 +26,7 @@ class RegisterViewModel @Inject constructor(
     )
 
     fun register(user: User) {
-        repository.register(user)
+        userRepository.updateUser(user)
     }
 
 }

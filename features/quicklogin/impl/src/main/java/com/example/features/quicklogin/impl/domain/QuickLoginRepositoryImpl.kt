@@ -1,8 +1,7 @@
 package com.example.features.quicklogin.impl.domain
 
-import com.example.core.data.User
 import com.example.core.domain.dispatchers.IDispatchers
-import com.example.core.domain.user.UserRepository.Companion.USER_KEY
+import com.example.core.domain.user.UserRepository
 import com.example.core.storage.domain.database.daos.AccountDao
 import com.example.core.storage.domain.sharedprefs.PreferenceManager
 import com.example.features.quicklogin.impl.data.UserState
@@ -12,6 +11,7 @@ class QuickLoginRepositoryImpl @Inject constructor(
     private val accountDao: AccountDao,
     private val preferenceManager: PreferenceManager,
     private val dispatchers: IDispatchers,
+    private val userRepository: UserRepository,
 ): QuickLoginRepository {
 
     override suspend fun getUserState(): UserState =
@@ -25,7 +25,6 @@ class QuickLoginRepositoryImpl @Inject constructor(
         }
 
     private fun isGuideDisplayed(): Boolean = preferenceManager.get("guide_key", false)
-    private fun isRegistered(): Boolean =
-        preferenceManager.get(USER_KEY, null) as? User? != null
+    private fun isRegistered(): Boolean = userRepository.fetchUser() != null
 
 }

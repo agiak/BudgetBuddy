@@ -2,7 +2,11 @@ package com.example.features.transactionAdd.presentation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.core.data.error.UiText
+import com.example.features.transactionAdd.impl.R
 import com.example.features.transactionAdd.impl.data.AccountSelection
+import com.example.features.transactionAdd.impl.data.AddTransactionUiState
+import com.example.features.transactionAdd.impl.data.InsertTransactionState
 import com.example.features.transactionAdd.impl.data.TransactionNew
 import com.example.features.transactionAdd.impl.data.toAccountSelections
 import com.example.features.transactionAdd.impl.data.toStoreTransaction
@@ -21,7 +25,7 @@ import javax.inject.Inject
 @HiltViewModel
 class TransactionAddViewModel @Inject constructor(
     private val repository: TransactionAddRepository,
-): ViewModel() {
+) : ViewModel() {
 
     private val _state = MutableStateFlow<AddTransactionUiState>(AddTransactionUiState.Idle)
     val state: StateFlow<AddTransactionUiState> = _state.asStateFlow()
@@ -34,21 +38,32 @@ class TransactionAddViewModel @Inject constructor(
         viewModelScope.launch {
             _state.value = AddTransactionUiState.Loading
             runCatching {
-                repository.addTransaction(transactionDB = transaction.toStoreTransaction(), transaction.applyTransaction)
-            }.onSuccess {
-                _state.value = AddTransactionUiState.Success
+                repository.addTransaction(
+                    transactionDB = transaction.toStoreTransaction(),
+                    applyTransaction = transaction.applyTransaction
+                )
+            }.onSuccess { result ->
+                when (result) {
+                    InsertTransactionState.AccountNotFound -> _state.value =
+                        AddTransactionUiState.Error(
+                            UiText.StringResource(
+                                R.string.error_account_not_found
+                            )
+                        )
+
+                    InsertTransactionState.InsufficientFunds -> _state.value =
+                        AddTransactionUiState.Error(
+                            UiText.StringResource(
+                                R.string.error_insufficient_amount
+                            )
+                        )
+
+                    InsertTransactionState.Success -> _state.value = AddTransactionUiState.Success
+                }
             }.onFailure {
                 Timber.e(it)
-                _state.value = AddTransactionUiState.Error(it.message.toString())
+                _state.value = AddTransactionUiState.Error(UiText.Dynamic(it.message.toString()))
             }
         }
     }
-
-}
-
-sealed class AddTransactionUiState {
-    data object Idle: AddTransactionUiState()
-    data object Loading: AddTransactionUiState()
-    data object Success: AddTransactionUiState()
-    data class Error(val message: String): AddTransactionUiState()
 }

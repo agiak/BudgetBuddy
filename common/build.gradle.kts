@@ -43,6 +43,9 @@ dependencies {
     // Navigation
     implementation(libs.bundles.navigation)
 
+    // Glide
+    implementation(libs.glide)
+
     implementation(libs.timber)
 
     // Testing

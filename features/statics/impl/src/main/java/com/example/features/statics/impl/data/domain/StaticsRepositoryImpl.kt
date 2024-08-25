@@ -8,6 +8,7 @@ import com.example.core.storage.data.AccountDB
 import com.example.core.storage.data.TransactionDB
 import com.example.core.storage.domain.database.daos.AccountDao
 import com.example.core.storage.domain.database.daos.TransactionDao
+import com.example.features.statics.impl.data.data.StaticsItem
 import com.example.features.statics.impl.data.data.StatsData
 import kotlinx.coroutines.async
 import kotlinx.coroutines.awaitAll
@@ -26,12 +27,20 @@ class StaticsRepositoryImpl @Inject constructor(
     private var accounts: List<AccountDB> = emptyList()
 
     override fun getStatsObservable(): Flow<StatsData> =
-        accountsDao.getAllAccountsObservable().combine(transactionsDao.getAllTransactionsObservable()) {
-            accountsRetrieved, transactionsRetrieved ->
-            transactions = transactionsRetrieved
-            accounts = accountsRetrieved
-            StatsData(accounts, transactions)
+        accountsDao.getAllAccountsObservable()
+            .combine(transactionsDao.getAllTransactionsObservable()) { accountsRetrieved, transactionsRetrieved ->
+                transactions = transactionsRetrieved
+                accounts = accountsRetrieved
+                StatsData(accounts, transactions)
+            }
+
+    suspend fun getStatsData(): List<StaticsItem> =
+        withContext(dispatchers.backgroundThread()) {
+
+
+            emptyList()
         }
+
 
     override suspend fun init() {
         withContext(dispatchers.backgroundThread()) {
@@ -92,7 +101,8 @@ class StaticsRepositoryImpl @Inject constructor(
 
     override suspend fun fetchInvestmentProgress(): Map<String, Double> {
         val result = transactions
-            .filter { it.type == TransactionType.INVESTMENT }.groupBy { it.date.formatToDateString().substring(3) }
+            .filter { it.type == TransactionType.INVESTMENT }
+            .groupBy { it.date.formatToDateString().substring(3) }
             .mapValues { it.value.sumOf { transaction -> transaction.amount } }
             .toSortedMap(compareBy {
                 val (month, year) = it.split("/")

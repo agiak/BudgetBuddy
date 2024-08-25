@@ -1,11 +1,7 @@
 package com.example.core.presentation.ext
 
-import androidx.core.net.toUri
-import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
-import androidx.navigation.NavDeepLinkRequest
 import androidx.navigation.NavOptions
-import androidx.navigation.fragment.findNavController
 import com.example.common.R
 
 fun getNextScreenNavOptions() = NavOptions.Builder()
@@ -25,3 +21,9 @@ fun NavController.navigateFromBottom(destinationId: Int) {
     this.navigate(destinationId, null, navOptions)
 }
 
+fun getPreviousScreenNavOptions() = NavOptions.Builder()
+    .setEnterAnim(R.anim.slide_in_left)
+    .setExitAnim(R.anim.slide_out_right)
+    .setPopEnterAnim(R.anim.slide_in_right)
+    .setPopExitAnim(R.anim.slide_out_left)
+    .build()

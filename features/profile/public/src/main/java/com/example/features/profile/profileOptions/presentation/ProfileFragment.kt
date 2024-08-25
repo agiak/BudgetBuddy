@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.findNavController
+import com.example.common.myutils.loadCircle
 import com.example.common.myutils.setLightStatusBars
 import com.example.core.presentation.ext.addDividerDecorator
 import com.example.core.presentation.ext.launchWhenResumed
@@ -60,6 +60,7 @@ class ProfileFragment : Fragment() {
                 user?.let {
                     binding.profileName.text = user.fullName
                     binding.profileEmail.text = user.email
+                    user.icon?.let { binding.profileImage.loadCircle(it) }
                 }
             }
         }

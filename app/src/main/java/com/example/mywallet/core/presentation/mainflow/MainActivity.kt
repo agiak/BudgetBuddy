@@ -3,7 +3,6 @@ package com.example.mywallet.core.presentation.mainflow
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination
 import androidx.navigation.fragment.NavHostFragment
@@ -11,8 +10,10 @@ import androidx.navigation.ui.setupWithNavController
 import androidx.work.WorkManager
 import com.example.common.myutils.addPrintingBackstack
 import com.example.common.myutils.hide
+import com.example.common.myutils.loadCircle
 import com.example.common.myutils.show
 import com.example.core.data.screens.MainFlow
+import com.example.core.presentation.ext.launchWhenResumed
 import com.example.core.presentation.ext.navigateFromBottom
 import com.example.mywallet.R
 import com.example.mywallet.core.data.application.ScreenType
@@ -23,7 +24,6 @@ import com.example.mywallet.databinding.ActivityMainBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
-import kotlinx.coroutines.launch
 import timber.log.Timber
 
 @AndroidEntryPoint
@@ -49,10 +49,11 @@ class MainActivity : AppCompatActivity(), MainFlow {
     }
 
     private fun initObservations() {
-        lifecycleScope.launch {
+        launchWhenResumed {
             viewModel.user.collectLatest { user ->
                 user?.let {
                     binding.mainToolbar.profileName.text = user.fullName
+                    user.icon?.let { binding.mainToolbar.profileImage.loadCircle(it) }
                 }
             }
         }

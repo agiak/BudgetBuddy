@@ -20,6 +20,7 @@ import com.example.core.presentation.ext.onBack
 import com.example.features.transactionAdd.R
 import com.example.features.transactionAdd.databinding.FragmentTransactionAddBinding
 import com.example.features.transactionAdd.impl.data.AccountSelection
+import com.example.features.transactionAdd.impl.data.AddTransactionUiState
 import com.example.features.transactionAdd.impl.data.TransactionNew
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
@@ -64,7 +65,7 @@ class TransactionAddFragment : Fragment() {
         lifecycleScope.launch {
             viewModel.state.collectLatest { state ->
                 when (state) {
-                    is AddTransactionUiState.Error -> showToast(state.message)
+                    is AddTransactionUiState.Error -> showToast(state.message.asString(requireContext()))
                     AddTransactionUiState.Idle -> {}
                     AddTransactionUiState.Loading -> {}
                     AddTransactionUiState.Success -> onBack()

@@ -8,8 +8,11 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/layout_main_toolbar" />
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/profile_image"
@@ -18,16 +21,16 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar"
             app:layout_constraintVertical_bias="0.10"
             app:srcCompat="@drawable/ic_profile" />
-
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/btn_edit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/space_medium"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="@+id/profile_image"
             app:layout_constraintEnd_toEndOf="@+id/profile_image"
             app:srcCompat="@drawable/ic_edit" />
@@ -103,4 +106,5 @@
             tools:layout_editor_absoluteX="24dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </ScrollView>

@@ -13,7 +13,9 @@ import com.example.common.myutils.setLightStatusBars
 import com.example.common.myutils.showSnackBar
 import com.example.common.myutils.showToast
 import com.example.core.presentation.ext.launchWhenResumed
+import com.example.core.presentation.ext.navigateBackToScreenWithAnimation
 import com.example.core.presentation.ext.onBack
+import com.example.core.presentation.transactionsScreen
 import com.example.features.transactionsViaFile.R
 import com.example.features.transactionsViaFile.databinding.FragmentTransactionsSelectionBinding
 import com.example.features.transactionsViaFile.fileImport.presentation.FileTransactionsViewModel
@@ -70,7 +72,7 @@ class TransactionsSelectionFragment : Fragment() {
                 when (state) {
                     is FileState.Saved -> {
                         showSnackBar("Added ${state.transactionsAdded} transactions")
-                        onBack()
+                        navigateBackToScreenWithAnimation(transactionsScreen)
                     }
 
                     else -> {}

@@ -1,6 +1,7 @@
 package com.example.features.quicklogin.impl.di
 
 import com.example.core.domain.dispatchers.IDispatchers
+import com.example.core.domain.user.UserRepository
 import com.example.core.storage.domain.database.daos.AccountDao
 import com.example.core.storage.domain.sharedprefs.PreferenceManager
 import com.example.features.quicklogin.impl.domain.QuickLoginRepository
@@ -20,10 +21,12 @@ class QuickLoginModule {
     fun provideQuickLoginRepository(
         dao: AccountDao,
         dispatchers: IDispatchers,
-        preferenceManager: PreferenceManager
+        preferenceManager: PreferenceManager,
+        userRepository: UserRepository,
     ): QuickLoginRepository = QuickLoginRepositoryImpl(
         accountDao = dao,
         dispatchers = dispatchers,
-        preferenceManager = preferenceManager
+        preferenceManager = preferenceManager,
+        userRepository = userRepository
     )
 }

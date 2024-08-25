@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.example.common.myutils.loadCircle
 import com.example.features.accounts.databinding.ItemAccountBinding
 import com.example.features.accounts.impl.accounts.data.Account
 
@@ -35,7 +36,7 @@ class AccountsAdapter (
 
                 binding.balance.text = balance
                 binding.name.text = name
-                binding.image.setImageResource(bank.drawableID)
+                binding.image.loadCircle(bank.drawableID)
                 binding.root.setOnClickListener { onClick(account.id) }
             }
         }

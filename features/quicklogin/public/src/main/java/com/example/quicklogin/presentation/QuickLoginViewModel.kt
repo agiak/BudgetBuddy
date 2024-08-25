@@ -16,9 +16,9 @@ class QuickLoginViewModel @Inject constructor(
     private val repository: QuickLoginRepository,
 ): ViewModel() {
 
-    private val _state = MutableStateFlow<com.example.features.quicklogin.impl.data.QuickLoginState>(
-        com.example.features.quicklogin.impl.data.QuickLoginState.Loading)
-    val state: StateFlow<com.example.features.quicklogin.impl.data.QuickLoginState> = _state
+    private val _state = MutableStateFlow<QuickLoginState>(
+        QuickLoginState.Loading)
+    val state: StateFlow<QuickLoginState> = _state
 
     init {
         fetchUserState()
@@ -29,10 +29,10 @@ class QuickLoginViewModel @Inject constructor(
             runCatching {
                 repository.getUserState()
             }.onSuccess {
-                _state.value = com.example.features.quicklogin.impl.data.QuickLoginState.Result(userState = it)
+                _state.value = QuickLoginState.Result(userState = it)
             }.onFailure {
                 Timber.e(it)
-                _state.value = com.example.features.quicklogin.impl.data.QuickLoginState.Error(errorMessage = it.message.toString())
+                _state.value = QuickLoginState.Error(errorMessage = it.message.toString())
             }
         }
     }

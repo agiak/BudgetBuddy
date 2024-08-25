@@ -27,6 +27,8 @@
             android:id="@+id/action_navigation_transactions_to_graph_transactions_via_file"
             app:destination="@id/graph_transactions_via_file" />
 
+        <deepLink app:uri="android-app://example.google.app/main_flow_transactions" />
+
     </fragment>
 
     <fragment
@@ -35,8 +37,7 @@
         android:label="@string/nav_label_add_transaction"
         tools:layout="@layout/fragment_transaction_add">
 
-        <deepLink
-            app:uri="android-app://example.google.app/addAccount" />
+        <deepLink app:uri="android-app://example.google.app/addAccount" />
     </fragment>
 
     <include app:graph="@navigation/graph_transaction" />

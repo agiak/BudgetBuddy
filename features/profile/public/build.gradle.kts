@@ -64,6 +64,9 @@ dependencies {
     implementation(libs.bundles.hilt)
     kapt(libs.hilt.compiler)
 
+    // Glide
+    implementation(libs.glide)
+
     // Logging
     implementation(libs.timber)
 
