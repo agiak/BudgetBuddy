@@ -10,6 +10,7 @@ import com.example.features.statics.R
 import com.example.features.statics.impl.data.data.CommonStatCategory
 import com.example.features.statics.impl.data.data.StaticsItem
 import com.example.features.statics.impl.data.data.StaticsUiState
+import com.example.features.statics.impl.data.data.mergeCommonStats
 import com.example.features.statics.impl.data.data.toLargerTransactions
 import com.example.features.statics.impl.data.data.toMostTrustedBanks
 import com.example.features.statics.impl.data.data.toMostUsedAccounts
@@ -21,7 +22,6 @@ import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import timber.log.Timber
@@ -37,23 +37,20 @@ class StaticsViewModel @Inject constructor(
     val state: StateFlow<StaticsUiState> = _state.asStateFlow()
 
     init {
-        Timber.d("init was called")
         viewModelScope.launch {
             repository.getStatsObservable().collect { data ->
-                Timber.d("data $data")
-                if (!data.isEmpty()) fetchData()
+                if (data.accounts.isNotEmpty()) fetchData(data.transactions.isNotEmpty())
                 else _state.value = StaticsUiState.Result(listOf(StaticsItem.EmptyStats))
             }
         }
     }
 
-    private suspend fun fetchData() {
+    private suspend fun fetchData(isTransactionsAvailable: Boolean) {
         viewModelScope.launch {
             emitLoading()
             runCatching {
-                createStats()
+                createStats(isTransactionsAvailable)
             }.onSuccess { items ->
-                _state.update { it }
                 _state.value = StaticsUiState.Result(items)
             }.onFailure {
                 Timber.e(it)
@@ -65,21 +62,48 @@ class StaticsViewModel @Inject constructor(
         _state.value = StaticsUiState.Loading
     }
 
-    private suspend fun createStats(): List<StaticsItem> =
+    private suspend fun createStats(isTransactionsAvailable: Boolean): List<StaticsItem> =
         withContext(dispatchers.backgroundThread()) {
+            val accountsStats = accountStats()
+            val transactionsStats = if (isTransactionsAvailable) transactionsStats() else listOf()
 
-            val mostValuableAccountsDeferred = async { repository.fetchMostValuableAccounts() }
-            val mostLargerTransactionsDeferred = async { repository.fetchMostLargerTransactions() }
+            mergeCommonStats(accountsStats, transactionsStats)
+        }
+
+    private suspend fun transactionsStats(): List<StaticsItem> =
+        withContext(dispatchers.backgroundThread()) {
+            val largerTransactionsDeferred = async { repository.fetchMostLargerTransactions() }
             val mostUsedAccountsDeferred = async { repository.fetchMostUsedAccounts() }
-            val mostTrustedBanks = async { repository.fetchMostTrustedBanks() }
             val investmentProgressDeferred = async { repository.fetchInvestmentProgress() }
+
+            val result = awaitAll(largerTransactionsDeferred, mostUsedAccountsDeferred, investmentProgressDeferred)
+
+            val commonStats = listOf(
+                CommonStatCategory(
+                    title = R.string.statics_common_stat_category_transactions,
+                    results = (result[0] as List<TransactionDB>).toLargerTransactions()
+                ),
+                CommonStatCategory(
+                    title = R.string.statics_common_stat_category_accounts_with_most_transactions,
+                    results = (result[1] as Map<AccountDB, Int>).toMostUsedAccounts()
+                ),
+            )
+
+            val commonStatsItem = StaticsItem.CommonStats(commonStats)
+            val investmentProgressItem =
+                StaticsItem.InvestmentProgress(result[2] as Map<String, Double>)
+
+            listOf(commonStatsItem, investmentProgressItem)
+        }
+
+    private suspend fun accountStats(): List<StaticsItem> =
+        withContext(dispatchers.backgroundThread()) {
+            val mostValuableAccountsDeferred = async { repository.fetchMostValuableAccounts() }
+            val mostTrustedBanks = async { repository.fetchMostTrustedBanks() }
 
             val result = awaitAll(
                 mostValuableAccountsDeferred,
-                mostLargerTransactionsDeferred,
-                mostUsedAccountsDeferred,
                 mostTrustedBanks,
-                investmentProgressDeferred
             )
 
             val commonStats = listOf(
@@ -88,23 +112,14 @@ class StaticsViewModel @Inject constructor(
                     results = (result[0] as List<AccountDB>).toMostValuableAccounts()
                 ),
                 CommonStatCategory(
-                    title = R.string.statics_common_stat_category_transactions,
-                    results = (result[1] as List<TransactionDB>).toLargerTransactions()
-                ),
-                CommonStatCategory(
-                    title = R.string.statics_common_stat_category_accounts_with_most_transactions,
-                    results = (result[2] as Map<AccountDB, Int>).toMostUsedAccounts()
-                ),
-                CommonStatCategory(
                     title = R.string.statics_common_stat_category_trusted_banks,
-                    results = (result[3] as Map<Bank, Double>).toMostTrustedBanks()
+                    results = (result[1] as Map<Bank, Double>).toMostTrustedBanks()
                 ),
             )
 
             val commonStatsItem = StaticsItem.CommonStats(commonStats)
-            val investmentProgressItem =
-                StaticsItem.InvestmentProgress(result[4] as Map<String, Double>)
 
-            listOf(commonStatsItem, investmentProgressItem)
+            listOf(commonStatsItem)
         }
+
 }

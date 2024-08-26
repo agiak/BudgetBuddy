@@ -25,7 +25,7 @@
         android:layout_marginEnd="@dimen/space_xlarge"
         android:layout_marginBottom="@dimen/space_xlarge"
         android:backgroundTint="@color/primary"
-        android:text="Options"
+        android:text="@string/transactions_general_button"
         android:textAllCaps="false"
         android:textColor="@color/white"
         app:icon="@drawable/ic_add"
@@ -52,7 +52,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/space_large"
-        android:text="Add via file"
+        android:text="@string/transactions_add_via_file"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/btn_add_transaction_via_file"
         app:layout_constraintEnd_toStartOf="@+id/btn_add_transaction_via_file"
@@ -78,7 +78,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/space_large"
-        android:text="Add manually"
+        android:text="@string/transactions_add_manually"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/btn_add_transaction_manually"
         app:layout_constraintEnd_toStartOf="@+id/btn_add_transaction_manually"
@@ -91,6 +91,16 @@
         android:visibility="gone"
         app:constraint_referenced_ids="btn_add_transaction_via_file,btn_add_transaction_manually, manually_label, file_label"
         tools:visibility="visible" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/empty_state"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="@string/transactions_no_transactions_found"
+        android:textSize="@dimen/text_xlarge"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/btn_delete"
@@ -106,6 +116,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/ic_close"
         app:tint="@android:color/white" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

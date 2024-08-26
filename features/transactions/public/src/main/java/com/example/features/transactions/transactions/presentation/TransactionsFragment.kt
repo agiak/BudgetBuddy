@@ -7,14 +7,13 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.lifecycleScope
 import com.example.common.myutils.setLightStatusBars
 import com.example.core.presentation.ext.addSpaceDecorator
+import com.example.core.presentation.ext.launchWhenResumed
 import com.example.core.presentation.ext.navigateToNextScreen
 import com.example.features.transactions.databinding.FragmentTransactionsBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
-import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class TransactionsFragment : Fragment() {
@@ -80,8 +79,9 @@ class TransactionsFragment : Fragment() {
     }
 
     private fun initSubscriptions() {
-        lifecycleScope.launch {
+        launchWhenResumed {
             viewModel.transactions.collectLatest {
+                binding.emptyState.isVisible = it.isEmpty()
                 transactionsAdapter.submitList(it)
             }
         }
