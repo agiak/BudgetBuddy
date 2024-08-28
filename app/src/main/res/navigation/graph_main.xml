@@ -71,4 +71,6 @@
 
     <include app:graph="@navigation/graph_transactions" />
 
+    <include app:graph="@navigation/graph_more" />
+
 </navigation>

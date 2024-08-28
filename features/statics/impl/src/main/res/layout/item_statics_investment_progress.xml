@@ -33,7 +33,6 @@
         app:previewColumnSeriesCount="1"
         app:showBottomAxis="true"
         app:showStartAxis="true"
-        app:startAxisStyle="@style/Chart8VerticalAxisStyle"
-        tools:layout_editor_absoluteX="24dp" />
+        app:startAxisStyle="@style/Chart8VerticalAxisStyle" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

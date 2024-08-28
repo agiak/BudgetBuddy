@@ -11,5 +11,6 @@ fun Int.identifyScreenType(): ScreenType =
 private val menuScreens = listOf(
     R.id.navigation_home,
     R.id.navigation_statics,
-    com.example.features.transactions.R.id.navigation_transactions
+    com.example.features.transactions.R.id.navigation_transactions,
+    com.example.features.more.R.id.navigation_more,
 )
