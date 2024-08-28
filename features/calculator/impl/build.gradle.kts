@@ -8,7 +8,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.features.more"
+    namespace = "com.example.features.calculator.impl"
     compileSdk = libs.versions.compileSdk.get().toInt()
 
     defaultConfig {
@@ -18,15 +18,6 @@ android {
         consumerProguardFiles("consumer-rules.pro")
     }
 
-    buildTypes {
-        release {
-            isMinifyEnabled = false
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
-        }
-    }
     compileOptions {
         sourceCompatibility = JavaVersion.toVersion(libs.versions.java.get().toInt())
         targetCompatibility = JavaVersion.toVersion(libs.versions.java.get().toInt())
@@ -41,21 +32,15 @@ android {
 }
 
 dependencies {
-
     // Implement 2 shared-common modules
     implementation(project(":common"))
     implementation(project(":core"))
-    implementation(project(":features:more:impl"))
-    implementation(project(":features:calculator:public"))
 
     // UI components
     implementation(libs.bundles.ui.components)
 
     // Lifecycle components
     implementation(libs.bundles.lifecycle.components)
-
-    // Navigation
-    implementation(libs.bundles.navigation)
 
     // Dagger - Hilt
     implementation(libs.bundles.hilt)

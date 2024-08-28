@@ -10,6 +10,15 @@
         android:name="com.example.features.presentation.MoreFragment"
         android:label="@string/nav_label_more"
         tools:layout="@layout/fragment_more">
+        <action
+            android:id="@+id/action_navigation_more_to_navigation_calculator"
+            app:destination="@id/navigation_calculator" />
     </fragment>
+
+    <fragment
+        android:id="@+id/navigation_calculator"
+        android:name="com.example.features.calculator.presentation.CalculatorFragment"
+        android:label="@string/nav_label_calculator"
+        tools:layout="@layout/fragment_calculator"/>
 
 </navigation>

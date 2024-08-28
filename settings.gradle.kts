@@ -94,3 +94,8 @@ include(":features:profile:impl")
 include(":features:more")
 include(":features:more:public")
 include(":features:more:impl")
+
+// Calculator feature
+include(":features:calculator")
+include(":features:calculator:impl")
+include(":features:calculator:public")

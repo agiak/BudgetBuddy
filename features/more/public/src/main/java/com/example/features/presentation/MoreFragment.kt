@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import com.example.common.myutils.disableFullScreenTheme
 import com.example.common.myutils.setLightStatusBars
 import com.example.core.presentation.ext.launchWhenResumed
+import com.example.core.presentation.ext.navigateToNextScreen
 import com.example.features.impl.data.MoreItem
 import com.example.features.impl.data.MoreItem.InvestmentCalculator
 import com.example.features.impl.data.MoreItem.Rule
@@ -32,7 +33,7 @@ class MoreFragment : Fragment() {
         when(selectedItem) {
             Rule -> {}
             StockMarket -> {}
-            InvestmentCalculator -> {}
+            InvestmentCalculator -> navigateToCalculatorScreen()
         }
     }
 
@@ -74,3 +75,6 @@ class MoreFragment : Fragment() {
         _binding = null
     }
 }
+
+private fun MoreFragment.navigateToCalculatorScreen() =
+    navigateToNextScreen(MoreFragmentDirections.actionNavigationMoreToNavigationCalculator())

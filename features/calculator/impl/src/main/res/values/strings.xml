@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="investment_repeat_period_monthly">Monthly</string>
+    <string name="investment_repeat_period_yearly">Yearly</string>
+
+</resources>
