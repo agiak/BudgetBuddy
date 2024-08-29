@@ -6,5 +6,4 @@ import javax.inject.Inject
 
 @HiltViewModel
 class CalculatorViewModel @Inject constructor(
-    private val repository: TransactionsRepository,
-) : ViewModel() {
+) : ViewModel() {}
