@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_navigation_more_to_navigation_calculator"
             app:destination="@id/navigation_calculator" />
+        <action
+            android:id="@+id/action_navigation_more_to_graph_rules"
+            app:destination="@id/graph_rules" />
     </fragment>
 
     <fragment
@@ -20,5 +23,7 @@
         android:name="com.example.features.calculator.presentation.CalculatorFragment"
         android:label="@string/nav_label_calculator"
         tools:layout="@layout/fragment_calculator"/>
+
+    <include app:graph="@navigation/graph_rules" />
 
 </navigation>

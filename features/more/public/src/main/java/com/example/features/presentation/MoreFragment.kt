@@ -31,7 +31,7 @@ class MoreFragment : Fragment() {
 
     private fun handleSelection(selectedItem: MoreItem) {
         when(selectedItem) {
-            Rule -> {}
+            Rule -> navigateToRulesScreen()
             StockMarket -> {}
             InvestmentCalculator -> navigateToCalculatorScreen()
         }
@@ -78,3 +78,6 @@ class MoreFragment : Fragment() {
 
 private fun MoreFragment.navigateToCalculatorScreen() =
     navigateToNextScreen(MoreFragmentDirections.actionNavigationMoreToNavigationCalculator())
+
+private fun MoreFragment.navigateToRulesScreen() =
+    navigateToNextScreen(MoreFragmentDirections.actionNavigationMoreToGraphRules())

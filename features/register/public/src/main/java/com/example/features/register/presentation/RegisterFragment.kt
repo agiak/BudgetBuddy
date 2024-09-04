@@ -7,15 +7,20 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import com.example.common.myutils.loadCircle
 import com.example.common.myutils.setLightStatusBars
 import com.example.core.data.User
 import com.example.core.data.screens.AuthorizationFlow
 import com.example.core.presentation.createAccountScreen
+import com.example.core.presentation.ext.launchWhenResumed
 import com.example.core.presentation.ext.navigateToNextScreen
+import com.example.feature.register.impl.data.RegisterEvent
 import com.example.features.register.databinding.FragmentRegisterBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
@@ -30,7 +35,6 @@ class RegisterFragment : Fragment() {
     private val binding get() = _binding!!
 
     private var hasAccounts = false
-    private var selectedImage: String? = null
 
     private val imagePickerLauncher =
         registerForActivityResult(ActivityResultContracts.PickVisualMedia()) { uri ->
@@ -39,7 +43,7 @@ class RegisterFragment : Fragment() {
                     it,
                     Intent.FLAG_GRANT_READ_URI_PERMISSION
                 )
-                selectedImage = it.toString()
+                viewModel.onEvent(RegisterEvent.IconChanged(it.toString()))
                 binding.profileImage.loadCircle(it)
             }
         }
@@ -62,8 +66,24 @@ class RegisterFragment : Fragment() {
 
     private fun initViews() {
         binding.btnRegister.setOnClickListener {
-            viewModel.register(getUser())
+            viewModel.onEvent(RegisterEvent.Submit)
             navigateToNextScreen()
+        }
+
+        binding.lastnameField.doAfterTextChanged {
+            viewModel.onEvent(
+                RegisterEvent.LastNameChanged(
+                    it.toString()
+                )
+            )
+        }
+        binding.emailField.doAfterTextChanged { viewModel.onEvent(RegisterEvent.EmailChanged(it.toString())) }
+        binding.firstnameField.doAfterTextChanged {
+            viewModel.onEvent(
+                RegisterEvent.FirstNameChanged(
+                    it.toString()
+                )
+            )
         }
 
         binding.profileImage.setOnClickListener { openGallery() }
@@ -74,20 +94,21 @@ class RegisterFragment : Fragment() {
     }
 
     private fun initSubscriptions() {
+        launchWhenResumed {
+            viewModel.hasAccount.collectLatest { hasAccounts = it }
+        }
+
         lifecycleScope.launch {
-            viewModel.hasAccount.collectLatest {
-                hasAccounts = it
+            lifecycle.repeatOnLifecycle(Lifecycle.State.CREATED) {
+                viewModel.user.collectLatest { user: User ->
+                    binding.firstnameField.setText(user.firstName)
+                    binding.lastnameField.setText(user.lastName)
+                    binding.emailField.setText(user.email)
+                    user.icon?.let { icon -> binding.profileImage.loadCircle(icon) }
+                }
             }
         }
     }
-
-    private fun getUser(): User =
-        User(
-            firstName = binding.firstnameField.text.toString(),
-            lastName = binding.lastnameField.text.toString(),
-            email = binding.emailField.text.toString(),
-            icon = selectedImage
-        )
 
     private fun navigateToNextScreen() {
         when (hasAccounts) {

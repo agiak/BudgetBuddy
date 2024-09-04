@@ -22,6 +22,8 @@
     <color name="alternative_dark">#FF9100</color>
 
     <color name="main_grey">#F3E5F5</color>
+    <color name="grey_text">#777777</color>
+    <color name="grey_bg">#64B5F6</color>
 
     <color name="main_error">#FF9E80</color>
 

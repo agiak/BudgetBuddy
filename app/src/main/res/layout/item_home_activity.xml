@@ -6,6 +6,7 @@
     android:layout_height="wrap_content"
     android:layout_marginHorizontal="@dimen/space_medium"
     android:background="@drawable/bg_round"
+    android:backgroundTint="@color/secondary_light"
     android:elevation="4dp"
     android:paddingHorizontal="@dimen/space_large">
 
@@ -15,6 +16,7 @@
         android:layout_height="wrap_content"
         android:paddingVertical="@dimen/space_medium"
         android:text="@string/home_activity_label"
+        android:textColor="@color/white"
         android:textSize="@dimen/text_xlarge"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -32,7 +34,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingVertical="@dimen/space_medium"
+        android:textColor="@color/white"
         android:textSize="@dimen/text_large"
+        android:textStyle="bold"
         app:layout_constraintTop_toBottomOf="@+id/activity_list"
         tools:text="Latest transactions cost: 1000$" />
 

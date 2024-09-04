@@ -4,6 +4,7 @@ import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import com.example.core.storage.data.AccountDB
+import com.example.core.storage.data.NetWorth
 import com.example.core.storage.data.RuleDB
 import com.example.core.storage.data.TransactionDB
 import com.example.core.storage.domain.database.converters.BankConverter
@@ -17,9 +18,10 @@ import com.example.core.storage.domain.database.daos.TransactionDao
     entities = [
         AccountDB::class,
         TransactionDB::class,
-        RuleDB::class
+        RuleDB::class,
+        NetWorth::class
     ],
-    version = 2,
+    version = 3,
     exportSchema = false
 )
 @TypeConverters(BankConverter::class, TransactionTypeConverter::class, RuleTypeConverter::class)

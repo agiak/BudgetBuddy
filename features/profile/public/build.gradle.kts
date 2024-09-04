@@ -48,7 +48,6 @@ dependencies {
     implementation(project(":features:profile:impl"))
 
     // Implement necessary modules
-    implementation(project(":features:rules:public"))
     implementation(project(":features:guide:public"))
 
     // UI components

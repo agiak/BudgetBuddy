@@ -34,10 +34,11 @@
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/options_button"
-        android:layout_width="@dimen/main_vector_size_large"
-        android:layout_height="@dimen/main_vector_size_large"
+        android:layout_width="@dimen/main_vector_size"
+        android:layout_height="@dimen/main_vector_size"
         android:layout_marginEnd="@dimen/space_large"
         android:elevation="12dp"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"

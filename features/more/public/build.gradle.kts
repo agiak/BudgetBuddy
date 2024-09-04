@@ -46,7 +46,10 @@ dependencies {
     implementation(project(":common"))
     implementation(project(":core"))
     implementation(project(":features:more:impl"))
+
+    // Implement necessary modules
     implementation(project(":features:calculator:public"))
+    implementation(project(":features:rules:public"))
 
     // UI components
     implementation(libs.bundles.ui.components)

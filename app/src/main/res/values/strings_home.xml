@@ -6,6 +6,6 @@
     <string name="home_transfer_funds">Transfer funds</string>
     <string name="home_total_balance">Total balance</string>
     <string name="home_accounts_label">Accounts</string>
-    <string name="home_activity_label">Activity</string>
+    <string name="home_activity_label">Recent activity</string>
 
 </resources>

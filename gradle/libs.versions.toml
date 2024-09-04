@@ -6,8 +6,8 @@ java = "17"
 
 # Config values
 minSdk = "28"
-targetSdk = "34"
-compileSdk = "34"
+targetSdk = "35"
+compileSdk = "35"
 
 agp = "8.5.2"
 ksp = "1.8.10-1.0.9"

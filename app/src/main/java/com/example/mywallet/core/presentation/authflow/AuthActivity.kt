@@ -1,6 +1,7 @@
 package com.example.mywallet.core.presentation.authflow
 
 import android.os.Bundle
+import androidx.activity.OnBackPressedCallback
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
@@ -9,6 +10,7 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import com.example.common.myutils.addPrintingBackstack
 import com.example.core.data.screens.AuthorizationFlow
+import com.example.core.presentation.BackPressHandler
 import com.example.mywallet.R
 import com.example.mywallet.core.presentation.openMainFlow
 import com.example.mywallet.databinding.ActivityAuthBinding
@@ -32,6 +34,27 @@ class AuthActivity : AppCompatActivity(), AuthorizationFlow {
 
         setUpNavController()
         initToolbar()
+
+        setBackPressFunctionality()
+    }
+
+    private fun setBackPressFunctionality() {
+        onBackPressedDispatcher.addCallback(
+            this,
+            object : OnBackPressedCallback(true) {
+                override fun handleOnBackPressed() {
+                    val currentFragment =
+                        supportFragmentManager.findFragmentById(R.id.nav_host_fragment_activity_main)
+                            ?.childFragmentManager?.primaryNavigationFragment
+                    currentFragment?.let { f ->
+                        when (f) {
+                            is BackPressHandler -> f.onBackPress()
+                            else -> navController.navigateUp()
+                        }
+                    }
+
+                }
+            })
     }
 
     private fun setUpSplashScreenApi() {
@@ -44,7 +67,7 @@ class AuthActivity : AppCompatActivity(), AuthorizationFlow {
 
     private fun initToolbar() {
         binding.toolbar.apply {
-            backButton.setOnClickListener { navController.popBackStack() }
+            backButton.setOnClickListener { navController.navigateUp() }
         }
     }
 
@@ -56,10 +79,12 @@ class AuthActivity : AppCompatActivity(), AuthorizationFlow {
         navController.addOnDestinationChangedListener { _, navigation, _ ->
             binding.toolbar.apply {
                 root.isVisible = false
-                screenTitle.text = navigation.label
+                screenTitle.text = ""
             }
         }
     }
 
-    override fun startMainFlow() { this.openMainFlow() }
+    override fun startMainFlow() {
+        this.openMainFlow()
+    }
 }

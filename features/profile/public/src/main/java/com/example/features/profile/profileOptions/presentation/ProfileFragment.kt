@@ -33,7 +33,6 @@ class ProfileFragment : Fragment() {
         when (selectedChoice) {
             ProfileSetting.EDIT_PROFILE -> navigateToEditProfile()
             ProfileSetting.LANGUAGE -> {}
-            ProfileSetting.RULES -> navigateToRules()
             ProfileSetting.GUIDE -> navigateToGuide()
         }
     }
@@ -83,9 +82,6 @@ class ProfileFragment : Fragment() {
 
 private fun ProfileFragment.navigateToEditProfile() =
     navigateToNextScreen(ProfileFragmentDirections.actionNavigationProfileToNavigationEditProfile())
-
-private fun ProfileFragment.navigateToRules() =
-    navigateToNextScreen(ProfileFragmentDirections.actionNavigationProfileToGraphRules())
 
 private fun ProfileFragment.navigateToGuide() =
     navigateToNextScreen(ProfileFragmentDirections.actionNavigationProfileToNavigationGuide())

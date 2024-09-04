@@ -44,7 +44,7 @@
         app:fabSize="normal"
         app:layout_constraintBottom_toTopOf="@+id/btn_add_transaction"
         app:layout_constraintEnd_toEndOf="@+id/btn_add_transaction"
-        app:srcCompat="@drawable/ic_add"
+        app:srcCompat="@drawable/ic_via_file"
         app:tint="@android:color/white" />
 
     <androidx.appcompat.widget.AppCompatTextView

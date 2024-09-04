@@ -14,9 +14,6 @@
             android:id="@+id/action_navigation_profile_to_navigation_edit_profile"
             app:destination="@id/navigation_edit_profile" />
         <action
-            android:id="@+id/action_navigation_profile_to_graph_rules"
-            app:destination="@id/graph_rules" />
-        <action
             android:id="@+id/action_navigation_profile_to_navigation_guide"
             app:destination="@id/navigation_guide" />
     </fragment>
@@ -32,7 +29,5 @@
         android:name="com.example.feature.quide.presentation.GuideFragment"
         android:label="@string/nav_label_guide"
         tools:layout="@layout/fragment_guide" />
-
-    <include app:graph="@navigation/graph_rules" />
 
 </navigation>

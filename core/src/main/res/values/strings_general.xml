@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Exit app dialog -->
+    <string name="exit_app_message">Are you sure you want to exit app</string>
+    <string name="exit_app_title">Quit</string>
+    <string name="yes">Yes</string>
+
+
+</resources>
