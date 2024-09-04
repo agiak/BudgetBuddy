@@ -9,12 +9,12 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.example.common.myutils.addCharAtTheEnd
 import com.example.common.myutils.addTitleElevation
-import com.example.common.myutils.disableFullScreenTheme
 import com.example.common.myutils.hide
 import com.example.common.myutils.hideKeyboard
 import com.example.common.myutils.setLightStatusBars
 import com.example.common.myutils.show
 import com.example.common.myutils.showToast
+import com.example.core.data.common.toCurrencyBalance
 import com.example.core.presentation.ext.launchWhenResumed
 import com.example.core.presentation.ext.onBack
 import com.example.features.calculator.R
@@ -50,7 +50,6 @@ class CalculatorFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        disableFullScreenTheme()
         setLightStatusBars(true)
         initToolbar()
         initViews()
@@ -70,7 +69,7 @@ class CalculatorFragment : Fragment() {
             viewModel.state.collectLatest { state ->
                 binding.loader.isVisible = state.isLoading
                 when {
-                    state.data.isNotEmpty() -> showResults(state.data)
+                    state.data != null -> state.data?.let { showResults(it) }
                     state.error != null -> {
                         binding.resultsGroup.hide()
                         showToast(state.error!!.asString(requireContext()))
@@ -99,9 +98,24 @@ class CalculatorFragment : Fragment() {
         isYearEndInvest = binding.endYearCheck.isChecked
     )
 
-    private fun showResults(results: List<InvestmentResult>) {
+    private fun showResults(results: InvestmentResult) {
         binding.resultsGroup.show()
-        adapter.submitList(results)
+        adapter.submitList(results.growthPerYear)
+        results.overview?.let { overviewInfo ->
+            binding.finalNetworth.text =
+                getString(
+                    com.example.features.calculator.impl.R.string.overview_networth,
+                    overviewInfo.finalNetworth.toCurrencyBalance()
+                )
+            binding.contribution.text = getString(
+                com.example.features.calculator.impl.R.string.total_contribution,
+                overviewInfo.contribution.toCurrencyBalance()
+            )
+            binding.rateIncome.text = getString(
+                com.example.features.calculator.impl.R.string.interest_income,
+                overviewInfo.interestIncome.toCurrencyBalance()
+            )
+        }
     }
 
     override fun onDestroyView() {

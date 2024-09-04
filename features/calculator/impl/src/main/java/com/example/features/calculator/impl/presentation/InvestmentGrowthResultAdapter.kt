@@ -10,11 +10,11 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.core.data.common.toCurrencyBalance
 import com.example.features.calculator.impl.R
-import com.example.features.calculator.impl.data.InvestmentResult
+import com.example.features.calculator.impl.data.InvestmentYearProgress
 import com.example.features.calculator.impl.databinding.ItemInvestmentGrowthResultBinding
 
 class InvestmentGrowthResultAdapter :
-    ListAdapter<InvestmentResult, InvestmentGrowthResultAdapter.ProfileSettingViewHolder>(
+    ListAdapter<InvestmentYearProgress, InvestmentGrowthResultAdapter.ProfileSettingViewHolder>(
         InvestmentResultDiffCallback()
     ) {
 
@@ -35,9 +35,9 @@ class InvestmentGrowthResultAdapter :
     inner class ProfileSettingViewHolder(private val binding: ItemInvestmentGrowthResultBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(investmentResult: InvestmentResult) {
+        fun bind(investmentYearProgress: InvestmentYearProgress) {
             binding.root.text =
-                formatInvestmentGrowth(investmentResult.year, investmentResult.amount.toCurrencyBalance())
+                formatInvestmentGrowth(investmentYearProgress.year, investmentYearProgress.amount.toCurrencyBalance())
         }
 
         fun formatInvestmentGrowth(year: String, amount: String): Spanned {
@@ -50,17 +50,17 @@ class InvestmentGrowthResultAdapter :
         }
     }
 
-    private class InvestmentResultDiffCallback : DiffUtil.ItemCallback<InvestmentResult>() {
+    private class InvestmentResultDiffCallback : DiffUtil.ItemCallback<InvestmentYearProgress>() {
         override fun areItemsTheSame(
-            oldItem: InvestmentResult,
-            newItem: InvestmentResult
+            oldItem: InvestmentYearProgress,
+            newItem: InvestmentYearProgress
         ): Boolean {
             return oldItem == newItem
         }
 
         override fun areContentsTheSame(
-            oldItem: InvestmentResult,
-            newItem: InvestmentResult
+            oldItem: InvestmentYearProgress,
+            newItem: InvestmentYearProgress
         ): Boolean {
             return oldItem == newItem
         }

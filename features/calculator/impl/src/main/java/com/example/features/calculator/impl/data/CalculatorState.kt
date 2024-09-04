@@ -4,6 +4,6 @@ import com.example.core.data.error.UiText
 
 data class CalculatorState(
     val isLoading: Boolean = false,
-    val data: List<InvestmentResult> = emptyList(),
+    val data: InvestmentResult? = null,
     val error: UiText? = null
 )

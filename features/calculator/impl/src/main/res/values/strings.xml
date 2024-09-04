@@ -6,4 +6,19 @@
 
     <string name="investment_growth">In %1$s Total growth: %2$s</string>
 
+    <string name="calculator_rate_hint">Rate</string>
+    <string name="calculator_amount_hint">Amount</string>
+    <string name="calculator_duration_hint">Duration in years</string>
+    <string name="calculator_end_year_invest">Amount will be invested at the end of the year</string>
+    <string name="calculator_investment_growth_lbl">Investment growth</string>
+    <string name="calculator_mandotary_button">Calculate</string>
+    <string name="calculator_title">Here you can calculate your investment progress</string>
+    <string name="calculator_description">To calculate your investment just insert the amount, choose the period you add this amount, the rate and final the duration you want to see your results</string>
+    <string name="calculator_amount_helper_text">Enter amount you invest in a year</string>
+    <string name="calculator_overview_results_lbl">Overview results</string>
+
+    <string name="overview_networth">Total networth: %1$s</string>
+    <string name="interest_income">Interest income: %1$s</string>
+    <string name="total_contribution">Total contribution: %1$s</string>
+
 </resources>

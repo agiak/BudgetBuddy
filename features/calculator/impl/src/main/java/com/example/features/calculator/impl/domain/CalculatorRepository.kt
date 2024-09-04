@@ -5,5 +5,5 @@ import com.example.features.calculator.impl.data.InvestmentResult
 
 interface CalculatorRepository {
 
-    suspend fun calculate(investmentInfo: InvestmentInfo): List<InvestmentResult>
+    suspend fun calculate(investmentInfo: InvestmentInfo): InvestmentResult
 }

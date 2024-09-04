@@ -11,7 +11,6 @@ data class InvestmentInfo(
     val isYearEndInvest: Boolean = false
 )
 
-
 enum class Period(val description: Int) {
     MONTHLY(R.string.investment_repeat_period_monthly),
     YEARLY(R.string.investment_repeat_period_yearly),
