@@ -13,8 +13,6 @@ The **Budget Management Application** is a user-friendly platform designed to he
 ## Table of Contents
 - [Usage](#usage)
 - [Features Overview](#features-overview)
-- [Screenshots](#screenshots)
-- [License](#license)
 
 ## Usage
 
