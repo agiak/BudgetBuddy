@@ -4,6 +4,7 @@ import com.example.common.myutils.formatToDateString
 import com.example.core.data.common.AppValues
 import com.example.core.data.common.TransactionType
 import com.example.core.domain.dispatchers.IDispatchers
+import com.example.core.domain.ext.toCurrencyDouble
 import com.example.core.storage.data.TransactionDB
 import kotlinx.coroutines.withContext
 import timber.log.Timber
@@ -23,7 +24,7 @@ class FileGuideRepositoryImpl @Inject constructor(
 
     private fun createList(file: File): List<TransactionDB> {
         val reader = file.bufferedReader()
-        val headers = reader.readLine() // read the headers
+        //   val headers = reader.readLine() // read the headers
         val list = reader.lineSequence()
             .filter { it.isNotBlank() }
             .mapIndexed { index, row ->
@@ -36,18 +37,22 @@ class FileGuideRepositoryImpl @Inject constructor(
                     limit = 6
                 )
                 val accountFrom =
-                    AppValues.accounts.find { storedAccount -> storedAccount.name.uppercase() == accountFromName.trim().uppercase() }
+                    AppValues.accounts.find { storedAccount ->
+                        storedAccount.name.uppercase() == accountFromName.trim().uppercase()
+                    }
                 val accountTo =
-                    AppValues.accounts.find { storedAccount -> storedAccount.name.uppercase() == accountToName.trim().uppercase() }
+                    AppValues.accounts.find { storedAccount ->
+                        storedAccount.name.uppercase() == accountToName.trim().uppercase()
+                    }
 
                 accountFrom?.let {
                     TransactionDB(
                         date = date.formatToDateString(),
-                        amount = amount.trim().toDouble(),
-                        type = TransactionType.INVESTMENT,
+                        amount = amount.trim().toCurrencyDouble() ?: 0.0,
+                        type = getTransactionType(type),
                         accountFrom = accountFrom.id,
                         accountFromName = accountFrom.name,
-                        description = description.trim() ?: "",
+                        description = "",
                         bankFromIcon = 0,
                         accountTo = accountTo?.id,
                         accountToName = accountTo?.name,
@@ -58,6 +63,14 @@ class FileGuideRepositoryImpl @Inject constructor(
         Timber.d("list $list")
         file.delete()
         return list as List<TransactionDB> //TODO need to remove that for sure
+    }
+
+    private fun getTransactionType(type: String): TransactionType =
+        TransactionType.entries.find { it.name == type.toTransactionTypeFormat() } ?: TransactionType.INVESTMENT
+
+    private fun String.toTransactionTypeFormat(): String {
+        return this.uppercase()
+            .replace(" ", "_")
     }
 
 }

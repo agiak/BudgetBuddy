@@ -3,6 +3,7 @@ package com.example.features.transactions.transactions.presentation
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -37,7 +38,11 @@ class TransactionsAdapter(
                 binding.amount.text = amount
                 binding.details.text = details
                 binding.date.text = date
-                binding.description.text = description
+                binding.description.apply {
+                    text = description
+                    isVisible = description.isNotEmpty()
+                }
+                binding.type.text = context.getString(type.description)
 
                 binding.root.setOnClickListener { onClick(transition.id) }
             }

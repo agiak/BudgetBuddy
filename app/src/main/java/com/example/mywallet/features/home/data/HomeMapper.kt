@@ -1,7 +1,7 @@
 package com.example.mywallet.features.home.data
 
-import com.example.core.data.common.TransactionType
 import com.example.core.data.common.toCurrencyBalance
+import com.example.core.data.mappers.getDetails
 import com.example.core.storage.data.AccountDB
 import com.example.core.storage.data.TransactionDB
 
@@ -22,7 +22,8 @@ fun List<AccountDB>.toHomeAccountList(): List<HomeAccount> = ArrayList<HomeAccou
 fun TransactionDB.toHomeTransaction() = HomeTransaction(
     id = id,
     amount = amount.toCurrencyBalance(),
-    details = getDetails()
+    details = getDetails(),
+    date = date,
 )
 
 fun List<TransactionDB>.toHomeTransactions(): List<HomeTransaction> =
@@ -30,12 +31,4 @@ fun List<TransactionDB>.toHomeTransactions(): List<HomeTransaction> =
         this@toHomeTransactions.forEach { stroredTransaction ->
             add(stroredTransaction.toHomeTransaction())
         }
-    }
-
-private fun TransactionDB.getDetails(): String =
-    when(type) {
-        TransactionType.MONEY_TRANSFER -> "Transferred from ${accountFromName} to ${accountToName}"
-        TransactionType.OUTCOME -> "Charged to $accountFromName"
-        TransactionType.INVESTMENT -> "Transferred from ${accountFromName} to ${accountToName}"
-        TransactionType.INCOME -> "Income to $accountFromName"
     }

@@ -1,8 +1,8 @@
 package com.example.features.statics.impl.data.data
 
 import com.example.core.data.bank.Bank
-import com.example.core.data.common.TransactionType
 import com.example.core.data.common.toCurrencyBalance
+import com.example.core.data.mappers.getDetails
 import com.example.core.storage.data.AccountDB
 import com.example.core.storage.data.TransactionDB
 
@@ -24,15 +24,6 @@ fun TransactionDB.toLargeTransaction(position: Int) = CommonStatField(
     description = getDetails(),
     value = amount.toCurrencyBalance()
 )
-
-private fun TransactionDB.getDetails(): String =
-    when(type) {
-        TransactionType.MONEY_TRANSFER -> "Transferred from ${accountFromName} to ${accountToName}"
-        TransactionType.OUTCOME -> "Charged to $accountFromName"
-        TransactionType.INVESTMENT -> "Transferred from ${accountFromName} to ${accountToName}"
-        TransactionType.INCOME -> "Income to $accountFromName"
-    }
-
 
 fun List<TransactionDB>.toLargerTransactions() = ArrayList<CommonStatField>().apply {
     forEachIndexed { index: Int, transaction: TransactionDB ->

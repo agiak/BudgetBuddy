@@ -65,6 +65,7 @@ class TransactionsSelectionFragment : Fragment() {
                 binding.loader.isVisible = isLoading
             }
         }
+
         launchWhenResumed { viewModel.error.collectLatest { error -> error?.let { showToast(it) } } }
 
         launchWhenResumed {

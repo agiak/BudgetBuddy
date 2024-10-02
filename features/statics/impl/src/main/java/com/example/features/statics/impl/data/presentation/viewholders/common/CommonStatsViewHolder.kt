@@ -3,6 +3,7 @@ package com.example.features.statics.impl.data.presentation.viewholders.common
 import androidx.recyclerview.widget.RecyclerView
 import com.example.features.statics.impl.data.data.StaticsItem
 import com.example.features.statics.impl.databinding.ItemStaticsCommonStatsBinding
+import timber.log.Timber
 
 class CommonStatsViewHolder(
     private val binding: ItemStaticsCommonStatsBinding,
@@ -11,7 +12,11 @@ class CommonStatsViewHolder(
     private val categoryAdapter = CommonStatCategoryAdapter()
 
     fun bind(commonStat: StaticsItem.CommonStats) {
-        binding.categoryStatsList.adapter = categoryAdapter
-        categoryAdapter.submitList(commonStat.commonStatCategories)
+        try {
+            binding.categoryStatsList.adapter = categoryAdapter
+            categoryAdapter.submitList(commonStat.commonStatCategories)
+        } catch (ex: IllegalStateException) {
+            Timber.e(ex)
+        }
     }
 }

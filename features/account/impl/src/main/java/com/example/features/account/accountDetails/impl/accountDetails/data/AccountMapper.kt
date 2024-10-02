@@ -1,8 +1,8 @@
 package com.example.features.account.accountDetails.impl.accountDetails.data
 
 import com.example.core.data.account.AccountDetails
-import com.example.core.data.common.TransactionType
 import com.example.core.data.common.toCurrencyBalance
+import com.example.core.data.mappers.getDetails
 import com.example.core.storage.data.AccountDB
 import com.example.core.storage.data.TransactionDB
 
@@ -14,14 +14,6 @@ fun TransactionDB.toAccountTransaction(): AccountTransaction =
         details = getDetails(),
         description = description
     )
-
-private fun TransactionDB.getDetails(): String =
-    when(type) {
-        TransactionType.MONEY_TRANSFER -> "Transferred from ${accountFromName} to ${accountToName}"
-        TransactionType.OUTCOME -> "Charged to $accountFromName"
-        TransactionType.INVESTMENT -> "Transferred from ${accountFromName} to ${accountToName}"
-        TransactionType.INCOME -> "Income to $accountFromName"
-    }
 
 fun List<TransactionDB>.toAccountTransactions(): List<AccountTransaction> =
     ArrayList<AccountTransaction>().apply {

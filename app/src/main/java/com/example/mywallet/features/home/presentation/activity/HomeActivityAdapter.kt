@@ -34,6 +34,7 @@ class HomeActivityAdapter (
             with(transaction){
                 binding.balance.text = amount
                 binding.details.text = details
+                binding.date.text = date
                 binding.root.setOnClickListener { onClick(id) }
             }
         }
