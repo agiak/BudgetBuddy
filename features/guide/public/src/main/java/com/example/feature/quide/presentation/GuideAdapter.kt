@@ -10,7 +10,6 @@ class GuideAdapter(
     private val steps: List<GuideStep>,
 ) : RecyclerView.Adapter<GuideAdapter.GuideViewHolder>() {
 
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GuideViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         val binding = ItemGuideBinding.inflate(inflater, parent, false)

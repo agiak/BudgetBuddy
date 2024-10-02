@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="guide_step1">Keep track your money</string>
-    <string name="guide_step2">Move money from pocket to pocket</string>
-    <string name="guide_step3">See analyzed stats for your accounts</string>
+    <string name="guide_step1">Start by creating an account and securely link it to your existing bank. This connection allows the app to sync and track your transactions seamlessly.</string>
+    <string name="guide_step2">Once your account is set up, add transactions between your accounts. You can categorize them as income, investments, money transfers, or expenses for better tracking.</string>
+    <string name="guide_step3">Keep an eye on your financial movements with ease. View detailed insights and analytics to stay informed about your spending, savings, and investments.</string>
 </resources>

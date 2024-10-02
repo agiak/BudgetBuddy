@@ -94,8 +94,6 @@ class GuideFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
-
-
 }
 
 private fun GuideFragment.navigateToRegisterScreen() = navigateToNextScreen(registerScreen)
