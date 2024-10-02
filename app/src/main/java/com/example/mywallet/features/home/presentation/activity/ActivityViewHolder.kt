@@ -1,9 +1,9 @@
 package com.example.mywallet.features.home.presentation.activity
 
 import androidx.recyclerview.widget.RecyclerView
+import com.example.core.presentation.ext.addDividerDecorator
 import com.example.mywallet.databinding.ItemHomeActivityBinding
 import com.example.mywallet.features.home.data.HomeItem
-import timber.log.Timber
 
 class ActivityViewHolder(
     private val binding: ItemHomeActivityBinding,
@@ -17,6 +17,7 @@ class ActivityViewHolder(
     fun bind(activityInfo: HomeItem.Activity) {
         binding.transactionsCost.text = "Latest transactions cost: ${activityInfo.transactionsCost}"
         binding.activityList.adapter = transactionAdapter
+        binding.activityList.addDividerDecorator(com.example.common.R.color.white)
         transactionAdapter.submitList(activityInfo.list)
     }
 }

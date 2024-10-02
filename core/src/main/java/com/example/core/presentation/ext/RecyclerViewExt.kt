@@ -5,9 +5,9 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView
 import com.example.core.presentation.decorators.SpaceDecoration
 
-fun RecyclerView.addDividerDecorator() {
+fun RecyclerView.addDividerDecorator(color: Int = com.example.common.R.color.primary_light) {
     val itemDecoration = DividerItemDecoration(context, DividerItemDecoration.VERTICAL)
-    val dividerDrawable = ContextCompat.getDrawable(context, com.example.common.R.color.primary_light)
+    val dividerDrawable = ContextCompat.getDrawable(context, color)
     dividerDrawable?.let { itemDecoration.setDrawable(it) }
     addItemDecoration(itemDecoration)
 }
