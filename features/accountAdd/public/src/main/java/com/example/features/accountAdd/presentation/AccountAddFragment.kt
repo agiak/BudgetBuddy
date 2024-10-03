@@ -11,7 +11,6 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.common.myutils.addTitleElevation
 import com.example.common.myutils.hide
-import com.example.common.myutils.onDateListener
 import com.example.common.myutils.setLightStatusBars
 import com.example.common.myutils.show
 import com.example.common.myutils.showSnackBar
@@ -102,10 +101,6 @@ class AccountAddFragment : Fragment(), BackPressHandler {
     private fun initViews() {
         binding.scrollView.addTitleElevation(binding.toolbar.root)
         binding.btnAddAccount.setOnClickListener { viewModel.createAccount(getAccount()) }
-        binding.dateField.apply {
-            onDateListener()
-            doAfterTextChanged { validateActionBtn() }
-        }
 
         binding.nameField.doAfterTextChanged { validateActionBtn() }
         binding.balanceField.doAfterTextChanged { validateActionBtn() }
@@ -116,15 +111,13 @@ class AccountAddFragment : Fragment(), BackPressHandler {
 
     private fun validateActionBtn() {
         binding.btnAddAccount.isEnabled = binding.nameField.text?.isNotEmpty() == true
-                && binding.dateField.text?.isNotEmpty() == true &&
-                binding.balanceField.text?.isNotEmpty() == true
+                && binding.balanceField.text?.isNotEmpty() == true
     }
 
     private fun getAccount() = AccountNew(
         name = binding.nameField.text.toString(),
         bank = selectedBank ?: Bank.EUROBANK,
         balance = binding.balanceField.text.toString().toDouble(),
-        date = binding.dateField.text.toString()
     )
 
     override fun onDestroyView() {

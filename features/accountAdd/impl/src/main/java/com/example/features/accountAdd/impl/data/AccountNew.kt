@@ -6,5 +6,4 @@ data class AccountNew(
     val name: String,
     val bank: Bank,
     val balance: Double,
-    val date: String,
 )

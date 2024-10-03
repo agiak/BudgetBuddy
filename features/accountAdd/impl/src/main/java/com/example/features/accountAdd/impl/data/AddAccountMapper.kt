@@ -6,5 +6,4 @@ fun AccountNew.toAccountDB() = AccountDB(
     name = name,
     bank = bank,
     balance = balance,
-    createdDate = date
 )

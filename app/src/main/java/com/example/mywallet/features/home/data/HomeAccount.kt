@@ -7,5 +7,4 @@ data class HomeAccount(
     val name: String,
     val bank: Bank,
     val balance: String,
-    val date: String,
 )

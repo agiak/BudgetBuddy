@@ -26,6 +26,5 @@ fun AccountDB.toAccountDetails(): AccountDetails = AccountDetails(
     id = id,
     balance = balance.toString(),
     name = name,
-    date = createdDate,
     bank = bank
 )

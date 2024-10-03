@@ -39,7 +39,7 @@ class StaticsViewModel @Inject constructor(
     init {
         viewModelScope.launch {
             repository.getStatsObservable().collect { data ->
-                if (data.accounts.isNotEmpty()) fetchData(data.transactions.isNotEmpty())
+                if (data.accounts.isNotEmpty()) fetchData(data.transactions.size > 2)
                 else _state.value = StaticsUiState.Result(listOf(StaticsItem.EmptyStats))
             }
         }
@@ -121,5 +121,4 @@ class StaticsViewModel @Inject constructor(
 
             listOf(commonStatsItem)
         }
-
 }

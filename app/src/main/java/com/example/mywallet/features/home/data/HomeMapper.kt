@@ -10,7 +10,6 @@ fun AccountDB.toHomeAccount(): HomeAccount = HomeAccount(
     name = name,
     bank = bank,
     balance = balance.toString(),
-    date = createdDate,
 )
 
 fun List<AccountDB>.toHomeAccountList(): List<HomeAccount> = ArrayList<HomeAccount>().apply {

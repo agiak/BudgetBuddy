@@ -10,10 +10,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.common.myutils.showDialog
 import com.example.core.data.account.AccountDetails
 import com.example.core.presentation.ext.launchWhenResumed
-import com.example.core.presentation.ext.navigateToNextScreen
-import com.example.core.presentation.ext.navigateToScreen
 import com.example.features.account.R
-import com.example.features.account.accountDetails.accountDetails.presentation.AccountFragment
 import com.example.features.account.accountDetails.accountDetails.presentation.AccountFragmentDirections
 import com.example.features.account.accountDetails.accountDetails.presentation.AccountViewModel
 import com.example.features.account.databinding.FragmentAccountGeneralInfoBinding
@@ -46,7 +43,6 @@ class GeneralInfoFragment : Fragment() {
             viewModel.account.collectLatest { details: AccountDetails? ->
                 details?.let {
                     binding.bankField.setText(it.bank.title)
-                    binding.dateField.setText(it.date)
                     binding.balanceField.setText(it.balance)
                 }
             }

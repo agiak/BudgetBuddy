@@ -19,7 +19,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/description"
             app:layout_constraintVertical_bias="0.10"
-            app:srcCompat="@drawable/ic_profile" />
+            app:srcCompat="@drawable/ic_profile_default" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/description"
@@ -27,7 +27,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/toolbar_height"
             android:layout_marginVertical="@dimen/main_margin_vertical"
-            android:text="Create your account now"
+            android:text="@string/register_title"
             android:textAlignment="center"
             android:textColor="@color/primary"
             android:textSize="@dimen/text_xxlarge"

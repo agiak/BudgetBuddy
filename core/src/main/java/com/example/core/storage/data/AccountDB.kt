@@ -10,7 +10,6 @@ data class AccountDB(
     val name: String,
     val bank: Bank,
     val balance: Double = 0.0,
-    val createdDate: String,
     val colorId: Int = 0,
     val isSalaryAccount: Boolean = false,
 ) {
@@ -18,6 +17,5 @@ data class AccountDB(
         name: String,
         bank: Bank,
         balance: Double,
-        createdDate: String,
-    ) : this(id = 0, name = name, bank = bank, balance = balance, createdDate = createdDate)
+    ) : this(id = 0, name = name, bank = bank, balance = balance)
 }
