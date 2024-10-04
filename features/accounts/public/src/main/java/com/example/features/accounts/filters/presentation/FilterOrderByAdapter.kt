@@ -1,4 +1,4 @@
-package com.example.mywallet.features.account.accountsFilter.presentation
+package com.example.features.accounts.filters.presentation
 
 import android.content.Context
 import android.view.LayoutInflater

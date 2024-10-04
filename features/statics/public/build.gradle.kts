@@ -8,7 +8,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.features.statics"
+    namespace = "${ProjectVariables.BASE_FEATURE_NAMESPACE}.statics"
     compileSdk = libs.versions.compileSdk.get().toInt()
 
     defaultConfig {

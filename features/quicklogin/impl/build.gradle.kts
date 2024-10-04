@@ -8,7 +8,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.features.quicklogin.impl"
+    namespace = "${ProjectVariables.BASE_FEATURE_NAMESPACE}.quicklogin.impl"
     compileSdk = libs.versions.compileSdk.get().toInt()
 
     defaultConfig {

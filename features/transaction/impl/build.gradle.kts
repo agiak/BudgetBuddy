@@ -8,7 +8,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.features.transaction.impl"
+    namespace = "${ProjectVariables.BASE_FEATURE_NAMESPACE}.transaction.impl"
     compileSdk = libs.versions.compileSdk.get().toInt()
 
     defaultConfig {

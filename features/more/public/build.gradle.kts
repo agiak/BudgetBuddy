@@ -8,7 +8,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.features.more"
+    namespace = "${ProjectVariables.BASE_FEATURE_NAMESPACE}.more"
     compileSdk = libs.versions.compileSdk.get().toInt()
 
     defaultConfig {

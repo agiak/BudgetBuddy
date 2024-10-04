@@ -13,7 +13,7 @@ import com.example.features.account.accountDetails.impl.accountDetails.data.Acco
 import com.example.features.account.databinding.FragmentAccountActivityBinding
 import com.example.features.account.databinding.ItemAccountDetailsActivityBinding
 import com.example.features.account.databinding.ItemAccountDetailsStaticsBinding
-import com.example.mywallet.features.account.accountDetails.presentation.AccountDetailsAdapter
+import com.example.features.account.accountDetails.accountDetails.presentation.AccountDetailsAdapter
 import com.example.features.account.accountDetails.accountDetails.presentation.AccountUiState
 import com.example.features.account.accountDetails.accountDetails.presentation.AccountViewModel
 import com.example.features.account.accountDetails.accountDetails.presentation.viewholders.AccountDetailsViewHolderFactory

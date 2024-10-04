@@ -8,7 +8,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.features.rules"
+    namespace = "${ProjectVariables.BASE_FEATURE_NAMESPACE}.rules"
     compileSdk = libs.versions.compileSdk.get().toInt()
 
     defaultConfig {

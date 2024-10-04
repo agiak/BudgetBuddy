@@ -8,7 +8,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.features.accountAdd.impl"
+    namespace = "${ProjectVariables.BASE_FEATURE_NAMESPACE}.accountAdd.impl"
     compileSdk = libs.versions.compileSdk.get().toInt()
 
     defaultConfig {

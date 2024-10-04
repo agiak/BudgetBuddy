@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.findNavController
 import com.example.common.myutils.hide
 import com.example.common.myutils.setLightStatusBars
 import com.example.core.data.rule.Rule
@@ -16,7 +15,7 @@ import com.example.core.presentation.ext.navigateToNextScreen
 import com.example.core.presentation.ext.onBack
 import com.example.features.rules.R
 import com.example.features.rules.databinding.FragmentRulesBinding
-import com.example.mywallet.features.rulesModule.rules.presentation.RulesAdapter
+import com.example.budgetbuddy.features.rulesModule.rules.presentation.RulesAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

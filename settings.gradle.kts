@@ -13,7 +13,7 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "MyWallet"
+rootProject.name = "BudgetBuddy"
 include(":app")
 
 // Shared modules

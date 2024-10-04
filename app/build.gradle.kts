@@ -9,7 +9,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.mywallet"
+    namespace = ProjectVariables.BASE_NAMESPACE
     compileSdk = libs.versions.compileSdk.get().toInt()
 
     defaultConfig {

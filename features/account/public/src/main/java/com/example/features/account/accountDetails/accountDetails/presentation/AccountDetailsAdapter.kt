@@ -1,4 +1,4 @@
-package com.example.mywallet.features.account.accountDetails.presentation
+package com.example.features.account.accountDetails.accountDetails.presentation
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil

@@ -8,7 +8,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.features.profile"
+    namespace = "${ProjectVariables.BASE_FEATURE_NAMESPACE}.profile"
     compileSdk = libs.versions.compileSdk.get().toInt()
 
     defaultConfig {

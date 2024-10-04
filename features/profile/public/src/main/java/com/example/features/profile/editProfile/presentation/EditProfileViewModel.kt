@@ -42,7 +42,6 @@ class EditProfileViewModel @Inject constructor(
                 userRepository.updateUser(currentUser!!)
             }
         }
-
     }
 
 }

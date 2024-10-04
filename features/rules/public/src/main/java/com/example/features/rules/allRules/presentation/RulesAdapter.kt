@@ -1,4 +1,4 @@
-package com.example.mywallet.features.rulesModule.rules.presentation
+package com.example.budgetbuddy.features.rulesModule.rules.presentation
 
 import android.content.Context
 import android.view.LayoutInflater

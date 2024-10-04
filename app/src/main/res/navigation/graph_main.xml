@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.example.mywallet.features.home.presentation.HomeFragment"
+        android:name="com.example.budgetbuddy.features.home.presentation.HomeFragment"
         android:label="@string/nav_label_home"
         tools:layout="@layout/fragment_home">
         <action

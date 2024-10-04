@@ -8,7 +8,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.features.calculator"
+    namespace = "${ProjectVariables.BASE_FEATURE_NAMESPACE}.calculator"
     compileSdk = libs.versions.compileSdk.get().toInt()
 
     defaultConfig {

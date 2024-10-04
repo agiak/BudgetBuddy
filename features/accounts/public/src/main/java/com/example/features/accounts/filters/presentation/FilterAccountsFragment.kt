@@ -13,7 +13,6 @@ import com.example.features.accounts.databinding.DialogFilterAccountsBinding
 import com.example.features.accounts.impl.filters.data.AccountFilterSelection
 import com.example.features.accounts.impl.filters.data.AccountsFilterGroupBy
 import com.example.features.accounts.impl.filters.data.AccountsFilterOrderBy
-import com.example.mywallet.features.account.accountsFilter.presentation.FilterOrderByAdapter
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
