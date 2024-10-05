@@ -11,7 +11,7 @@ import com.example.common.myutils.setLightStatusBars
 import com.example.core.presentation.ext.addSpaceDecorator
 import com.example.core.presentation.ext.launchWhenResumed
 import com.example.core.presentation.ext.navigateToNextScreen
-import com.example.features.transactions.databinding.FragmentTransactionsBinding
+import com.agcoding.features.transactions.databinding.FragmentTransactionsBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 

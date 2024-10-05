@@ -11,11 +11,11 @@ import com.example.core.data.bank.Bank
 import com.example.core.data.bank.toBankSelectionList
 import com.example.core.presentation.bank.BankAdapter
 import com.example.core.presentation.ext.launchWhenResumed
-import com.example.features.account.R
+import com.agcoding.features.account.R
 import com.example.features.account.accountDetails.accountDetails.presentation.AccountUiState
 import com.example.features.account.accountDetails.accountDetails.presentation.AccountViewModel
 import com.example.features.account.accountDetails.impl.editAccount.data.AccountEditableInfo
-import com.example.features.account.databinding.DialogEditAccountBinding
+import com.agcoding.features.account.databinding.DialogEditAccountBinding
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment

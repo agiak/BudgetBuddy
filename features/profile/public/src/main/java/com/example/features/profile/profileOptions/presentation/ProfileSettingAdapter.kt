@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.features.profile.databinding.ItemProfileSettingBinding
+import com.agcoding.features.profile.databinding.ItemProfileSettingBinding
 import com.example.features.profile.impl.profileOptions.data.ProfileSetting
 
 class ProfileSettingAdapter (

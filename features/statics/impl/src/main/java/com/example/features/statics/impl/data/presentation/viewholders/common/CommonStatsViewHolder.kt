@@ -2,7 +2,7 @@ package com.example.features.statics.impl.data.presentation.viewholders.common
 
 import androidx.recyclerview.widget.RecyclerView
 import com.example.features.statics.impl.data.data.StaticsItem
-import com.example.features.statics.impl.databinding.ItemStaticsCommonStatsBinding
+import com.agcoding.features.statics.impl.databinding.ItemStaticsCommonStatsBinding
 import timber.log.Timber
 
 class CommonStatsViewHolder(

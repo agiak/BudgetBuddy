@@ -1,6 +1,6 @@
 package com.example.features.calculator.impl.data
 
-import com.example.features.calculator.impl.R
+import com.agcoding.features.calculator.impl.R
 import kotlin.math.pow
 
 data class InvestmentInfo(

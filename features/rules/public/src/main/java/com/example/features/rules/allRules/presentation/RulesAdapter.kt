@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.core.data.rule.Rule
-import com.example.features.rules.databinding.ItemRuleBinding
+import com.agcoding.features.rules.databinding.ItemRuleBinding
 
 class RulesAdapter(
     private val onClick: (rule: Rule) -> Unit,

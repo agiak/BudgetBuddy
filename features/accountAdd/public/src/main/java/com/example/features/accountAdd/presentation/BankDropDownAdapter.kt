@@ -7,8 +7,8 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Filter
 import com.example.core.data.bank.Bank
-import com.example.features.accountAdd.R
-import com.example.features.accountAdd.databinding.ItemSupportedBankBinding
+import com.agcoding.features.accountAdd.R
+import com.agcoding.features.accountAdd.databinding.ItemSupportedBankBinding
 
 class BankDropDownAdapter(
     context: Context,

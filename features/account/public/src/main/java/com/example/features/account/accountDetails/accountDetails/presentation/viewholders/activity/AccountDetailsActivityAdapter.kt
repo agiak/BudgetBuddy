@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.features.account.accountDetails.impl.accountDetails.data.AccountTransaction
-import com.example.features.account.databinding.ItemAccountDetailsActivityTransactionBinding
+import com.agcoding.features.account.databinding.ItemAccountDetailsActivityTransactionBinding
 
 class AccountDetailsActivityAdapter :
     ListAdapter<AccountTransaction, AccountDetailsActivityAdapter.TransactionViewHolder>(

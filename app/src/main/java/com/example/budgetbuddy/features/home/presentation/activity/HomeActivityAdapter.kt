@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.budgetbuddy.databinding.ItemHomeActivityTransactionBinding
+import com.agcoding.budgetbuddy.databinding.ItemHomeActivityTransactionBinding
 import com.example.budgetbuddy.features.home.data.HomeTransaction
 
 class HomeActivityAdapter (

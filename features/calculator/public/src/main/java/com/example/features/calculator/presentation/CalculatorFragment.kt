@@ -17,8 +17,8 @@ import com.example.common.myutils.showToast
 import com.example.core.data.common.toCurrencyBalance
 import com.example.core.presentation.ext.launchWhenResumed
 import com.example.core.presentation.ext.onBack
-import com.example.features.calculator.R
-import com.example.features.calculator.databinding.FragmentCalculatorBinding
+import com.agcoding.features.calculator.R
+import com.agcoding.features.calculator.databinding.FragmentCalculatorBinding
 import com.example.features.calculator.impl.data.InvestmentInfo
 import com.example.features.calculator.impl.data.InvestmentResult
 import com.example.features.calculator.impl.presentation.InvestmentGrowthResultAdapter
@@ -104,15 +104,15 @@ class CalculatorFragment : Fragment() {
         results.overview?.let { overviewInfo ->
             binding.finalNetworth.text =
                 getString(
-                    com.example.features.calculator.impl.R.string.overview_networth,
+                    com.agcoding.features.calculator.impl.R.string.overview_networth,
                     overviewInfo.finalNetworth.toCurrencyBalance()
                 )
             binding.contribution.text = getString(
-                com.example.features.calculator.impl.R.string.total_contribution,
+                com.agcoding.features.calculator.impl.R.string.total_contribution,
                 overviewInfo.contribution.toCurrencyBalance()
             )
             binding.rateIncome.text = getString(
-                com.example.features.calculator.impl.R.string.interest_income,
+                com.agcoding.features.calculator.impl.R.string.interest_income,
                 overviewInfo.interestIncome.toCurrencyBalance()
             )
         }

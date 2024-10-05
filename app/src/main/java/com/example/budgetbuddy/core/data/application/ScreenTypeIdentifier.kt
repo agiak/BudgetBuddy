@@ -1,6 +1,6 @@
 package com.example.budgetbuddy.core.data.application
 
-import com.budgetbuddy.R
+import com.agcoding.budgetbuddy.R
 
 fun Int.identifyScreenType(): ScreenType =
     when {
@@ -11,6 +11,6 @@ fun Int.identifyScreenType(): ScreenType =
 private val menuScreens = listOf(
     R.id.navigation_home,
     R.id.navigation_statics,
-    com.example.features.transactions.R.id.navigation_transactions,
-    com.example.features.more.R.id.navigation_more,
+    com.agcoding.features.transactions.R.id.navigation_transactions,
+    com.agcoding.features.more.R.id.navigation_more,
 )

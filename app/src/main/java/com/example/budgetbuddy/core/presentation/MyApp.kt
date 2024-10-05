@@ -8,7 +8,7 @@ import android.os.Build
 import android.util.Log
 import androidx.annotation.RequiresApi
 import androidx.work.Configuration
-import com.budgetbuddy.BuildConfig
+import com.agcoding.budgetbuddy.BuildConfig
 import com.example.features.rules.salary.domain.SalaryWorkerFactory
 import dagger.hilt.android.HiltAndroidApp
 import timber.log.Timber
@@ -40,11 +40,11 @@ class MyApp : Application(), Configuration.Provider {
     private fun subscribeToNotificationsChannel() {
         val manager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
         val channelsNames =
-            resources.getStringArray(com.example.features.rules.R.array.notification_channels_names)
+            resources.getStringArray(com.agcoding.features.rules.R.array.notification_channels_names)
         val channelsIds =
-            resources.getStringArray(com.example.features.rules.R.array.notification_channels_ids)
+            resources.getStringArray(com.agcoding.features.rules.R.array.notification_channels_ids)
         val channelsDescriptions =
-            resources.getStringArray(com.example.features.rules.R.array.notification_channels_descriptions)
+            resources.getStringArray(com.agcoding.features.rules.R.array.notification_channels_descriptions)
 
         val availableChannels = ArrayList<NotificationChannel>().apply {
             channelsIds.forEachIndexed { index, channelID ->

@@ -6,10 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import com.agcoding.features.transaction.R
 import com.example.common.myutils.hide
 import com.example.common.myutils.setLightStatusBars
 import com.example.core.presentation.ext.onBack
-import com.example.features.transaction.databinding.FragmentTransactionBinding
+import com.agcoding.features.transaction.databinding.FragmentTransactionBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

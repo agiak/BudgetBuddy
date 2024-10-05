@@ -1,7 +1,7 @@
 package com.example.budgetbuddy.features.home.presentation.transfer
 
 import androidx.recyclerview.widget.RecyclerView
-import com.budgetbuddy.databinding.ItemHomeTransferFundsBinding
+import com.agcoding.budgetbuddy.databinding.ItemHomeTransferFundsBinding
 
 class TransferFundsViewHolder(
     private val binding: ItemHomeTransferFundsBinding,

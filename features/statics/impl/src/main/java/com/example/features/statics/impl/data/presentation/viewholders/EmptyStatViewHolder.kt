@@ -2,7 +2,7 @@ package com.example.features.statics.impl.data.presentation.viewholders
 
 import androidx.recyclerview.widget.RecyclerView
 import com.example.common.myutils.show
-import com.example.features.statics.impl.databinding.ItemEmptyStatsBinding
+import com.agcoding.features.statics.impl.databinding.ItemEmptyStatsBinding
 
 class EmptyStatViewHolder(
     private val binding: ItemEmptyStatsBinding,

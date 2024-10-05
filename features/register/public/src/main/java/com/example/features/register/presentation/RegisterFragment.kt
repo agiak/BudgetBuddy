@@ -21,7 +21,7 @@ import com.example.core.presentation.createAccountScreen
 import com.example.core.presentation.ext.launchWhenResumed
 import com.example.core.presentation.ext.navigateToNextScreen
 import com.example.feature.register.impl.data.RegisterEvent
-import com.example.features.register.databinding.FragmentRegisterBinding
+import com.agcoding.features.register.databinding.FragmentRegisterBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch

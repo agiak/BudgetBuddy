@@ -17,8 +17,8 @@ import com.example.common.myutils.showToast
 import com.example.core.data.common.TransactionType
 import com.example.core.data.common.isInternalTransaction
 import com.example.core.presentation.ext.onBack
-import com.example.features.transactionAdd.R
-import com.example.features.transactionAdd.databinding.FragmentTransactionAddBinding
+import com.agcoding.features.transactionAdd.R
+import com.agcoding.features.transactionAdd.databinding.FragmentTransactionAddBinding
 import com.example.features.transactionAdd.impl.data.AccountSelection
 import com.example.features.transactionAdd.impl.data.AddTransactionUiState
 import com.example.features.transactionAdd.impl.data.TransactionNew

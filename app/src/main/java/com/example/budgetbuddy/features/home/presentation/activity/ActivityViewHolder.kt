@@ -1,7 +1,7 @@
 package com.example.budgetbuddy.features.home.presentation.activity
 
 import androidx.recyclerview.widget.RecyclerView
-import com.budgetbuddy.databinding.ItemHomeActivityBinding
+import com.agcoding.budgetbuddy.databinding.ItemHomeActivityBinding
 import com.example.core.presentation.ext.addDividerDecorator
 import com.example.budgetbuddy.features.home.data.HomeItem
 

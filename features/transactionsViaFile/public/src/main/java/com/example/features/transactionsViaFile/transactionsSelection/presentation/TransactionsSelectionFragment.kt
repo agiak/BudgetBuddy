@@ -16,8 +16,8 @@ import com.example.core.presentation.ext.launchWhenResumed
 import com.example.core.presentation.ext.navigateBackToScreenWithAnimation
 import com.example.core.presentation.ext.onBack
 import com.example.core.presentation.transactionsScreen
-import com.example.features.transactionsViaFile.R
-import com.example.features.transactionsViaFile.databinding.FragmentTransactionsSelectionBinding
+import com.agcoding.features.transactionsViaFile.R
+import com.agcoding.features.transactionsViaFile.databinding.FragmentTransactionsSelectionBinding
 import com.example.features.transactionsViaFile.fileImport.presentation.FileTransactionsViewModel
 import com.example.features.transactionsViaFile.impl.fileImport.data.FileState
 import dagger.hilt.android.AndroidEntryPoint

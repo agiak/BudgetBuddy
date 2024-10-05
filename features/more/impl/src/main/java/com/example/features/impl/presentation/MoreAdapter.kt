@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.features.impl.data.MoreItem
-import com.example.features.impl.databinding.ItemMoreBinding
+import com.agcoding.features.impl.databinding.ItemMoreBinding
 
 class MoreAdapter(
     private val onClick: (selectedBank: MoreItem) -> Unit,

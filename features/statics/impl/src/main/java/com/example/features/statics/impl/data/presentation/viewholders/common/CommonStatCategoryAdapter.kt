@@ -6,9 +6,9 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.agcoding.features.statics.impl.databinding.ItemStaticsCommonCategoryBinding
 import com.example.core.presentation.ext.addDividerDecorator
 import com.example.features.statics.impl.data.data.CommonStatCategory
-import com.example.features.statics.impl.databinding.ItemStaticsCommonCategoryBinding
 
 class CommonStatCategoryAdapter :
     ListAdapter<CommonStatCategory, CommonStatCategoryAdapter.CommonStatViewHolder>(

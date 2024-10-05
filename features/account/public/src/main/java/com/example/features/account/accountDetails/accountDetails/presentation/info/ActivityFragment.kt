@@ -8,11 +8,11 @@ import androidx.fragment.app.Fragment
 import androidx.hilt.navigation.fragment.hiltNavGraphViewModels
 import com.example.core.presentation.ext.addSpaceDecorator
 import com.example.core.presentation.ext.launchWhenResumed
-import com.example.features.account.R
+import com.agcoding.features.account.R
 import com.example.features.account.accountDetails.impl.accountDetails.data.AccountDetailsItem
-import com.example.features.account.databinding.FragmentAccountActivityBinding
-import com.example.features.account.databinding.ItemAccountDetailsActivityBinding
-import com.example.features.account.databinding.ItemAccountDetailsStaticsBinding
+import com.agcoding.features.account.databinding.FragmentAccountActivityBinding
+import com.agcoding.features.account.databinding.ItemAccountDetailsActivityBinding
+import com.agcoding.features.account.databinding.ItemAccountDetailsStaticsBinding
 import com.example.features.account.accountDetails.accountDetails.presentation.AccountDetailsAdapter
 import com.example.features.account.accountDetails.accountDetails.presentation.AccountUiState
 import com.example.features.account.accountDetails.accountDetails.presentation.AccountViewModel

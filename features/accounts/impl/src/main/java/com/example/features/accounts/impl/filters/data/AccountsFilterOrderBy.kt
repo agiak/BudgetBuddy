@@ -1,6 +1,6 @@
 package com.example.features.accounts.impl.filters.data
 
-import com.example.features.accounts.impl.R
+import com.agcoding.features.accounts.impl.R
 
 enum class AccountsFilterOrderBy(val description: Int, var isSelected: Boolean = false) {
     DESCENDING(R.string.filter_accounts_order_by_descending, false),

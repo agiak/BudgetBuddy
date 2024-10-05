@@ -7,9 +7,9 @@ import android.view.ViewGroup
 import androidx.hilt.navigation.fragment.hiltNavGraphViewModels
 import com.example.common.myutils.hideKeyboard
 import com.example.core.presentation.ext.launchWhenResumed
-import com.example.features.accounts.R
+import com.agcoding.features.accounts.R
 import com.example.features.accounts.accounts.presentation.AccountsViewModel
-import com.example.features.accounts.databinding.DialogFilterAccountsBinding
+import com.agcoding.features.accounts.databinding.DialogFilterAccountsBinding
 import com.example.features.accounts.impl.filters.data.AccountFilterSelection
 import com.example.features.accounts.impl.filters.data.AccountsFilterGroupBy
 import com.example.features.accounts.impl.filters.data.AccountsFilterOrderBy

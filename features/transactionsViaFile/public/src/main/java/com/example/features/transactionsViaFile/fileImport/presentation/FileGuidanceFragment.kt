@@ -11,7 +11,8 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.hilt.navigation.fragment.hiltNavGraphViewModels
-import androidx.navigation.fragment.findNavController
+import com.agcoding.features.transactionsViaFile.R
+import com.agcoding.features.transactionsViaFile.databinding.FragmentTransactionsViaFileBinding
 import com.example.common.myutils.addTitleElevation
 import com.example.common.myutils.hide
 import com.example.common.myutils.setLightStatusBars
@@ -19,8 +20,6 @@ import com.example.common.myutils.showToast
 import com.example.core.presentation.ext.launchWhenResumed
 import com.example.core.presentation.ext.navigateToNextScreen
 import com.example.core.presentation.ext.onBack
-import com.example.features.transactionsViaFile.R
-import com.example.features.transactionsViaFile.databinding.FragmentTransactionsViaFileBinding
 import com.example.features.transactionsViaFile.impl.fileImport.data.FileState
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest

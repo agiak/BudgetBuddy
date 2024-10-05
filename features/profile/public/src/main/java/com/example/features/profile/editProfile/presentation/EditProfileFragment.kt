@@ -16,8 +16,8 @@ import com.example.common.myutils.setLightStatusBars
 import com.example.core.data.User
 import com.example.core.presentation.ext.launchWhenResumed
 import com.example.core.presentation.ext.onBack
-import com.example.features.profile.R
-import com.example.features.profile.databinding.FragmentProfileEditBinding
+import com.agcoding.features.profile.R
+import com.agcoding.features.profile.databinding.FragmentProfileEditBinding
 import com.example.features.profile.impl.editProfile.data.EditUserEvent
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest

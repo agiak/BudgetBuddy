@@ -20,8 +20,8 @@ import com.example.core.data.common.AppValues
 import com.example.core.presentation.ext.isPermissionGranted
 import com.example.core.presentation.ext.launchWhenResumed
 import com.example.core.presentation.ext.onBack
-import com.example.features.rules.R
-import com.example.features.rules.databinding.FragmentRuleSalaryBinding
+import com.agcoding.features.rules.R
+import com.agcoding.features.rules.databinding.FragmentRuleSalaryBinding
 import com.example.features.rules.salary.data.SalaryRuleData
 import com.example.features.rules.salary.data.SalaryState
 import com.example.features.rules.salary.data.SelectedAccount

@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Filter
-import com.example.features.rules.databinding.ItemAccountAddTransactionBinding
+import com.agcoding.features.rules.databinding.ItemAccountAddTransactionBinding
 import com.example.features.rules.salary.data.SelectedAccount
 
 class SalaryAccountsAdapter(

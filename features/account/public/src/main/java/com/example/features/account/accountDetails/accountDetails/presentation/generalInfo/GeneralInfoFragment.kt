@@ -10,10 +10,10 @@ import androidx.navigation.fragment.findNavController
 import com.example.common.myutils.showDialog
 import com.example.core.data.account.AccountDetails
 import com.example.core.presentation.ext.launchWhenResumed
-import com.example.features.account.R
+import com.agcoding.features.account.R
 import com.example.features.account.accountDetails.accountDetails.presentation.AccountFragmentDirections
 import com.example.features.account.accountDetails.accountDetails.presentation.AccountViewModel
-import com.example.features.account.databinding.FragmentAccountGeneralInfoBinding
+import com.agcoding.features.account.databinding.FragmentAccountGeneralInfoBinding
 import kotlinx.coroutines.flow.collectLatest
 
 class GeneralInfoFragment : Fragment() {

@@ -12,7 +12,7 @@ import com.example.core.presentation.ext.addDividerDecorator
 import com.example.core.presentation.ext.launchWhenResumed
 import com.example.core.presentation.ext.navigateToNextScreen
 import com.example.core.presentation.ext.onBack
-import com.example.features.profile.databinding.FragmentProfileBinding
+import com.agcoding.features.profile.databinding.FragmentProfileBinding
 import com.example.features.profile.impl.profileOptions.data.ProfileSetting
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest

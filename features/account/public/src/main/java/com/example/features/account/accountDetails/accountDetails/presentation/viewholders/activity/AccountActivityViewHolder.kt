@@ -3,7 +3,7 @@ package com.example.features.account.accountDetails.accountDetails.presentation.
 import androidx.recyclerview.widget.RecyclerView
 import com.example.core.presentation.ext.addSpaceDecorator
 import com.example.features.account.accountDetails.impl.accountDetails.data.AccountDetailsItem
-import com.example.features.account.databinding.ItemAccountDetailsActivityBinding
+import com.agcoding.features.account.databinding.ItemAccountDetailsActivityBinding
 
 class AccountActivityViewHolder(
     private val binding: ItemAccountDetailsActivityBinding,

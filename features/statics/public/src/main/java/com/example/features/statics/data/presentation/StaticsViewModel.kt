@@ -6,7 +6,7 @@ import com.example.core.data.bank.Bank
 import com.example.core.domain.dispatchers.IDispatchers
 import com.example.core.storage.data.AccountDB
 import com.example.core.storage.data.TransactionDB
-import com.example.features.statics.R
+import com.agcoding.features.statics.R
 import com.example.features.statics.impl.data.data.CommonStatCategory
 import com.example.features.statics.impl.data.data.StaticsItem
 import com.example.features.statics.impl.data.data.StaticsUiState

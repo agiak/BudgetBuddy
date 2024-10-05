@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.features.accounts.databinding.ItemFilterGroupByBinding
+import com.agcoding.features.accounts.databinding.ItemFilterGroupByBinding
 import com.example.features.accounts.impl.filters.data.AccountsFilterGroupBy
 
 class FilterGroupByAdapter(

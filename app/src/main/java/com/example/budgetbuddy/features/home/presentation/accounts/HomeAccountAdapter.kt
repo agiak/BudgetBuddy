@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.budgetbuddy.databinding.ItemAccountHomeBinding
+import com.agcoding.budgetbuddy.databinding.ItemAccountHomeBinding
 import com.example.common.myutils.loadCircle
 import com.example.budgetbuddy.features.home.data.HomeAccount
 

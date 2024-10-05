@@ -13,8 +13,8 @@ import com.example.core.presentation.ext.addDividerDecorator
 import com.example.core.presentation.ext.launchWhenResumed
 import com.example.core.presentation.ext.navigateToNextScreen
 import com.example.core.presentation.ext.onBack
-import com.example.features.rules.R
-import com.example.features.rules.databinding.FragmentRulesBinding
+import com.agcoding.features.rules.R
+import com.agcoding.features.rules.databinding.FragmentRulesBinding
 import com.example.budgetbuddy.features.rulesModule.rules.presentation.RulesAdapter
 import dagger.hilt.android.AndroidEntryPoint
 

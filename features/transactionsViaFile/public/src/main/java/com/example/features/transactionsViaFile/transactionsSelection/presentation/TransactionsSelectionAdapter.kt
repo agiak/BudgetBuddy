@@ -7,7 +7,7 @@ import androidx.core.view.isVisible
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.features.transactionsViaFile.databinding.ItemTransactionSelectionBinding
+import com.agcoding.features.transactionsViaFile.databinding.ItemTransactionSelectionBinding
 import com.example.features.transactionsViaFile.impl.transactionsSelection.data.TransactionSelection
 import com.example.features.transactionsViaFile.impl.transactionsSelection.data.getKey
 

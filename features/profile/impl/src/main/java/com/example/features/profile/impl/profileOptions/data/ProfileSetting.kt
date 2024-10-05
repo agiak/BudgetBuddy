@@ -1,6 +1,6 @@
 package com.example.features.profile.impl.profileOptions.data
 
-import com.example.features.profile.impl.R
+import com.agcoding.features.profile.impl.R
 
 
 enum class ProfileSetting(val description: Int, val iconId: Int) {

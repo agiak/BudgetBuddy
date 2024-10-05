@@ -14,7 +14,7 @@ import com.example.features.impl.data.MoreItem.InvestmentCalculator
 import com.example.features.impl.data.MoreItem.Rule
 import com.example.features.impl.data.MoreItem.StockMarket
 import com.example.features.impl.data.MoreItem.entries
-import com.example.features.impl.databinding.FragmentMoreBinding
+import com.agcoding.features.impl.databinding.FragmentMoreBinding
 import com.example.features.impl.presentation.MoreAdapter
 import dagger.hilt.android.AndroidEntryPoint
 

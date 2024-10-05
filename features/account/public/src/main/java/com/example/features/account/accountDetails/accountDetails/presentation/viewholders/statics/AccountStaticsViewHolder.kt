@@ -1,9 +1,9 @@
 package com.example.features.account.accountDetails.accountDetails.presentation.viewholders.statics
 
 import androidx.recyclerview.widget.RecyclerView
-import com.example.features.account.R
+import com.agcoding.features.account.R
 import com.example.features.account.accountDetails.impl.accountDetails.data.AccountDetailsItem
-import com.example.features.account.databinding.ItemAccountDetailsStaticsBinding
+import com.agcoding.features.account.databinding.ItemAccountDetailsStaticsBinding
 
 class AccountStaticsViewHolder(
     private val binding: ItemAccountDetailsStaticsBinding,

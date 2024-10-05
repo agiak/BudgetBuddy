@@ -1,7 +1,7 @@
 package com.example.budgetbuddy.features.home.presentation.summary
 
 import androidx.recyclerview.widget.RecyclerView
-import com.budgetbuddy.databinding.ItemHomeSummaryBinding
+import com.agcoding.budgetbuddy.databinding.ItemHomeSummaryBinding
 import com.example.budgetbuddy.features.home.data.HomeItem
 
 class SummaryViewHolder(

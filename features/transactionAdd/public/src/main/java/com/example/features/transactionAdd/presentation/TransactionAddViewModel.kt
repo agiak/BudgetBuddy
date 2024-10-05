@@ -3,7 +3,7 @@ package com.example.features.transactionAdd.presentation
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.core.data.error.UiText
-import com.example.features.transactionAdd.impl.R
+import com.agcoding.features.transactionAdd.impl.R
 import com.example.features.transactionAdd.impl.data.AccountSelection
 import com.example.features.transactionAdd.impl.data.AddTransactionUiState
 import com.example.features.transactionAdd.impl.data.InsertTransactionState

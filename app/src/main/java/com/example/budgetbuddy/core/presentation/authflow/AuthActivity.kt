@@ -8,14 +8,14 @@ import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.core.view.isVisible
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
-import com.budgetbuddy.databinding.ActivityAuthBinding
+import com.agcoding.budgetbuddy.databinding.ActivityAuthBinding
 import com.example.common.myutils.addPrintingBackstack
 import com.example.core.data.screens.AuthorizationFlow
 import com.example.core.presentation.BackPressHandler
 import com.example.budgetbuddy.core.presentation.openMainFlow
 import com.example.budgetbuddy.features.splash.SplashViewModel
 import dagger.hilt.android.AndroidEntryPoint
-import com.budgetbuddy.R
+import com.agcoding.budgetbuddy.R
 
 @AndroidEntryPoint
 class AuthActivity : AppCompatActivity(), AuthorizationFlow {

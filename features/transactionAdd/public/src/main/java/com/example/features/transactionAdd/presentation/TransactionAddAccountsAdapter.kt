@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
-import com.example.features.transactionAdd.databinding.ItemAccountAddTransactionBinding
+import com.agcoding.features.transactionAdd.databinding.ItemAccountAddTransactionBinding
 import com.example.features.transactionAdd.impl.data.AccountSelection
 
 class TransactionAddAccountsAdapter(

@@ -1,7 +1,7 @@
 package com.example.budgetbuddy.features.home.presentation.accounts
 
 import androidx.recyclerview.widget.RecyclerView
-import com.budgetbuddy.databinding.ItemHomeAccountsBinding
+import com.agcoding.budgetbuddy.databinding.ItemHomeAccountsBinding
 import com.example.budgetbuddy.features.home.data.HomeItem
 
 class AccountsViewHolder(

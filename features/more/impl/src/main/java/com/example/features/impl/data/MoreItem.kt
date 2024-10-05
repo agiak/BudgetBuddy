@@ -1,6 +1,6 @@
 package com.example.features.impl.data
 
-import com.example.features.impl.R
+import com.agcoding.features.impl.R
 
 enum class MoreItem(val icon: Int, val label: Int) {
     Rule(R.drawable.ic_rules, R.string.more_rule),

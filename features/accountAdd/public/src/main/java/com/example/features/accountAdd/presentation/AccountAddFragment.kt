@@ -23,8 +23,8 @@ import com.example.core.presentation.bank.BankAdapter
 import com.example.core.presentation.ext.displayExitDialog
 import com.example.core.presentation.ext.isMainFlow
 import com.example.core.presentation.ext.onBack
-import com.example.features.accountAdd.R
-import com.example.features.accountAdd.databinding.FragmentAddAccountBinding
+import com.agcoding.features.accountAdd.R
+import com.agcoding.features.accountAdd.databinding.FragmentAddAccountBinding
 import com.example.features.accountAdd.impl.data.AccountNew
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest

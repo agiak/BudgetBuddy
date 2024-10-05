@@ -6,8 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.hilt.navigation.fragment.hiltNavGraphViewModels
-import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import com.agcoding.features.account.R
+import com.agcoding.features.account.databinding.FragmentAccountBinding
 import com.example.common.myutils.enableFullScreenTheme
 import com.example.common.myutils.hide
 import com.example.common.myutils.setLightStatusBars
@@ -16,8 +17,6 @@ import com.example.common.myutils.showToast
 import com.example.core.data.account.AccountDetails
 import com.example.core.presentation.ext.launchWhenResumed
 import com.example.core.presentation.ext.onBack
-import com.example.features.account.R
-import com.example.features.account.databinding.FragmentAccountBinding
 import com.google.android.material.tabs.TabLayoutMediator
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest

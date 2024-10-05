@@ -8,7 +8,7 @@ import androidx.navigation.NavDestination
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import androidx.work.WorkManager
-import com.budgetbuddy.databinding.ActivityMainBinding
+import com.agcoding.budgetbuddy.databinding.ActivityMainBinding
 import com.example.budgetbuddy.core.data.application.ScreenType
 import com.example.common.myutils.addPrintingBackstack
 import com.example.common.myutils.hide
@@ -17,7 +17,7 @@ import com.example.common.myutils.show
 import com.example.core.data.screens.MainFlow
 import com.example.core.presentation.ext.launchWhenResumed
 import com.example.core.presentation.ext.navigateFromBottom
-import com.budgetbuddy.R
+import com.agcoding.budgetbuddy.R
 import com.example.budgetbuddy.core.data.application.identifyScreenType
 import com.example.budgetbuddy.core.presentation.options.MainActivityLifecycleObserver
 import com.example.budgetbuddy.core.presentation.startAuthFlow
@@ -61,7 +61,7 @@ class MainActivity : AppCompatActivity(), MainFlow {
     private fun initToolbar() {
         binding.mainToolbar.apply {
             profileImage.setOnClickListener {
-                navController.navigateFromBottom(com.example.features.profile.R.id.graph_profile)
+                navController.navigateFromBottom(com.agcoding.features.profile.R.id.graph_profile)
             }
         }
     }

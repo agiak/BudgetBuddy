@@ -8,10 +8,10 @@ import androidx.core.text.HtmlCompat
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.agcoding.features.calculator.impl.databinding.ItemInvestmentGrowthResultBinding
 import com.example.core.data.common.toCurrencyBalance
-import com.example.features.calculator.impl.R
+import com.agcoding.features.calculator.impl.R
 import com.example.features.calculator.impl.data.InvestmentYearProgress
-import com.example.features.calculator.impl.databinding.ItemInvestmentGrowthResultBinding
 
 class InvestmentGrowthResultAdapter :
     ListAdapter<InvestmentYearProgress, InvestmentGrowthResultAdapter.ProfileSettingViewHolder>(

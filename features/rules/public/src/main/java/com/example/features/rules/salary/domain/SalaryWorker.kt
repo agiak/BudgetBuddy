@@ -20,7 +20,7 @@ import com.example.core.domain.ext.getCurrentDateTime
 import com.example.core.storage.data.RuleDB
 import com.example.core.storage.data.TransactionDB
 import com.example.core.storage.domain.database.daos.RuleDao
-import com.example.features.rules.R
+import com.agcoding.features.rules.R
 import com.example.features.rules.domain.SalaryTransactionRepository
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedInject

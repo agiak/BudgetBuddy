@@ -12,7 +12,7 @@ import com.example.common.myutils.show
 import com.example.common.myutils.showToast
 import com.example.core.presentation.ext.addSpaceDecorator
 import com.example.core.presentation.ext.launchWhenResumed
-import com.example.features.statics.databinding.FragmentStaticsBinding
+import com.agcoding.features.statics.databinding.FragmentStaticsBinding
 import com.example.features.statics.impl.data.data.StaticsItem
 import com.example.features.statics.impl.data.data.StaticsUiState
 import com.example.features.statics.impl.data.presentation.StaticsAdapter
@@ -20,9 +20,9 @@ import com.example.features.statics.impl.data.presentation.viewholders.EmptyStat
 import com.example.features.statics.impl.data.presentation.viewholders.StaticsItemViewHolderFactory
 import com.example.features.statics.impl.data.presentation.viewholders.charts.InvestmentProgressViewHolder
 import com.example.features.statics.impl.data.presentation.viewholders.common.CommonStatsViewHolder
-import com.example.features.statics.impl.databinding.ItemEmptyStatsBinding
-import com.example.features.statics.impl.databinding.ItemStaticsCommonStatsBinding
-import com.example.features.statics.impl.databinding.ItemStaticsInvestmentProgressBinding
+import com.agcoding.features.statics.impl.databinding.ItemEmptyStatsBinding
+import com.agcoding.features.statics.impl.databinding.ItemStaticsCommonStatsBinding
+import com.agcoding.features.statics.impl.databinding.ItemStaticsInvestmentProgressBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import timber.log.Timber
