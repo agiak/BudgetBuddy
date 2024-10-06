@@ -2,7 +2,7 @@
 
 ## Overview
 
-The **Budget Management Application** is a user-friendly platform designed to help individuals monitor, manage, and track their finances efficiently. The app enables users to connect their bank accounts, add transactions (either manually or by importing files), and view insights about their spending, savings, and investments.
+The **BudgetBuddy** is a user-friendly platform designed to help individuals monitor, manage, and track their finances efficiently. The app enables users to connect their bank accounts, add transactions (either manually or by importing files), and view insights about their spending, savings, and investments.
 
 ### Features
 - **Create Account:** Users can create and connect accounts with various banks and financial institutions.
