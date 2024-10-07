@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.core.data.bank.Bank
 import com.example.core.data.bank.BankSelection
-import com.example.core.databinding.ItemBankBinding
+import com.agcoding.core.databinding.ItemBankBinding
 
 class BankAdapter(
     private val onClick: (selectedBank: Bank) -> Unit,

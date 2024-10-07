@@ -8,7 +8,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.core"
+    namespace = "${ProjectVariables.BASE_NAMESPACE}.core"
     compileSdk = libs.versions.compileSdk.get().toInt()
 
     defaultConfig {

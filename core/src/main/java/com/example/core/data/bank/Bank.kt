@@ -1,6 +1,6 @@
 package com.example.core.data.bank
 
-import com.example.core.R
+import com.agcoding.core.R
 
 enum class Bank(
     val title: String,

@@ -10,7 +10,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
-import com.example.common.R
+import com.agcoding.common.R
 
 /**
  * Shows a [Dialog] with a generic layout on top of this Activity.

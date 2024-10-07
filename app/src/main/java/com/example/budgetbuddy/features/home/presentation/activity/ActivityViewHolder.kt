@@ -17,7 +17,7 @@ class ActivityViewHolder(
     fun bind(activityInfo: HomeItem.Activity) {
         binding.transactionsCost.text = "Latest transactions cost: ${activityInfo.transactionsCost}"
         binding.activityList.adapter = transactionAdapter
-        binding.activityList.addDividerDecorator(com.example.common.R.color.white)
+        binding.activityList.addDividerDecorator(com.agcoding.common.R.color.white)
         transactionAdapter.submitList(activityInfo.list)
     }
 }

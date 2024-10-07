@@ -9,7 +9,7 @@ plugins {
 }
 
 android {
-    namespace = ProjectVariables.BASE_NAMESPACE
+    namespace = "${ProjectVariables.BASE_NAMESPACE}.budgetbuddy"
     compileSdk = libs.versions.compileSdk.get().toInt()
 
     defaultConfig {

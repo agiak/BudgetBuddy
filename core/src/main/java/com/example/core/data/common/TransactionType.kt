@@ -1,6 +1,6 @@
 package com.example.core.data.common
 
-import com.example.core.R
+import com.agcoding.core.R
 
 enum class TransactionType(val description: Int) {
     MONEY_TRANSFER(R.string.transaction_type_money_transfer),

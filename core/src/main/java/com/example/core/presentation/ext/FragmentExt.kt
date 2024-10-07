@@ -11,7 +11,7 @@ import androidx.navigation.NavDeepLinkRequest
 import androidx.navigation.NavDirections
 import androidx.navigation.fragment.findNavController
 import com.example.common.myutils.showDialog
-import com.example.core.R
+import com.agcoding.core.R
 import com.example.core.data.screens.AuthorizationFlow
 import com.example.core.data.screens.MainFlow
 import kotlinx.coroutines.launch

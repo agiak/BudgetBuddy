@@ -2,7 +2,7 @@ package com.example.core.presentation.ext
 
 import androidx.navigation.NavController
 import androidx.navigation.NavOptions
-import com.example.common.R
+import com.agcoding.common.R
 
 fun getNextScreenNavOptions() = NavOptions.Builder()
     .setEnterAnim(R.anim.slide_in_right)

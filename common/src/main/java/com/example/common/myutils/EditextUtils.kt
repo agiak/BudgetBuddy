@@ -4,7 +4,7 @@ import android.app.DatePickerDialog
 import android.widget.EditText
 import androidx.core.widget.doOnTextChanged
 import com.example.common.APP_DATE_FORMAT
-import com.example.common.R
+import com.agcoding.common.R
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale

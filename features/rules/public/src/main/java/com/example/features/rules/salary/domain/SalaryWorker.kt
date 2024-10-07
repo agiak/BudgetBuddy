@@ -104,7 +104,7 @@ class SalaryWorker @AssistedInject constructor(
             applicationContext,
             applicationContext.resources.getStringArray(R.array.notification_channels_ids).first()
         )
-            .setSmallIcon(com.example.core.R.drawable.ic_logo)
+            .setSmallIcon(com.agcoding.core.R.drawable.ic_logo)
             .setContentTitle(applicationContext.getString(R.string.notification_salary_title))
             .setContentText(description)
             .setColorized(true)
@@ -122,7 +122,7 @@ class SalaryWorker @AssistedInject constructor(
             description = "Salary ${getCurrentDateTime()}",
             accountFrom = accountID,
             accountFromName = accountName,
-            bankFromIcon = com.example.core.R.drawable.ic_logo,
+            bankFromIcon = com.agcoding.core.R.drawable.ic_logo,
             date = getCurrentDateFormatted()
         )
 }

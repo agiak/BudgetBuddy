@@ -43,7 +43,7 @@ class FilterAccountsFragment : BottomSheetDialogFragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setStyle(STYLE_NORMAL, com.example.core.R.style.BottomSheetDialogTheme)
+        setStyle(STYLE_NORMAL, com.agcoding.core.R.style.BottomSheetDialogTheme)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
