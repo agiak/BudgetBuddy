@@ -2,6 +2,8 @@
 <resources>
 
     <string name="accounts_screen_title">Manage your accounts</string>
+    <string name="accounts_add_account">Add account</string>
+
     <string name="filter_accounts_group_by_bank">Group by Bank</string>
 
     <string name="filter_accounts_order_by_descending">Descending</string>

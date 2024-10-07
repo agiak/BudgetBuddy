@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">BudgetBuddy</string>
 
     <!-- Navigation labels -->
     <string name="nav_label_home">Home</string>

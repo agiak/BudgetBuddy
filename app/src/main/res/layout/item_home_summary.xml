@@ -38,9 +38,11 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/space_large"
         android:textColor="@color/white"
+        android:visibility="gone"
+        tools:visibility="visible"
         app:layout_constraintBottom_toBottomOf="@+id/total_balance_field"
         app:layout_constraintStart_toEndOf="@+id/total_balance_field"
         app:layout_constraintTop_toTopOf="@+id/total_balance_field"
-        tools:text="Gained 400$" />
+        tools:text="Gained 400Є" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

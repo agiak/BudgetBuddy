@@ -8,7 +8,7 @@ import com.example.core.storage.data.TransactionDB
 
 fun AccountDB.toMostValuableAccount(position: Int) =
     CommonStatField(
-        orderNumber = position.toString(),
+        orderNumber = "$position.",
         description = name,
         value = balance.toCurrencyBalance()
     )
@@ -20,7 +20,7 @@ fun List<AccountDB>.toMostValuableAccounts() = ArrayList<CommonStatField>().appl
 }
 
 fun TransactionDB.toLargeTransaction(position: Int) = CommonStatField(
-    orderNumber = position.toString(),
+    orderNumber = "$position.",
     description = getDetails(),
     value = amount.toCurrencyBalance()
 )
@@ -33,10 +33,10 @@ fun List<TransactionDB>.toLargerTransactions() = ArrayList<CommonStatField>().ap
 
 fun Map<AccountDB, Int>.toMostUsedAccounts() = ArrayList<CommonStatField>().apply {
     var counter = 0
-    this@toMostUsedAccounts.forEach { key, value ->
+    this@toMostUsedAccounts.forEach { (key, value) ->
         add(
             CommonStatField(
-                orderNumber = (counter + 1).toString(),
+                orderNumber = "${(counter + 1)}.",
                 description = key.name,
                 value = value.toString()
             )
@@ -47,13 +47,13 @@ fun Map<AccountDB, Int>.toMostUsedAccounts() = ArrayList<CommonStatField>().appl
 
 fun Map<Bank, Double>.toMostTrustedBanks() = ArrayList<CommonStatField>().apply {
     var counter = 0
-    this@toMostTrustedBanks.forEach { bank, amount ->
+    this@toMostTrustedBanks.forEach { (bank, amount) ->
         add(
             CommonStatField(
-            orderNumber = (counter + 1).toString(),
-            description = bank.name,
-            value = amount.toCurrencyBalance()
-        )
+                orderNumber = "${(counter + 1)}.",
+                description = bank.name,
+                value = amount.toCurrencyBalance()
+            )
         )
         counter++
     }
